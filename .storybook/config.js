@@ -1,12 +1,12 @@
 import React from "react";
 import { addDecorator} from '@storybook/react';
 import { Global, css } from '@emotion/core';
-import resetCSS from '../src/styles/reset';
+import globalCSS from '../src/styles/global';
 
 addDecorator(story => (
   <>
     <Global styles={css`
-      ${resetCSS}
+      ${globalCSS}
     `}
     />
     {story()}
