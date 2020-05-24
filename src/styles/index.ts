@@ -1,5 +1,6 @@
-import * as themes from './themes';
+import { colors } from './themes';
 
-export default {
-  themes,
+export const themes = {
+  colors,
 }
+ 
