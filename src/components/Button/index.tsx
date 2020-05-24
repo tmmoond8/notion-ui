@@ -3,7 +3,7 @@ import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
 import { ReactNode, MouseEventHandler } from 'react';
 import classnames from 'classnames';
-import { colors } from '../../styles/themes';
+import { colors } from 'src/styles/themes';
 
 interface ButtonProps {
   children: ReactNode;

@@ -1,3 +1,5 @@
+const path = require('path');
+
 module.exports = function({ config }) {
   config.module.rules.push({
     test: /\.(ts|tsx)$/,
@@ -6,6 +8,8 @@ module.exports = function({ config }) {
     use: [],
   });
   config.resolve.extensions.push('.ts', '.tsx');
+  config.resolve.modules.push(path.resolve('./'));
   config.node = { fs: 'empty', React: 'empty'};
+  
   return config;
 };
