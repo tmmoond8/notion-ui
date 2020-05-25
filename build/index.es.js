@@ -4382,16 +4382,12 @@ var ButtonSize;
     ButtonSize["Medium"] = "medium";
     ButtonSize["Big"] = "big";
 })(ButtonSize || (ButtonSize = {}));
-function Button (props) {
+function index$1 (props) {
     var children = props.children, _a = props.className, className = _a === void 0 ? '' : _a, onClick = props.onClick, _b = props.buttonType, buttonType = _b === void 0 ? ButtonType.Primary : _b, _c = props.buttonSize, buttonSize = _c === void 0 ? ButtonSize.Small : _c;
-    return (jsx(Button$1, { onClick: onClick, className: classnames$1('Button', className), type: "button", buttonType: buttonType, buttonSize: buttonSize }, children));
+    return (jsx(Button, { onClick: onClick, className: classnames$1('Button', className), type: "button", buttonType: buttonType, buttonSize: buttonSize }, children));
 }
-var Button$1 = newStyled.button(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  user-select: none;\n  transition: background 120ms ease-in 0s;\n  cursor: pointer;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  flex-shrink: 0;\n  white-space: nowrap;\n  height: 28px;\n  border-width: 0;\n  border-radius: 3px;\n  background: ", ";\n  box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset, rgba(15, 15, 15, 0.1) 0px 1px 2px;\n  color: white;\n  fill: white;\n  line-height: 1.2;\n  padding-left: 12px;\n  padding-right: 12px;\n  font-size: 14px;\n  font-weight: 500;\n  outline: none;\n\n  &:hover {\n    background: ", ";\n  }\n  &:active {\n    background: ", ";\n  }\n"], ["\n  user-select: none;\n  transition: background 120ms ease-in 0s;\n  cursor: pointer;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  flex-shrink: 0;\n  white-space: nowrap;\n  height: 28px;\n  border-width: 0;\n  border-radius: 3px;\n  background: ", ";\n  box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset, rgba(15, 15, 15, 0.1) 0px 1px 2px;\n  color: white;\n  fill: white;\n  line-height: 1.2;\n  padding-left: 12px;\n  padding-right: 12px;\n  font-size: 14px;\n  font-weight: 500;\n  outline: none;\n\n  &:hover {\n    background: ", ";\n  }\n  &:active {\n    background: ", ";\n  }\n"])), function (props) { return props.buttonType === ButtonType.Primary ? colors.primaryLight : colors.primaryLight; }, colors.primary, colors.primaryDeep);
+var Button = newStyled.button(templateObject_1 || (templateObject_1 = __makeTemplateObject(["\n  user-select: none;\n  transition: background 120ms ease-in 0s;\n  cursor: pointer;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  flex-shrink: 0;\n  white-space: nowrap;\n  height: 28px;\n  border-width: 0;\n  border-radius: 3px;\n  background: ", ";\n  box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset, rgba(15, 15, 15, 0.1) 0px 1px 2px;\n  color: white;\n  fill: white;\n  line-height: 1.2;\n  padding-left: 12px;\n  padding-right: 12px;\n  font-size: 14px;\n  font-weight: 500;\n  outline: none;\n\n  &:hover {\n    background: ", ";\n  }\n  &:active {\n    background: ", ";\n  }\n"], ["\n  user-select: none;\n  transition: background 120ms ease-in 0s;\n  cursor: pointer;\n  display: inline-flex;\n  align-items: center;\n  justify-content: center;\n  flex-shrink: 0;\n  white-space: nowrap;\n  height: 28px;\n  border-width: 0;\n  border-radius: 3px;\n  background: ", ";\n  box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset, rgba(15, 15, 15, 0.1) 0px 1px 2px;\n  color: white;\n  fill: white;\n  line-height: 1.2;\n  padding-left: 12px;\n  padding-right: 12px;\n  font-size: 14px;\n  font-weight: 500;\n  outline: none;\n\n  &:hover {\n    background: ", ";\n  }\n  &:active {\n    background: ", ";\n  }\n"])), function (props) { return props.buttonType === ButtonType.Primary ? colors.primaryLight : colors.primaryLight; }, colors.primary, colors.primaryDeep);
 var templateObject_1;
 
-var index$1 = {
-    Button: Button,
-};
-
-export default index$1;
+export { index$1 as Button };
 //# sourceMappingURL=index.es.js.map

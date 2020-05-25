@@ -9,7 +9,7 @@ src
 rollup.config.js
 tsconfig.json
 .env
-.eslint.js
+.eslintrc.js
 
 # GIT
 .git
