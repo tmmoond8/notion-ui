@@ -11,14 +11,12 @@ export default {
       file: pkg.main,
       format: "cjs",
       exports: "named",
-      name: 'tmmoond8_NotionUI',
       sourcemap: true
     },
     {
       file: pkg.module,
       format: "es",
       exports: "named",
-      name: 'tmmoond8_NotionUI',
       sourcemap: true
     }
   ],

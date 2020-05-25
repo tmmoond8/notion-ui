@@ -1,7 +1,3 @@
-'use strict';
-
-Object.defineProperty(exports, '__esModule', { value: true });
-
 /*! *****************************************************************************
 Copyright (c) Microsoft Corporation.
 
@@ -4397,5 +4393,5 @@ var index$1 = {
     Button: Button,
 };
 
-exports.default = index$1;
-//# sourceMappingURL=index.js.map
+export default index$1;
+//# sourceMappingURL=index.es.js.map
