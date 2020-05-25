@@ -1,6 +1,6 @@
 {
   "name": "notion-ui",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "dependencies": {
     "@emotion/core": "^10.0.28",
     "@emotion/styled": "^10.0.27",
@@ -30,12 +30,15 @@
     "typescript": "~3.7.2"
   },
   "scripts": {
-    "build": "rollup src/index.ts -o build/build.js -f iife -m -c ",
+    "build": "rollup src/index.ts -o build/index.js -f iife -m -c ",
     "storybook": "start-storybook -p 9009 -s public",
     "build-storybook": "build-storybook -s public",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint --fix src/**/*.ts"
   },
+	"main": "build/index.js",
+	"module": "build/index.es.js",
+  "jsnext:main": "build/index.es.js",
   "eslintConfig": {
     "extends": "react-app"
   },
