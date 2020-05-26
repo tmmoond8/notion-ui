@@ -1,20 +1,20 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import styled from '@emotion/styled';
-import { ReactNode, MouseEventHandler } from 'react';
+import { useState, useEffect, ReactNode, MouseEventHandler } from 'react';
 import classnames from 'classnames';
 import { colors } from 'src/styles/themes';
 
 export enum ButtonType {
-  Primary = 'primary',
-  Secondary = 'secondary',
-  Tertiary = 'tertiary',
+  Default = 'Default',
+  Primary = 'Primary',
 }
 
 export enum ButtonSize {
-  Small = 'small',
-  Medium = 'medium',
-  Big = 'big',
+  Tiny = 'Tiny',
+  Small = 'Small',
+  Medium = 'Medium',
+  Big = 'Big',
 }
 
 interface ButtonProps {
@@ -26,14 +26,61 @@ interface ButtonProps {
   disabled?: boolean;
 }
 
-export default function(props: ButtonProps) {
-  const { children, className = '', onClick, disabled=false, buttonType=ButtonType.Secondary } = props;
-  let buttonStyle = {};
-  if (buttonType === ButtonType.Primary) {
-    buttonStyle = {
-      backgroundColor: 'red',
+const useStyle = (buttonType: ButtonType, buttonSize: ButtonSize) => {
+  const [buttonTypeStyle, setButtonTypeStyle] = useState({
+    backgroundColor: colors.transparent,
+    backgroundColorHover: colors.greyR50,
+    backgroundColorActive: colors.greyR100,
+    boxShadow: 'none',
+    color: colors.grey800,
+  });
+
+  const [buttonSizeStyle, setButtonSizeStyle] = useState({
+    height: '28px',
+    fontSize: '14px',
+    padding: '0 8px',
+  });
+
+  useEffect(() => {
+    if (buttonType === ButtonType.Primary) {
+      setButtonTypeStyle({
+        ...buttonTypeStyle,
+        backgroundColor: colors.primaryLight,
+        backgroundColorHover: colors.primary,
+        backgroundColorActive: colors.primaryDeep,
+        boxShadow: 'rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset, rgba(15, 15, 15, 0.1) 0px 1px 2px;',
+        color: colors.white,
+      });
     }
-  }
+    if (buttonSize === ButtonSize.Small) {
+      setButtonSizeStyle({
+        ...buttonSizeStyle,
+        height: '24px',
+      });
+    } else if (buttonSize === ButtonSize.Big) {
+      setButtonSizeStyle({
+        ...buttonSizeStyle,
+        height: '32px',
+      });
+    } else if (buttonSize === ButtonSize.Tiny) {
+      setButtonSizeStyle({
+        ...buttonSizeStyle,
+        height: '20px',
+        fontSize: '12px',
+        padding: '0 4px',
+      });
+    }
+  }, [buttonType, buttonSize])
+
+  return {
+    ...buttonTypeStyle,
+    ...buttonSizeStyle,
+  };
+}
+
+export default function(props: ButtonProps) {
+  const { children, className = '', onClick, disabled=false, buttonType=ButtonType.Default, buttonSize=ButtonSize.Medium } = props;
+  let buttonStyle = useStyle(buttonType, buttonSize);
 
   return (
     <Button 
@@ -49,19 +96,26 @@ export default function(props: ButtonProps) {
 
 interface ButtonStyles {
   backgroundColor: string;
+  backgroundColorHover: string;
+  backgroundColorActive: string;
+  boxShadow: string;
+  color: string;
+  height: string;
+  fontSize: string;
+  padding: string;
 }
 
-const Button = styled.button<ButtonStyles>`
+const Button = styled.button<ButtonStyles, HTMLButtonElement>`
   display: inline-block;
   align-items: center;
   flex-shrink: 0;
   justify-content: center;
   position: relative;
-  background-color: ${props => props.backgroundColor ? props.backgroundColor : 'transparent'};
+  background-color: ${p => p.backgroundColor};
   border: 0;
   margin: 0;
-  height: 28px;
-  line-height: 28px;
+  height: ${p => p.height};
+  line-height: ${p => p.height};
   cursor: pointer;
   user-select: none;
   vertical-align: middle;
@@ -72,20 +126,19 @@ const Button = styled.button<ButtonStyles>`
   white-space: nowrap;
   border-width: 0;
   border-radius: 3px;
-  /* background: ${colors.primaryLight}; */
-  box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset, rgba(15, 15, 15, 0.1) 0px 1px 2px;
-  color: white;
-  fill: white;
-  padding: 0 12px;
-  font-size: 14px;
+  box-shadow: ${p => p.boxShadow};
+  color: ${p => p.color};
+  fill: ${p => p.color};
+  padding: ${p =>  p.padding};
+  font-size: ${p => p.fontSize};
   font-weight: 500;
   outline: none;
 
   &:hover {
-    background: ${colors.primary};
+    background-color: ${p => p.backgroundColorHover};
   }
   &:active {
-    background: ${colors.primaryDeep};
+    background-color: ${p => p.backgroundColorActive};
   }
   &::-moz-focus-inner {
     border-style: none;

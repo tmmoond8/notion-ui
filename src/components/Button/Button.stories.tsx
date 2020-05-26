@@ -1,28 +1,29 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
-import Button, { ButtonType } from '.';
+import ButtonBase, { ButtonType, ButtonSize } from './ButtonBase';
 
 export default {
   title: 'Button',
-  component: Button,
+  component: ButtonBase,
 };
 
-export const Text = () => <div>
+export const base = () => <div>
   <p>primary</p>
-  <Button onClick={action('clicked')} buttonType={ButtonType.Primary}>Primary</Button>
+  <ButtonBase onClick={action('clicked')} buttonType={ButtonType.Primary}>Primary</ButtonBase>
   <p>secondary</p>
-  <Button onClick={action('clicked')}>Secondary</Button>
-  <p>tertiary</p>
-  <Button onClick={action('clicked')} buttonType={ButtonType.Tertiary}>Tertiary</Button>
+  <ButtonBase onClick={action('clicked')} buttonSize={ButtonSize.Tiny}>Tiny</ButtonBase>
+  <ButtonBase onClick={action('clicked')} buttonSize={ButtonSize.Small}>Small</ButtonBase>
+  <ButtonBase onClick={action('clicked')}>Medium</ButtonBase>
+  <ButtonBase onClick={action('clicked')} buttonSize={ButtonSize.Big}>Big</ButtonBase>
 </div>
 
 export const knobs = () => (
-  <Button
+  <ButtonBase
     onClick={action('clicked')}
   >
     {text('buttonText', 'button')}
-  </Button>
+  </ButtonBase>
 )
 
 knobs.story = {

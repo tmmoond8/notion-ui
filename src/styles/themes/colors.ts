@@ -13,11 +13,20 @@ const grey = {
   grey500: '#9e9e9e',
   grey600: '#757575',
   grey700: '#616161',
-  grey800: '#424242',
+  grey800: '#37352f',
   grey900: '#212121',
+  greyR50: 'rgba(55, 53, 47, 0.08)',
+  greyR100: 'rgba(55, 53, 47, 0.16)',
+}
+
+const base = {
+  transparent: 'transparent',
+  white: '#fff',
+  black: '#000',
 }
 
 export default {
+  ...base,
   ...primary,
   ...grey,
 };

@@ -27,6 +27,6 @@ interface ButtonProps {
 export default function(props: ButtonProps) {
   const { children, className='', onClick, buttonType = ButtonType.Primary, buttonSize= ButtonSize.Small } = props;
   return (
-    <ButtonBase onClick={onClick} className={classnames('Button', className)} type="button" buttonType={buttonType} buttonSize={buttonSize}>{children}</ButtonBase>
+    <ButtonBase onClick={onClick} className={classnames('Button', className)} type="button" buttonType={buttonType}>{children}</ButtonBase>
   )
 }
