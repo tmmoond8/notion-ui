@@ -2,19 +2,7 @@
 import { jsx } from '@emotion/core';
 import { ReactNode, MouseEventHandler } from 'react';
 import classnames from 'classnames';
-import ButtonBase from './ButtonBase'
-
-export enum ButtonType {
-  Primary = 'Primary',
-  Secondary = 'Secondary',
-  Tertiary = 'Tertiary',
-}
-
-export enum ButtonSize {
-  Small = 'Small',
-  Medium = 'Medium',
-  Big = 'Big',
-}
+import ButtonBase, { ButtonSize, ButtonType } from './ButtonBase'
 
 interface ButtonProps {
   children: ReactNode;
@@ -25,8 +13,8 @@ interface ButtonProps {
 }
 
 export default function(props: ButtonProps) {
-  const { children, className='', onClick, buttonType = ButtonType.Primary, buttonSize= ButtonSize.Small } = props;
+  const { children, className='', onClick, buttonType, buttonSize } = props;
   return (
-    <ButtonBase onClick={onClick} className={classnames('Button', className)} type="button" buttonType={buttonType}>{children}</ButtonBase>
+    <ButtonBase onClick={onClick} className={classnames('Button', className)} buttonType={buttonType}>{children}</ButtonBase>
   )
 }
