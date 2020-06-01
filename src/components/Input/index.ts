@@ -1,1 +1,5 @@
-export { default as TextFiled } from './TextFiled';
+import TextFiled from './TextFiled';
+
+export default {
+  TextFiled,
+};

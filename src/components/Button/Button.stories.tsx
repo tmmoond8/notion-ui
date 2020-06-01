@@ -8,15 +8,17 @@ export default {
   component: ButtonBase,
 };
 
-export const base = () => <div>
-  <p>primary</p>
-  <ButtonBase onClick={action('clicked')} buttonType={ButtonType.Primary}>Primary</ButtonBase>
-  <p>secondary</p>
-  <ButtonBase onClick={action('clicked')} buttonSize={ButtonSize.Tiny}>Tiny</ButtonBase>
-  <ButtonBase onClick={action('clicked')} buttonSize={ButtonSize.Small}>Small</ButtonBase>
-  <ButtonBase onClick={action('clicked')}>Medium</ButtonBase>
-  <ButtonBase onClick={action('clicked')} buttonSize={ButtonSize.Big}>Big</ButtonBase>
-</div>
+export const base = () => (
+  <div>
+    <p>primary</p>
+    <ButtonBase onClick={action('clicked')} buttonType={ButtonType.Primary}>Primary</ButtonBase>
+    <p>secondary</p>
+    <ButtonBase onClick={action('clicked')} buttonSize={ButtonSize.Tiny}>Tiny</ButtonBase>
+    <ButtonBase onClick={action('clicked')} buttonSize={ButtonSize.Small}>Small</ButtonBase>
+    <ButtonBase onClick={action('clicked')}>Medium</ButtonBase>
+    <ButtonBase onClick={action('clicked')} buttonSize={ButtonSize.Big}>Big</ButtonBase>
+  </div>
+);
 
 export const knobs = () => (
   <ButtonBase
@@ -24,8 +26,8 @@ export const knobs = () => (
   >
     {text('buttonText', 'button')}
   </ButtonBase>
-)
+);
 
 knobs.story = {
   decorators: [withKnobs],
-}
+};
