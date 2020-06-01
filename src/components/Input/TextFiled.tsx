@@ -21,16 +21,22 @@ interface TextFieldProps {
   errorMessage?: string;
 }
 
+type VoidFunc = () => void;
+
 export default function TextFiled(props: TextFieldProps): JSX.Element {
   const {
     label, id, variant = Variant.Default, placeholder = '', value = '', onChange, errorMessage,
   } = props;
   const [isFocus, setFocus] = useState(false);
-  const inputRef = useRef<HTMLInputElement>({});
+  const inputRef = useRef<HTMLInputElement>(null);
   const stateStyle = useMemo(() => {
     const style = [];
-    isFocus && style.push(styles.textFiled.state.focus);
-    errorMessage && style.push(styles.textFiled.state.error);
+    if (isFocus) {
+      style.push(styles.textFiled.state.focus);
+    }
+    if (errorMessage) {
+      style.push(styles.textFiled.state.error);
+    }
     return style;
   }, [isFocus, errorMessage]);
 
@@ -39,11 +45,13 @@ export default function TextFiled(props: TextFieldProps): JSX.Element {
     if (inputRef?.current) {
       const focusEvent = (): void => setFocus(true);
       const blurEvent = (): void => setFocus(false);
-      inputRef?.current.addEventListener('focus', focusEvent);
-      inputRef?.current.addEventListener('blur', blurEvent);
+
+      const inputElement = inputRef.current;
+      inputElement.addEventListener('focus', focusEvent);
+      inputElement.addEventListener('blur', blurEvent);
       return (): void => {
-        inputRef?.current.removeEventListener('focus', focusEvent);
-        inputRef?.current.removeEventListener('blur', blurEvent);
+        inputElement.removeEventListener('focus', focusEvent);
+        inputElement.removeEventListener('blur', blurEvent);
       };
     }
   }, [inputRef]);
