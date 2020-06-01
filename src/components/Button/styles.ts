@@ -23,18 +23,18 @@ export const baseStyle = css`
   border-width: 0;
   border-radius: 3px;
   box-shadow: none;
-  color: ${colors.grey800};
-  fill: ${colors.grey800};
+  color: ${colors.R};
+  fill: ${colors.R};
   padding: 0 8px;
   font-size: 14px;
   font-weight: 500;
   outline: none;
 
   &:hover {
-    background-color: ${colors.greyR50};
+    background-color: ${colors.R08};
   }
   &:active {
-    background-color: ${colors.greyR100};
+    background-color: ${colors.R16};
   }
   &::-moz-focus-inner {
     border-style: none;
@@ -51,13 +51,13 @@ export const type = {
   Default: css`
     background-color: ${colors.transparent};
     box-shadow: none;
-    color: ${colors.grey800};
-    fill: ${colors.grey800};
+    color: ${colors.R};
+    fill: ${colors.R};
     &:hover {
-      background-color: ${colors.greyR50};
+      background-color: ${colors.R08};
     }
     &:active {
-      background-color: ${colors.greyR100};
+      background-color: ${colors.R16};
     }
   `,
   Primary: css`
@@ -72,7 +72,7 @@ export const type = {
       background-color: ${colors.primaryDeep};
     }
   `,
-}
+};
 
 export const size = {
   Tiny: css`
@@ -99,4 +99,4 @@ export const size = {
     font-size: 14px;
     padding: 0 8px;
   `,
-}
+};
