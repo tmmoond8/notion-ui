@@ -21,8 +21,6 @@ interface TextFieldProps {
   errorMessage?: string;
 }
 
-type VoidFunc = () => void;
-
 export default function TextFiled(props: TextFieldProps): JSX.Element {
   const {
     label, id, variant = Variant.Default, placeholder = '', value = '', onChange, errorMessage,
