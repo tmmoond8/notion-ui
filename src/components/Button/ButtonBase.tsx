@@ -28,27 +28,28 @@ interface ButtonProps {
 const useSizeStyle = (buttonSize: ButtonSize): SerializedStyles => {
   const sizeStyle = useMemo(() => styles.size[buttonSize], [buttonSize]);
   return sizeStyle;
-}
+};
 
 const useTypeStyle = (buttonType: ButtonType): SerializedStyles => {
   const typeStyle = useMemo(() => styles.type[buttonType], [buttonType]);
   return typeStyle;
-}
+};
 
-export default function(props: ButtonProps) {
-  const { children, className = '', onClick, disabled=false, buttonType=ButtonType.Default, buttonSize=ButtonSize.Medium } = props;
+export default function (props: ButtonProps): JSX.Element {
+  const {
+    children, className = '', onClick, disabled = false, buttonType = ButtonType.Default, buttonSize = ButtonSize.Medium,
+  } = props;
   const sizeStyle = useSizeStyle(buttonSize);
   const typeStyle = useTypeStyle(buttonType);
 
   return (
-    <button 
-      onClick={onClick} 
-      className={classnames('Button', className)} 
+    <button
+      onClick={onClick}
+      className={classnames('Button', className)}
       type="button"
       css={[styles.baseStyle, sizeStyle, typeStyle]}
-      >
-        {children}
+    >
+      {children}
     </button>
   );
 }
-
