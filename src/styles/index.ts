@@ -1,6 +1,5 @@
 import { colors } from './themes';
-
-export { cssToReactStyle } from './utils';
+import { cssToReactStyle } from './utils';
 
 export const themes = {
   colors,
