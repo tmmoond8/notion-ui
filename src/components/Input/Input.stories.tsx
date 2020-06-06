@@ -22,8 +22,18 @@ export const TextFiledBase = (): JSX.Element => {
     <div>
       <h2>TextFiled</h2>
       <h4>placeholder</h4>
-      <TextFiled id="textFiled1" placeholder="placeholder" value={values.textFiled1} onChange={handleChange} />
-      <TextFiled id="textFiled2" label="name" value={values.textFiled2} onChange={handleChange} />
+      <TextFiled
+        id="textFiled1"
+        placeholder="placeholder"
+        value={values.textFiled1}
+        onChange={handleChange}
+      />
+      <TextFiled
+        id="textFiled2"
+        label="name"
+        value={values.textFiled2}
+        onChange={handleChange}
+      />
     </div>
   );
 };

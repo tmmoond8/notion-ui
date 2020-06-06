@@ -3,21 +3,20 @@ import React, { ReactNode } from 'react';
 import { cssToReactStyle } from 'src/styles/utils';
 import * as styles from './styles';
 
-export enum TagName {
-  P = 'P',
-  Span = 'Span',
-  Strong = 'Strong',
-  H1 = 'H1',
-  H2 = 'H2',
-  H3 = 'H3',
-  H4 = 'H4',
-  H5 = 'H5',
-  H6 = 'H6',
-  U = 'U',
-  DT = 'DT',
-  DD = 'DD',
-  LI = 'LI',
-}
+export type TagName =
+  | 'P'
+  | 'Span'
+  | 'Strong'
+  | 'H1'
+  | 'H2'
+  | 'H3'
+  | 'H4'
+  | 'H5'
+  | 'H6'
+  | 'U'
+  | 'DT'
+  | 'DD'
+  | 'LI';
 
 interface TextProps {
   marginTop?: number;
@@ -33,7 +32,14 @@ interface TextProps {
 
 export default function Text(props: TextProps): JSX.Element {
   const {
-    as = TagName.Span, children, marginTop, fontWeight, lineHeight, fontSize, color, backgroundColor,
+    as = 'Span',
+    children,
+    marginTop,
+    fontWeight,
+    lineHeight,
+    fontSize,
+    color,
+    backgroundColor,
   } = props;
   const defaultStyle = styles.text[as];
   const style = css`
@@ -45,7 +51,9 @@ export default function Text(props: TextProps): JSX.Element {
     ${backgroundColor && `background-color: ${backgroundColor}`};
   `;
 
-  return (
-    React.createElement(as.toLowerCase(), { ...props, style: cssToReactStyle(defaultStyle, style) }, children)
+  return React.createElement(
+    as.toLowerCase(),
+    { ...props, style: cssToReactStyle(defaultStyle, style) },
+    children,
   );
 }

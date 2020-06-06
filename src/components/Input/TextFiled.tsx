@@ -1,8 +1,6 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import {
-  ChangeEvent, useState, useMemo, useRef, useEffect,
-} from 'react';
+import { ChangeEvent, useState, useMemo, useRef, useEffect } from 'react';
 import * as styles from './style';
 
 enum Variant {
@@ -21,11 +19,15 @@ interface TextFieldProps {
   errorMessage?: string;
 }
 
-type VoidFunc = () => void;
-
 export default function TextFiled(props: TextFieldProps): JSX.Element {
   const {
-    label, id, variant = Variant.Default, placeholder = '', value = '', onChange, errorMessage,
+    label,
+    id,
+    variant = Variant.Default,
+    placeholder = '',
+    value = '',
+    onChange,
+    errorMessage,
   } = props;
   const [isFocus, setFocus] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -41,7 +43,7 @@ export default function TextFiled(props: TextFieldProps): JSX.Element {
   }, [isFocus, errorMessage]);
 
   const variantStyle = styles.textFiled.variant[variant];
-  useEffect(() => {
+  useEffect((): VoidFunc => {
     if (inputRef?.current) {
       const focusEvent = (): void => setFocus(true);
       const blurEvent = (): void => setFocus(false);
@@ -54,13 +56,21 @@ export default function TextFiled(props: TextFieldProps): JSX.Element {
         inputElement.removeEventListener('blur', blurEvent);
       };
     }
+    return (): void => {};
   }, [inputRef]);
 
   return (
     <div css={styles.textFiled.wrapper}>
       {label && <label htmlFor={id}>{label}</label>}
       <div css={[styles.textFiled.default, ...stateStyle, variantStyle]}>
-        <input ref={inputRef} type="text" id={id} value={value} placeholder={placeholder} onChange={onChange} />
+        <input
+          ref={inputRef}
+          type="text"
+          id={id}
+          value={value}
+          placeholder={placeholder}
+          onChange={onChange}
+        />
       </div>
     </div>
   );
