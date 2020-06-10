@@ -1,6 +1,6 @@
 import { css } from '@emotion/core';
 import React, { ReactNode } from 'react';
-import { cssToReactStyle } from 'src/styles/utils';
+import { cssToReactStyle } from '../../styles/utils';
 import * as styles from './styles';
 
 export type TagName =

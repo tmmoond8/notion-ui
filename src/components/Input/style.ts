@@ -1,5 +1,5 @@
 import { css } from '@emotion/core';
-import { colors } from 'src/styles/themes';
+import { colors } from '../../styles/themes';
 
 export const textFiled = {
   wrapper: css`
@@ -17,7 +17,8 @@ export const textFiled = {
 
     padding: 4px 10px;
     border-radius: 3px;
-    box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset, rgba(15, 15, 15, 0.1) 0px 1px 1px inset;
+    box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset,
+      rgba(15, 15, 15, 0.1) 0px 1px 1px inset;
     background: rgba(242, 241, 238, 0.6);
     color: ${colors.R};
     font-size: 14px;
@@ -49,13 +50,16 @@ export const textFiled = {
   },
   state: {
     focus: css`
-      box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset, rgba(45, 170, 219, 0.5) 0px 0px 0px 2px, rgba(45, 170, 219, 0.5) 0px 1px 1px;
+      box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset,
+        rgba(45, 170, 219, 0.5) 0px 0px 0px 2px,
+        rgba(45, 170, 219, 0.5) 0px 1px 1px;
     `,
     error: css`
-      box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset, rgba(235, 87, 87, 0.5) 0px 0px 0px 2px, rgba(235, 87, 87, 0.5) 0px 1px 1px;
+      box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset,
+        rgba(235, 87, 87, 0.5) 0px 0px 0px 2px,
+        rgba(235, 87, 87, 0.5) 0px 1px 1px;
     `,
   },
 };
-
 
 export const select = css``;

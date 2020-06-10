@@ -1,5 +1,5 @@
 import { css, SerializedStyles } from '@emotion/core';
-import { colors } from 'src/styles/themes';
+import { colors } from '../../styles/themes';
 
 const textDefault = `
   display: flex;
@@ -18,8 +18,8 @@ export const text = {
     margin: 1px 0;
     ${textDefault}
   `,
-  H1: css` 
-    color: ${colors.R};
+  H1: css`
+     color: ${colors.R};
     font-weight: 700;
     line-height: 1.2;
     font-size: 40px;
