@@ -9,6 +9,12 @@
 /build
 /storybook-static
 
+
+# core
+/core/node_modules
+/core/dist
+/core/build
+
 # testing
 /coverage
 

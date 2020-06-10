@@ -1,0 +1,46 @@
+{
+  "name": "notion-ui",
+  "version": "0.1.30",
+  "keywords": [
+    "ui",
+    "notion"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "pre-build": "tsc -p tsconfig.json",
+    "build": "yarn pre-build && rollup -c"
+  },
+  "module": "index.js",
+  "types": "types/index.d.ts",
+  "devDependencies": {
+    "@svgr/rollup": "^5.4.0",
+    "path": "^0.12.7",
+    "rollup": "^2.15.0",
+    "rollup-plugin-babel": "^4.4.0",
+    "rollup-plugin-commonjs": "^10.1.0",
+    "rollup-plugin-copy": "^3.3.0",
+    "rollup-plugin-node-resolve": "^5.2.0",
+    "rollup-plugin-peer-deps-external": "^2.2.2",
+    "rollup-plugin-url": "^3.0.1",
+    "typescript": "^3.9.5"
+  },
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  }
+}

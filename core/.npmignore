@@ -1,0 +1,6 @@
+# npm
+node_modules/
+
+# dev
+rollup.config.js
+tsconfig.json
