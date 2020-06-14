@@ -13,6 +13,7 @@ export interface Colors {
   grey60: string;
   background: string;
   background100: string;
+  backgroundEmbed: string;
 }
 
 const defaultColors: Colors = {
@@ -24,6 +25,7 @@ const defaultColors: Colors = {
   grey16: 'rgba(55, 53, 47, 0.16)',
   grey32: 'rgba(55, 53, 47, 0.32)',
   grey60: 'rgba(55, 53, 47, 0.60)',
+  backgroundEmbed: 'rgb(242, 241, 238)',
   background: 'rgb(255, 255, 255)',
   background100: 'rgba(242, 241, 238, 0.6)',
 };
@@ -37,6 +39,7 @@ const darkColors: Colors = {
   grey16: 'rgba(255, 255, 255, 0.16)',
   grey32: 'rgba(255, 255, 255, 0.32)',
   grey60: 'rgba(255, 255, 255, 0.60)',
+  backgroundEmbed: 'rgb(63, 68, 71)',
   background: 'rgb(47, 52, 55);',
   background100: 'rgba(15, 15, 15, 0.3)',
 };

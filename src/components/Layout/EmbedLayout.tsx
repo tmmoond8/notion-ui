@@ -15,8 +15,9 @@ export default function EmbedLayout(props: EmbedLayoutProps): JSX.Element {
 }
 
 const Layout = styled.div`
-  min-height: 320px;
+  min-height: 100px;
+  height: -webkit-fill-available;
   padding: 32px;
   box-sizing: border-box;
-  background: ${colors.background};
+  background: ${colors.backgroundEmbed};
 `;
