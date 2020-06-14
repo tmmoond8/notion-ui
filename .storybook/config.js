@@ -1,11 +1,20 @@
 import React from "react";
 import { addDecorator} from '@storybook/react';
-import { useTheme } from '../src/styles'
+import { Global, css } from "@emotion/core";
+import { colorCss, colors } from '../src/styles'
 
 addDecorator(story => {
-  useTheme();
   return (
     <>
+    <Global
+      styles={css`
+        ${colorCss}
+        body {
+          background-color: ${colors.background};
+          color: ${colors.grey};
+        }
+      `}
+    />
       {story()}
     </>
   )

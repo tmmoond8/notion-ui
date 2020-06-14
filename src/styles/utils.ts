@@ -7,7 +7,7 @@ export const cssToReactStyle = (...styles: SerializedStyles[]) => {
     const [key, value] = chunk.split(':');
     return {
       ...accum,
-      [key.replace(/-([a-z])/g, (g) => g[1].toUpperCase())]: value,
+      [key.replace(/-([a-z])/g, g => g[1].toUpperCase())]: value,
     };
   }, {});
 };

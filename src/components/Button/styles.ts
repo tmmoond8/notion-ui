@@ -1,4 +1,5 @@
-import { css, colors } from '../../styles';
+import { css } from '@emotion/core';
+import { colors } from '../../styles';
 
 export const baseStyle = css`
   display: inline-block;

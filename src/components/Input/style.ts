@@ -19,7 +19,7 @@ export const textFiled = {
     border-radius: 3px;
     box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset,
       rgba(15, 15, 15, 0.1) 0px 1px 1px inset;
-    background: rgba(242, 241, 238, 0.6);
+    background: ${colors.background100};
     color: ${colors.grey};
     font-size: 14px;
     line-height: 20px;
@@ -35,7 +35,7 @@ export const textFiled = {
       color: inherit;
       font-size: inherit;
       line-height: inherit;
-      background: none;
+      background: transparent;
       resize: none;
 
       &::placeholder {
