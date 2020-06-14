@@ -1,5 +1,5 @@
 import { css } from '@emotion/core';
-import { colors } from '../../styles/themes';
+import { colors } from '../../styles';
 
 export const textFiled = {
   wrapper: css`

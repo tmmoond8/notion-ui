@@ -35,9 +35,14 @@ const useTypeStyle = (buttonType: ButtonType): SerializedStyles => {
   return typeStyle;
 };
 
-export default function (props: ButtonProps): JSX.Element {
+export default function(props: ButtonProps): JSX.Element {
   const {
-    children, className = '', onClick, disabled = false, buttonType = ButtonType.Default, buttonSize = ButtonSize.Medium,
+    children,
+    className = '',
+    onClick,
+    disabled = false,
+    buttonType = ButtonType.Default,
+    buttonSize = ButtonSize.Medium,
   } = props;
   const sizeStyle = useSizeStyle(buttonSize);
   const typeStyle = useTypeStyle(buttonType);

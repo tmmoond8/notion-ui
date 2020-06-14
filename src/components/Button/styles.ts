@@ -1,5 +1,5 @@
 import { css } from '@emotion/core';
-import { colors } from '../../styles/themes';
+import { colors, responsiveColor } from '../../styles';
 
 export const baseStyle = css`
   display: inline-block;
@@ -61,16 +61,16 @@ export const type = {
     }
   `,
   Primary: css`
-    background-color: ${colors.primaryLight};
+    background-color: ${responsiveColor.primary50};
     box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset,
       rgba(15, 15, 15, 0.1) 0px 1px 2px;
     color: ${colors.white};
     fill: ${colors.white};
     &:hover {
-      background-color: ${colors.primary};
+      background-color: ${responsiveColor.primary100};
     }
     &:active {
-      background-color: ${colors.primaryDeep};
+      background-color: ${responsiveColor.primary200};
     }
   `,
 };

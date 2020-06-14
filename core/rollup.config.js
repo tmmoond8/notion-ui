@@ -35,6 +35,13 @@ export default {
   ],
   output: [
     {
+      file: `build/${pkg.main}`,
+      format: "cjs",
+      exports: "named",
+      name: 'tmmoond8_NotionUI',
+      sourcemap: true
+    },
+    {
       file: `build/${pkg.module}`, // 번들링한 파일을 저장 할 경로
       format: 'es' // ES Module 형태로 번들링함
     }

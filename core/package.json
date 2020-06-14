@@ -1,6 +1,6 @@
 {
   "name": "notion-ui",
-  "version": "0.1.30",
+  "version": "0.1.31",
   "keywords": [
     "ui",
     "notion"
@@ -10,7 +10,8 @@
     "pre-build": "tsc -p tsconfig.json",
     "build": "yarn pre-build && rollup -c"
   },
-  "module": "index.js",
+  "main": "index.js",
+  "module": "index.es.js",
   "types": "types/index.d.ts",
   "devDependencies": {
     "@svgr/rollup": "^5.4.0",

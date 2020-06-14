@@ -1,7 +1,3 @@
-import colors, { responsibleColorPalette } from './colors';
+export { default as colors, responsiveColor } from './colors';
 
 export { cssToReactStyle } from './utils';
-export const themes = {
-  colors,
-  responsibleColorPalette,
-};
