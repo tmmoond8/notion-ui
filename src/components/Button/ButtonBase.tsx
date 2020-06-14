@@ -4,17 +4,9 @@ import { ReactNode, MouseEventHandler, useMemo } from 'react';
 import classnames from 'classnames';
 import * as styles from './styles';
 
-export enum ButtonType {
-  Default = 'Default',
-  Primary = 'Primary',
-}
+export type ButtonType = 'Default' | 'Primary';
 
-export enum ButtonSize {
-  Tiny = 'Tiny',
-  Small = 'Small',
-  Medium = 'Medium',
-  Big = 'Big',
-}
+export type ButtonSize = 'Tiny' | 'Small' | 'Medium' | 'Big';
 
 interface ButtonProps {
   children: ReactNode;
@@ -35,14 +27,14 @@ const useTypeStyle = (buttonType: ButtonType): SerializedStyles => {
   return typeStyle;
 };
 
-export default function(props: ButtonProps): JSX.Element {
+export default function ButtonBase(props: ButtonProps): JSX.Element {
   const {
     children,
     className = '',
     onClick,
     disabled = false,
-    buttonType = ButtonType.Default,
-    buttonSize = ButtonSize.Medium,
+    buttonType = 'Default',
+    buttonSize = 'Medium',
   } = props;
   const sizeStyle = useSizeStyle(buttonSize);
   const typeStyle = useTypeStyle(buttonType);

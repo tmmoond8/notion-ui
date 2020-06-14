@@ -3,10 +3,7 @@ import { jsx } from '@emotion/core';
 import { ChangeEvent, useState, useMemo, useRef, useEffect } from 'react';
 import * as styles from './style';
 
-enum Variant {
-  Default = 'Default',
-  Filled = 'Filled',
-  Outlined = 'Outlined',
+export type Variant = 'Default' | 'Filled' | 'Outlined';
 }
 
 interface TextFieldProps {
@@ -23,7 +20,7 @@ export default function TextFiled(props: TextFieldProps): JSX.Element {
   const {
     label,
     id,
-    variant = Variant.Default,
+    variant = 'Default',
     placeholder = '',
     value = '',
     onChange,
