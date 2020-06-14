@@ -4,7 +4,6 @@ import { ChangeEvent, useState, useMemo, useRef, useEffect } from 'react';
 import * as styles from './style';
 
 export type Variant = 'Default' | 'Filled' | 'Outlined';
-}
 
 interface TextFieldProps {
   id: string;
