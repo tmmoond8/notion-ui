@@ -6,7 +6,7 @@ export const textFiled = {
     > label {
       font-size: 11px;
       line-height: 16px;
-      color: ${colors.R60};
+      color: ${colors.grey60};
       font-weight: 500;
     }
   `,
@@ -20,7 +20,7 @@ export const textFiled = {
     box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset,
       rgba(15, 15, 15, 0.1) 0px 1px 1px inset;
     background: rgba(242, 241, 238, 0.6);
-    color: ${colors.R};
+    color: ${colors.grey};
     font-size: 14px;
     line-height: 20px;
     cursor: text;
@@ -39,7 +39,7 @@ export const textFiled = {
       resize: none;
 
       &::placeholder {
-        color: ${colors.R32};
+        color: ${colors.grey16};
       }
     }
   `,

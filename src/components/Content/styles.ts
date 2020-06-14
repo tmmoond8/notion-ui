@@ -14,47 +14,47 @@ export const text = {
   P: css`
     font-size: 16px;
     font-weight: 400;
-    color: ${colors.R};
+    color: ${colors.grey};
     margin: 1px 0;
     ${textDefault}
   `,
   H1: css`
-    color: ${colors.R};
+    color: ${colors.grey};
     font-weight: 700;
     line-height: 1.2;
     font-size: 40px;
     ${textDefault}
   `,
   H2: css`
-    color: ${colors.R};
+    color: ${colors.grey};
     font-weight: 600;
     line-height: 1.3;
     font-size: 30px;
     ${textDefault}
   `,
   H3: css`
-    color: ${colors.R};
+    color: ${colors.grey};
     font-weight: 600;
     line-height: 1.3;
     font-size: 24px;
     ${textDefault}
   `,
   H4: css`
-    color: ${colors.R};
+    color: ${colors.grey};
     font-weight: 600;
     line-height: 1.3;
     font-size: 20px;
     ${textDefault}
   `,
   H5: css`
-    color: ${colors.R};
+    color: ${colors.grey};
     font-weight: 500;
     line-height: 1.3;
     font-size: 16px;
     ${textDefault}
   `,
   H6: css`
-    color: ${colors.R};
+    color: ${colors.grey};
     font-weight: 400;
     line-height: 1.3;
     font-size: 14px;

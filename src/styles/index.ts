@@ -1,3 +1,3 @@
-export { default as colors, responsiveColor } from './colors';
+export { colors, css, useTheme } from './colors';
 
 export { cssToReactStyle } from './utils';

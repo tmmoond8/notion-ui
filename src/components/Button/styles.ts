@@ -1,5 +1,4 @@
-import { css } from '@emotion/core';
-import { colors, responsiveColor } from '../../styles';
+import { css, colors } from '../../styles';
 
 export const baseStyle = css`
   display: inline-block;
@@ -7,7 +6,7 @@ export const baseStyle = css`
   flex-shrink: 0;
   justify-content: center;
   position: relative;
-  background-color: ${colors.transparent};
+  background-color: transparent;
   border: 0;
   margin: 0;
   height: 28px;
@@ -23,18 +22,18 @@ export const baseStyle = css`
   border-width: 0;
   border-radius: 3px;
   box-shadow: none;
-  color: ${colors.R};
-  fill: ${colors.R};
+  color: ${colors.grey};
+  fill: ${colors.grey};
   padding: 0 8px;
   font-size: 14px;
   font-weight: 500;
   outline: none;
 
   &:hover {
-    background-color: ${colors.R08};
+    background-color: ${colors.grey08};
   }
   &:active {
-    background-color: ${colors.R16};
+    background-color: ${colors.grey16};
   }
   &::-moz-focus-inner {
     border-style: none;
@@ -49,28 +48,28 @@ export const baseStyle = css`
 `;
 export const type = {
   Default: css`
-    background-color: ${colors.transparent};
+    background-color: transparent;
     box-shadow: none;
-    color: ${colors.R};
-    fill: ${colors.R};
+    color: ${colors.grey};
+    fill: ${colors.grey};
     &:hover {
-      background-color: ${colors.R08};
+      background-color: ${colors.grey08};
     }
     &:active {
-      background-color: ${colors.R16};
+      background-color: ${colors.grey16};
     }
   `,
   Primary: css`
-    background-color: ${responsiveColor.primary50};
+    background-color: ${colors.primary100};
     box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px inset,
       rgba(15, 15, 15, 0.1) 0px 1px 2px;
-    color: ${colors.white};
-    fill: ${colors.white};
+    color: white;
+    fill: white;
     &:hover {
-      background-color: ${responsiveColor.primary100};
+      background-color: ${colors.primary100};
     }
     &:active {
-      background-color: ${responsiveColor.primary200};
+      background-color: ${colors.primary200};
     }
   `,
 };
