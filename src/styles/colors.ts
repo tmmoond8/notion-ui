@@ -11,6 +11,7 @@ interface ColorTheme {
   grey16: string;
   grey32: string;
   grey60: string;
+  background: string;
 }
 
 const defaultTheme: ColorTheme = {
@@ -22,6 +23,7 @@ const defaultTheme: ColorTheme = {
   grey16: 'rgba(55, 53, 47, 0.16)',
   grey32: 'rgba(55, 53, 47, 0.32)',
   grey60: 'rgba(55, 53, 47, 0.60)',
+  background: 'rgb(255, 255, 255)',
 };
 
 const darkTheme: ColorTheme = {
@@ -33,6 +35,7 @@ const darkTheme: ColorTheme = {
   grey16: 'rgba(255, 255, 255, 0.16)',
   grey32: 'rgba(255, 255, 255, 0.32)',
   grey60: 'rgba(255, 255, 255, 0.60)',
+  background: 'rgb(55, 53, 47)',
 };
 
 const toCSS = (cssObject: object): string =>
