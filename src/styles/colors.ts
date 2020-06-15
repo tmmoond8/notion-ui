@@ -60,8 +60,10 @@ export const colorCss = css`
   }
   :root {
     body.notion-body {
-      ${toCSS(defaultColors)}
+      ${toCSS(darkColors)}
     }
+  }
+  :root {
     body.notion-body.dark {
       ${toCSS(darkColors)}
     }
@@ -76,6 +78,7 @@ export const useTheme = () => {
         setInitial(true);
         return;
       }
+
       const styleEl = document.createElement('style');
       styleEl.id = 'notion-ui-theme';
       document.head.appendChild(styleEl);
@@ -85,10 +88,6 @@ export const useTheme = () => {
         const sheet = styleSheet as CSSStyleSheet;
         sheet.insertRule(
           `:root { ${toCSS(defaultColors)} }`,
-          sheet.cssRules.length,
-        );
-        sheet.insertRule(
-          `:root body.notion-body { ${toCSS(defaultColors)} }`,
           sheet.cssRules.length,
         );
         // add dark Theme color
