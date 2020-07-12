@@ -47,28 +47,3 @@ export default {
     }
   ],
 };
-// import commonjs from 'rollup-plugin-commonjs';
-// import external from 'rollup-plugin-peer-deps-external';
-// import resolve from 'rollup-plugin-node-resolve';
-
-// import pkg from './package.json'
-
-// const extensions = ['.js', '.jsx', '.ts', '.tsx']; // 어떤 확장자를 처리 할 지 정함
-
-// export default {
-//   input: 'dist/index.js',
-//   output: [
-//     {
-//       file: pkg.module,
-//       format: 'es',
-//     },
-//   ],
-//   plugins: [
-//     external(),
-//     resolve({ extensions }),
-//     commonjs({
-//       include: [/node_modules/],
-//     }),
-    
-//   ],
-// };

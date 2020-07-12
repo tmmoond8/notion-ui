@@ -3,6 +3,7 @@ module.exports = {
   plugins: ['@typescript-eslint'],
   rules: {
     quotes: [2, 'single', { avoidEscape: true }],
+    'import/prefer-default-export': 'off',
   },
   extends: [
     'airbnb-typescript',

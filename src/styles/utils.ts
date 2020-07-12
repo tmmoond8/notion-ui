@@ -1,4 +1,4 @@
-import { SerializedStyles } from '@emotion/core';
+import { css, SerializedStyles } from '@emotion/core';
 
 export const cssToReactStyle = (...styles: SerializedStyles[]) => {
   const regex = /([\w-]*)\s*:\s*([^;]*)/g;
@@ -10,4 +10,12 @@ export const cssToReactStyle = (...styles: SerializedStyles[]) => {
       [key.replace(/-([a-z])/g, g => g[1].toUpperCase())]: value,
     };
   }, {});
+};
+
+export const coerceCssPixelValue = (value?: string | number): string => {
+  if (value === undefined) {
+    return '';
+  }
+
+  return typeof value === 'string' ? value : `${value}px`;
 };

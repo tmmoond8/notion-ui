@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import { ChangeEvent, useState, useMemo, useRef, useEffect } from 'react';
-import * as styles from './style';
+import * as styles from './styles';
 
 export type Variant = 'Default' | 'Filled' | 'Outlined';
 

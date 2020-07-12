@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import styled from '@emotion/styled';
-import { useTheme, Content } from 'notion-ui';
+import { useTheme, Content, Icon } from 'notion-ui';
 
 function App() {
   useTheme();
@@ -11,6 +11,7 @@ function App() {
     <div className="App">
       <h1>a ddd</h1>
       <AB>babbab</AB>
+      <Icon icon="hambugMenu"/>
     </div>
   );
 }
