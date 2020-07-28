@@ -4,6 +4,8 @@ import cx from 'classnames';
 import * as icons from './icons';
 import * as styles from './styles';
 
+export { default as IconButton } from './IconButton';
+
 type IconType = keyof typeof icons;
 type IconSize = 'tiny' | 'small' | 'normal' | 'big' | 'huge';
 export const iconTypes: IconType[] = Object.keys(icons) as any[]; // for storybook
@@ -26,6 +28,7 @@ const sizeMap = {
   huge: '20px',
   default: '1em',
 };
+
 /**
  *
  * this component show as a svg format, you can styling by color and size.

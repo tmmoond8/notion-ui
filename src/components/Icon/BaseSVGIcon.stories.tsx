@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import Icon from '.';
+import Icon, { IconButton } from '.';
+import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'Icon',
@@ -25,7 +26,7 @@ export const size = () => (
 export const color = () => (
   <div>
     <p>default responsive grey</p>
-    <Icon icon="hambugMenu" size="big" className="HambugIconr" />
+    <Icon icon="hambugMenu" size="big" className="HambugIcon" />
     <p>red color</p>
     <Icon icon="hambugMenu" size="big" color="red" className="HambugIcon" />
   </div>
@@ -186,5 +187,82 @@ export const iconTypes = () => (
       <Icon icon="undo" size="huge" className="undoIcon" />
       <p>undo</p>
     </IconPack>
+  </div>
+);
+
+export const iconButton = (): JSX.Element => (
+  <div>
+    <p>
+      <IconButton
+        icon="smile"
+        buttonSize="Big"
+        className="HambugIcon"
+        onClick={action('hambugMenu Click!!')}
+      />
+      기본 버튼
+    </p>
+    <p>
+      <IconButton
+        icon="smile"
+        buttonSize="Big"
+        className="HambugIcon"
+        onClick={action('hambugMenu Click!!')}
+        disabled
+      />
+      비활성 버튼
+    </p>
+    <p>
+      <IconButton
+        icon="smile"
+        buttonSize="Tiny"
+        className="HambugIcon"
+        onClick={action('hambugMenu Click!!')}
+      />
+      Tiny
+    </p>
+    <p>
+      <IconButton
+        icon="smile"
+        buttonSize="Small"
+        className="HambugIcon"
+        onClick={action('hambugMenu Click!!')}
+      />
+      Small
+    </p>
+    <p>
+      <IconButton
+        icon="smile"
+        buttonSize="Normal"
+        className="HambugIcon"
+        onClick={action('hambugMenu Click!!')}
+      />
+      Normal
+    </p>
+    <p>
+      <IconButton
+        icon="smile"
+        buttonSize="Big"
+        className="HambugIcon"
+        onClick={action('hambugMenu Click!!')}
+      />
+      Big
+    </p>
+    <p>
+      <IconButton
+        icon="smile"
+        buttonSize="Huge"
+        className="HambugIcon"
+        onClick={action('hambugMenu Click!!')}
+      />
+      Huge
+    </p>
+    <p>
+      <IconButton
+        icon="smile"
+        className="HambugIcon"
+        onClick={action('hambugMenu Click!!')}
+      />
+      Default
+    </p>
   </div>
 );
