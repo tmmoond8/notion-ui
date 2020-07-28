@@ -4,6 +4,16 @@ module.exports = {
   rules: {
     quotes: [2, 'single', { avoidEscape: true }],
     'import/prefer-default-export': 'off',
+    'react/jsx-wrap-multilines': 'off',
+    'import/no-extraneous-dependencies': [
+      'error',
+      {
+        'devDependencies': [
+          '.storybook/**',
+          'src/**/*.stories.tsx',
+        ]
+      }
+    ],
   },
   extends: [
     'airbnb-typescript',

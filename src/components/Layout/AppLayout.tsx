@@ -1,28 +1,19 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import styled from '@emotion/styled';
 import { ReactNode } from 'react';
+import MobileLayout from './MobileLayout';
 
 interface AppLayoutProps {
   children: ReactNode;
+  handleGoBack?: () => void;
+  handleGoNext?: () => void;
 }
 
 export default function AppLayout(props: AppLayoutProps): JSX.Element {
-  const { children } = props;
+  const { children, handleGoBack, handleGoNext } = props;
   return (
-    <Layout>
-      <AsideMenu />
-      <ContentWrapper>{children}</ContentWrapper>
-    </Layout>
+    <MobileLayout handleGoBack={handleGoBack} handleGoNext={handleGoNext}>
+      {children}
+    </MobileLayout>
   );
 }
-
-function AsideMenu(): JSX.Element {
-  return <Aside>aside</Aside>;
-}
-
-const ContentWrapper = styled.div``;
-const Aside = styled.aside`
-  width: 240px;
-`;
-const Layout = styled.div``;

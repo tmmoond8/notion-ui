@@ -34,3 +34,4 @@ export { ReactComponent as trash } from './trash.svg';
 export { ReactComponent as trash2 } from './trash2.svg';
 export { ReactComponent as triangle } from './triangle.svg';
 export { ReactComponent as undo } from './undo.svg';
+export { ReactComponent as share } from './share.svg';

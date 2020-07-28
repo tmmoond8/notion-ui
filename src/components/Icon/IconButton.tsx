@@ -3,26 +3,17 @@ import { jsx, css, SerializedStyles } from '@emotion/core';
 import { MouseEventHandler, useMemo, useCallback, MouseEvent } from 'react';
 import classnames from 'classnames';
 import Button from 'src/components/Button';
-import Icon, { IconProps } from '.';
+import Icon, { IconProps, IconSize } from '.';
 import * as styles from './styles';
-
-export type IconButtonSize =
-  | 'Tiny'
-  | 'Small'
-  | 'Normal'
-  | 'Big'
-  | 'Huge'
-  | 'Default';
 
 interface IconButtonProps extends IconProps {
   className?: string;
   onClick?: MouseEventHandler;
-  buttonSize?: IconButtonSize;
   disabled?: boolean;
 }
 
-const useSizeStyle = (buttonSize: IconButtonSize): SerializedStyles => {
-  const sizeStyle = useMemo(() => styles.size[buttonSize], [buttonSize]);
+const useSizeStyle = (iconSize: IconSize): SerializedStyles => {
+  const sizeStyle = useMemo(() => styles.size[iconSize], [iconSize]);
   return sizeStyle;
 };
 const useDiabledStyle = (isDisabled: boolean): SerializedStyles => {
@@ -37,11 +28,10 @@ export default function IconButton(props: IconButtonProps): JSX.Element {
     className = '',
     onClick,
     disabled = false,
-    buttonSize = 'Normal',
     icon,
-    size,
+    size = 'Default',
   } = props;
-  const sizeStyle = useSizeStyle(buttonSize);
+  const sizeStyle = useSizeStyle(size);
   const disabledStyle = useDiabledStyle(disabled);
   const handleClick = useCallback(
     (event: MouseEvent<Element>): void => {

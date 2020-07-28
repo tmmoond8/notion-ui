@@ -11,11 +11,7 @@ export const base = css`
   backface-visibility: hidden;
 `;
 
-export const customStyle = (p: {
-  size?: string;
-  color?: string;
-}): SerializedStyles => css`
-  ${p.size && `width: ${p.size};`}
+export const customStyle = (p: { color?: string }): SerializedStyles => css`
   ${p.color && `fill: ${p.color};`}
 `;
 
