@@ -102,7 +102,7 @@ export const useTheme = () => {
         setInitial(true);
       }
     }
-  }, []);
+  }, [initial]);
 };
 
 export const colors: Colors = Object.keys(defaultColors).reduce(
