@@ -14,6 +14,8 @@ module.exports = {
         ]
       }
     ],
+    '@typescript-eslint/explicit-function-return-type': 'off',
+    'arrow-parens': ['error', 'as-needed'],
   },
   extends: [
     'airbnb-typescript',

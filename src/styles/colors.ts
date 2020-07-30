@@ -2,21 +2,7 @@
 import { css } from '@emotion/core';
 import { useState, useEffect } from 'react';
 
-export interface Colors {
-  primary50: string;
-  primary100: string;
-  primary200: string;
-  grey: string;
-  grey08: string;
-  grey16: string;
-  grey32: string;
-  grey60: string;
-  background: string;
-  background100: string;
-  backgroundEmbed: string;
-}
-
-const defaultColors: Colors = {
+const defaultColors = {
   primary50: '#2eabdc',
   primary100: '#069bcd',
   primary200: '#008dbe',
@@ -28,9 +14,14 @@ const defaultColors: Colors = {
   backgroundEmbed: 'rgb(242, 241, 238)',
   background: 'rgb(255, 255, 255)',
   background100: 'rgba(242, 241, 238, 0.6)',
+  dimmed: 'rgba(47, 52, 55, 0.4)',
+  notDimmed: 'rgba(47, 52, 55, 0)',
 };
 
+export type Colors = Record<keyof typeof defaultColors, string>;
+
 const darkColors: Colors = {
+  ...defaultColors,
   primary50: '#2eabdc',
   primary100: '#069bcd',
   primary200: '#008dbe',
@@ -40,7 +31,7 @@ const darkColors: Colors = {
   grey32: 'rgba(255, 255, 255, 0.32)',
   grey60: 'rgba(255, 255, 255, 0.60)',
   backgroundEmbed: 'rgb(63, 68, 71)',
-  background: 'rgb(47, 52, 55);',
+  background: 'rgb(55, 60, 63);',
   background100: 'rgba(15, 15, 15, 0.3)',
 };
 
