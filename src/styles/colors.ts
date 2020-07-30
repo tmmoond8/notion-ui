@@ -13,6 +13,7 @@ const defaultColors = {
   grey60: 'rgba(55, 53, 47, 0.60)',
   backgroundEmbed: 'rgb(242, 241, 238)',
   background: 'rgb(255, 255, 255)',
+  backgroundAside: 'rgb(247, 246, 243)',
   background100: 'rgba(242, 241, 238, 0.6)',
   dimmed: 'rgba(47, 52, 55, 0.4)',
   notDimmed: 'rgba(47, 52, 55, 0)',
@@ -31,7 +32,9 @@ const darkColors: Colors = {
   grey32: 'rgba(255, 255, 255, 0.32)',
   grey60: 'rgba(255, 255, 255, 0.60)',
   backgroundEmbed: 'rgb(63, 68, 71)',
-  background: 'rgb(55, 60, 63);',
+  background: 'rgb(47, 52, 55);',
+  dimmed: 'rgba(0, 0, 0, 0.2)',
+  backgroundAside: 'rgb(55, 60, 63)',
   background100: 'rgba(15, 15, 15, 0.3)',
 };
 

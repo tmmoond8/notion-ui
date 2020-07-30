@@ -1,8 +1,10 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
+import { IconButton } from 'src/components/Icon';
+import Button from 'src/components/Button';
 import EmbedLayout from './EmbedLayout';
 import MobileLayout from './MobileLayout';
-import { IconButton } from '../Icon';
+import DesktopLayout from './DesktopLayout';
 
 export default {
   title: 'Layout',
@@ -17,49 +19,67 @@ export const Embed = () => (
 );
 
 export const Mobile = () => (
-  <div>
-    <p>MobileLayout</p>
-    <MobileLayout
-      left={
-        <>
-          <IconButton
-            icon="arrowLeft"
-            size="Big"
-            className="ArrowLeft"
-            onClick={action('go back')}
-          />
-          <IconButton
-            icon="arrowRight"
-            size="Big"
-            className="ArrowRight"
-            onClick={action('go next')}
-          />
-        </>
-      }
-      right={
-        <>
-          <IconButton
-            icon="moreHorizon"
-            size="Big"
-            className="MoreHorizon"
-            onClick={action('more')}
-          />
-          <IconButton
-            icon="share"
-            size="Big"
-            className="Share"
-            onClick={action('share')}
-          />
-          <IconButton
-            icon="notification"
-            size="Big"
-            className="Notification"
-            onClick={action('notification')}
-          />
-        </>
-      }
-    >
-      Primary
-    </MobileLayout>
-  </div>
+  <MobileLayout
+    left={
+      <>
+        <IconButton
+          icon="arrowLeft"
+          size="Big"
+          className="ArrowLeft"
+          onClick={action('go back')}
+        />
+        <IconButton
+          icon="arrowRight"
+          size="Big"
+          className="ArrowRight"
+          onClick={action('go next')}
+        />
+      </>
+    }
+    right={
+      <>
+        <IconButton
+          icon="moreHorizon"
+          size="Big"
+          className="MoreHorizon"
+          onClick={action('more')}
+        />
+        <IconButton
+          icon="share"
+          size="Big"
+          className="Share"
+          onClick={action('share')}
+        />
+        <IconButton
+          icon="notification"
+          size="Big"
+          className="Notification"
+          onClick={action('notification')}
+        />
+      </>
+    }
+  >
+    Primary
+  </MobileLayout>
+);
+
+export const Desktop = () => (
+  <DesktopLayout
+    left={<>Untitled</>}
+    right={
+      <>
+        <Button onClick={action('Share')}>Share</Button>
+        <Button onClick={action('Updates')}>Updates</Button>
+        <Button onClick={action('Favorite')}>Favorite</Button>
+        <IconButton
+          icon="moreHorizon"
+          size="Big"
+          className="MoreHorizon"
+          onClick={action('moreHorizon')}
+        />
+      </>
+    }
+  >
+    Primary
+  </DesktopLayout>
 );
