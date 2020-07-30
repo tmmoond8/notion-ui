@@ -8,19 +8,18 @@ import {
   useState,
   useCallback,
   useEffect,
-  ReactElement,
   MouseEvent,
+  useContext,
 } from 'react';
 import { colors } from 'src/styles';
+import AppLayoutContext from './context';
 
-interface AppLayoutProps {
+interface MobileLayoutProps {
   children: ReactNode;
-  left?: ReactElement;
-  right?: ReactElement;
 }
 
-export default function MoibleLayout(props: AppLayoutProps): JSX.Element {
-  const { children, left, right } = props;
+export default function MoibleLayout(props: MobileLayoutProps): JSX.Element {
+  const { children } = props;
   const [open, setOpen] = useState(false);
   const handleOpen = useCallback(() => {
     setOpen(true);
@@ -32,7 +31,7 @@ export default function MoibleLayout(props: AppLayoutProps): JSX.Element {
     <Layout>
       {open && <AsideMenu handleClose={handleClose} />}
       <ContentWrapper>
-        <MobileMenuBar handleOpen={handleOpen} left={left} right={right} />
+        <MobileMenuBar handleOpen={handleOpen} />
         {children}
       </ContentWrapper>
     </Layout>
@@ -42,6 +41,7 @@ export default function MoibleLayout(props: AppLayoutProps): JSX.Element {
 function AsideMenu(props: { handleClose: () => void }): JSX.Element {
   const { handleClose } = props;
   const [visible, setVisible] = useState(false);
+  const { aside } = useContext(AppLayoutContext);
   useEffect(() => {
     setTimeout(() => {
       setVisible(true);
@@ -60,7 +60,7 @@ function AsideMenu(props: { handleClose: () => void }): JSX.Element {
   return (
     <AsideWrapper visible={visible} onClick={handleCloseWithAnimation}>
       <Aside visible={visible} onClick={handlePreventDefault}>
-        aside
+        {aside}
       </Aside>
     </AsideWrapper>
   );
@@ -68,12 +68,13 @@ function AsideMenu(props: { handleClose: () => void }): JSX.Element {
 
 interface MobileMenuBarProps {
   handleOpen: () => void;
-  left?: ReactElement;
-  right?: ReactElement;
 }
 
 function MobileMenuBar(props: MobileMenuBarProps): JSX.Element {
-  const { handleOpen, left, right } = props;
+  const { handleOpen } = props;
+  const { leftMenus, rightMenus, handleGoBack, handleGoNext } = useContext(
+    AppLayoutContext,
+  );
   return (
     <MenuBar>
       <LeftMenus>
@@ -83,9 +84,25 @@ function MobileMenuBar(props: MobileMenuBarProps): JSX.Element {
           className="HambugIcon"
           onClick={handleOpen}
         />
-        {left}
+        {handleGoBack && (
+          <IconButton
+            icon="arrowLeft"
+            size="Big"
+            className="ArrowLeft"
+            onClick={handleGoBack}
+          />
+        )}
+        {handleGoNext && (
+          <IconButton
+            icon="arrowRight"
+            size="Big"
+            className="ArrowRight"
+            onClick={handleGoNext}
+          />
+        )}
+        {leftMenus}
       </LeftMenus>
-      <RightMenus>{right}</RightMenus>
+      <RightMenus>{rightMenus}</RightMenus>
     </MenuBar>
   );
 }

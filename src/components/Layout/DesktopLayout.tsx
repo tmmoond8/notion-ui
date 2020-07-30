@@ -2,39 +2,34 @@
 /** @jsxFrag React.Fragment */
 import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
-import { ReactNode, ReactElement } from 'react';
+import { ReactNode, useContext } from 'react';
 import { colors } from 'src/styles';
+import AppLayoutContext from './context';
 
 interface AppLayoutProps {
   children: ReactNode;
-  left?: ReactElement;
-  right?: ReactElement;
 }
 
 export default function DesktopLayout(props: AppLayoutProps): JSX.Element {
-  const { children, left, right } = props;
+  const { children } = props;
+  const { aside } = useContext(AppLayoutContext);
   return (
     <Layout>
-      <Aside>aside</Aside>
+      <Aside>{aside}</Aside>
       <ContentWrapper>
-        <DesktopMenuBar left={left} right={right} />
+        <DesktopMenuBar />
         {children}
       </ContentWrapper>
     </Layout>
   );
 }
 
-interface DesktopMenuBarProps {
-  left?: ReactElement;
-  right?: ReactElement;
-}
-
-function DesktopMenuBar(props: DesktopMenuBarProps): JSX.Element {
-  const { left, right } = props;
+function DesktopMenuBar(): JSX.Element {
+  const { leftMenus, rightMenus } = useContext(AppLayoutContext);
   return (
     <MenuBar>
-      <LeftMenus>{left}</LeftMenus>
-      <RightMenus>{right}</RightMenus>
+      <LeftMenus>{leftMenus}</LeftMenus>
+      <RightMenus>{rightMenus}</RightMenus>
     </MenuBar>
   );
 }

@@ -1,0 +1,21 @@
+/** @jsx jsx */
+import { jsx } from '@emotion/core';
+import { createContext, ReactNode } from 'react';
+
+export interface AppLayoutContextInteface {
+  handleGoBack?: () => void;
+  handleGoNext?: () => void;
+  leftMenus?: ReactNode;
+  rightMenus?: ReactNode;
+  aside: ReactNode;
+}
+
+const AppLayoutContext = createContext({
+  handleGoBack: () => {},
+  handleGoNext: () => {},
+  aside: () => '',
+} as AppLayoutContextInteface);
+
+AppLayoutContext.displayName = 'AppLayoutContext';
+
+export default AppLayoutContext;
