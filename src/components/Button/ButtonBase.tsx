@@ -15,6 +15,7 @@ interface ButtonProps {
   buttonType?: ButtonType;
   buttonSize?: ButtonSize;
   disabled?: boolean;
+  style?: SerializedStyles[];
 }
 
 const useSizeStyle = (buttonSize: ButtonSize): SerializedStyles => {
@@ -35,6 +36,7 @@ export default function ButtonBase(props: ButtonProps): JSX.Element {
     disabled = false,
     buttonType = 'Default',
     buttonSize = 'Medium',
+    style = [],
   } = props;
   const sizeStyle = useSizeStyle(buttonSize);
   const typeStyle = useTypeStyle(buttonType);
@@ -44,7 +46,7 @@ export default function ButtonBase(props: ButtonProps): JSX.Element {
       onClick={onClick}
       className={classnames('Button', className)}
       type="button"
-      css={[styles.baseStyle, sizeStyle, typeStyle]}
+      css={[styles.baseStyle, sizeStyle, typeStyle, ...style]}
     >
       {children}
     </button>

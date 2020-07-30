@@ -2,21 +2,7 @@
 import { css } from '@emotion/core';
 import { useState, useEffect } from 'react';
 
-export interface Colors {
-  primary50: string;
-  primary100: string;
-  primary200: string;
-  grey: string;
-  grey08: string;
-  grey16: string;
-  grey32: string;
-  grey60: string;
-  background: string;
-  background100: string;
-  backgroundEmbed: string;
-}
-
-const defaultColors: Colors = {
+const defaultColors = {
   primary50: '#2eabdc',
   primary100: '#069bcd',
   primary200: '#008dbe',
@@ -27,10 +13,16 @@ const defaultColors: Colors = {
   grey60: 'rgba(55, 53, 47, 0.60)',
   backgroundEmbed: 'rgb(242, 241, 238)',
   background: 'rgb(255, 255, 255)',
+  backgroundAside: 'rgb(247, 246, 243)',
   background100: 'rgba(242, 241, 238, 0.6)',
+  dimmed: 'rgba(47, 52, 55, 0.4)',
+  notDimmed: 'rgba(47, 52, 55, 0)',
 };
 
+export type Colors = Record<keyof typeof defaultColors, string>;
+
 const darkColors: Colors = {
+  ...defaultColors,
   primary50: '#2eabdc',
   primary100: '#069bcd',
   primary200: '#008dbe',
@@ -41,6 +33,8 @@ const darkColors: Colors = {
   grey60: 'rgba(255, 255, 255, 0.60)',
   backgroundEmbed: 'rgb(63, 68, 71)',
   background: 'rgb(47, 52, 55);',
+  dimmed: 'rgba(0, 0, 0, 0.2)',
+  backgroundAside: 'rgb(55, 60, 63)',
   background100: 'rgba(15, 15, 15, 0.3)',
 };
 
@@ -102,7 +96,7 @@ export const useTheme = () => {
         setInitial(true);
       }
     }
-  }, []);
+  }, [initial]);
 };
 
 export const colors: Colors = Object.keys(defaultColors).reduce(
