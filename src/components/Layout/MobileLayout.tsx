@@ -2,7 +2,6 @@
 /** @jsxFrag React.Fragment */
 import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
-import { IconButton } from 'src/components/Icon';
 import {
   ReactNode,
   useState,
@@ -11,7 +10,8 @@ import {
   MouseEvent,
   useContext,
 } from 'react';
-import { colors } from 'src/styles';
+import { IconButton } from '../Icon';
+import { colors } from '../../styles';
 import AppLayoutContext from './context';
 
 interface MobileLayoutProps {
@@ -128,6 +128,7 @@ const Aside = styled.aside<{ visible: boolean }>`
   transition: all 0.2s ease 0s;
   box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px,
     rgba(15, 15, 15, 0.2) 0px 3px 6px, rgba(15, 15, 15, 0.4) 0px 9px 24px;
+  overflow: hidden;
 `;
 const AsideWrapper = styled.div<{ visible: boolean }>`
   position: fixed;

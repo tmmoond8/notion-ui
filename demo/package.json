@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "notion-ui": "file:../core/build",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "react-scripts": "3.4.1",
-    "notion-ui": "file:../core/build"
+    "react-scripts": "3.4.1"
   },
   "scripts": {
     "start": "react-scripts start",

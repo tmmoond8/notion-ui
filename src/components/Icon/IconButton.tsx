@@ -2,7 +2,7 @@
 import { jsx, css, SerializedStyles } from '@emotion/core';
 import { MouseEventHandler, useMemo, useCallback, MouseEvent } from 'react';
 import classnames from 'classnames';
-import Button from 'src/components/Button';
+import Button from '../Button';
 import Icon, { IconProps, IconSize } from '.';
 import * as styles from './styles';
 

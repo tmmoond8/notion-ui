@@ -1,7 +1,7 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { IconButton } from 'src/components/Icon';
-import Button from 'src/components/Button';
+import { IconButton } from '../Icon';
+import Button from '../Button';
 import EmbedLayout from './EmbedLayout';
 import MobileLayout from './MobileLayout';
 import DesktopLayout from './DesktopLayout';

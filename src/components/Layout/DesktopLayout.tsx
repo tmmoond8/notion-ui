@@ -3,7 +3,7 @@
 import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
 import { ReactNode, useContext } from 'react';
-import { colors } from 'src/styles';
+import { colors } from '../../styles';
 import AppLayoutContext from './context';
 
 interface AppLayoutProps {
