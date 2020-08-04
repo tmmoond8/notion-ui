@@ -6876,7 +6876,7 @@ normalize-url@^3.0.0:
   integrity sha512-U+JJi7duF1o+u2pynbp2zXDW2/PADgC30f0GsHZtRh+HOcXHnw137TrNlyxxRvWW5fjKd3bcLHPxofWuCjaeZg==
 
 "notion-ui@file:../core/build":
-  version "0.2.17"
+  version "0.2.21"
 
 npm-run-path@^2.0.0:
   version "2.0.2"

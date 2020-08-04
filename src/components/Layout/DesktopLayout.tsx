@@ -41,8 +41,14 @@ const MenuBar = styled.nav`
   height: 45px;
 `;
 
-const LeftMenus = styled.div``;
-const RightMenus = styled.div``;
+const LeftMenus = styled.div`
+  display: flex;
+  align-items: center;
+`;
+const RightMenus = styled.div`
+  display: flex;
+  align-items: center;
+`;
 
 const ContentWrapper = styled.div`
   flex: 1;
@@ -51,6 +57,7 @@ const ContentWrapper = styled.div`
 const Aside = styled.aside`
   height: 100%;
   width: 240px;
+  min-width: 240px;
   background-color: ${colors.backgroundAside};
 `;
 const Layout = styled.div`

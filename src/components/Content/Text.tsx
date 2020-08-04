@@ -68,7 +68,7 @@ const textDefault = `
   outline: 0;
   padding: 3px 2px;
   margin: 0;
-  color: red;
+  color: ${colors.grey};
 `;
 
 const P = styled.p`

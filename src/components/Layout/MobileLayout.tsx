@@ -115,8 +115,14 @@ const MenuBar = styled.nav`
   border-bottom: 1px solid ${colors.grey16};
 `;
 
-const LeftMenus = styled.div``;
-const RightMenus = styled.div``;
+const LeftMenus = styled.div`
+  display: flex;
+  align-items: center;
+`;
+const RightMenus = styled.div`
+  display: flex;
+  align-items: center;
+`;
 
 const ContentWrapper = styled.div``;
 const Aside = styled.aside<{ visible: boolean }>`

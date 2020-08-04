@@ -1,6 +1,6 @@
 {
   "name": "notion-ui",
-  "version": "0.2.17",
+  "version": "0.2.21",
   "keywords": [
     "ui",
     "notion"
@@ -11,9 +11,9 @@
     "copy-svgs": "copyfiles -f ../src/components/Icon/icons/*.svg dist/components/Icon/icons",
     "build": "yarn pre-build && rollup -c"
   },
-  "main": "index.js",
-  "module": "index.es.js",
-  "types": "types/index.d.ts",
+  "main": "build/index.js",
+  "module": "build/index.es.js",
+  "types": "build/types/index.d.ts",
   "devDependencies": {
     "@svgr/rollup": "^5.4.0",
     "copyfiles": "^2.3.0",
