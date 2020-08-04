@@ -1,6 +1,5 @@
 # npm
 node_modules/
-package.json
 
 # dev
 rollup.config.js
