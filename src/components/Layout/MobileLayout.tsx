@@ -1,5 +1,4 @@
 /** @jsx jsx */
-/** @jsxFrag React.Fragment */
 import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
 import {
@@ -107,7 +106,7 @@ function MobileMenuBar(props: MobileMenuBarProps): JSX.Element {
   );
 }
 
-const MenuBar = styled.nav`
+const MenuBar = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -115,15 +114,17 @@ const MenuBar = styled.nav`
   border-bottom: 1px solid ${colors.grey16};
 `;
 
-const LeftMenus = styled.div`
+const LeftMenus = styled.nav`
   display: flex;
   align-items: center;
   height: 100%;
 `;
-const RightMenus = styled.div`
+const RightMenus = styled.nav`
   display: flex;
   align-items: center;
+  justify-content: flex-end;
   height: 100%;
+  flex: 1;
 `;
 
 const ContentWrapper = styled.div``;

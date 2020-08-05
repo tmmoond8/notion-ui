@@ -1,5 +1,4 @@
 /** @jsx jsx */
-/** @jsxFrag React.Fragment */
 import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
 import { ReactNode, useContext } from 'react';
@@ -12,42 +11,39 @@ interface AppLayoutProps {
 
 export default function DesktopLayout(props: AppLayoutProps): JSX.Element {
   const { children } = props;
-  const { aside } = useContext(AppLayoutContext);
+  const { aside, leftMenus, rightMenus } = useContext(AppLayoutContext);
   return (
     <Layout>
       <Aside>{aside}</Aside>
       <ContentWrapper>
-        <DesktopMenuBar />
+        <MenuBar>
+          <LeftMenus>{leftMenus}</LeftMenus>
+          <RightMenus>{rightMenus}</RightMenus>
+        </MenuBar>
         {children}
       </ContentWrapper>
     </Layout>
   );
 }
 
-function DesktopMenuBar(): JSX.Element {
-  const { leftMenus, rightMenus } = useContext(AppLayoutContext);
-  return (
-    <MenuBar>
-      <LeftMenus>{leftMenus}</LeftMenus>
-      <RightMenus>{rightMenus}</RightMenus>
-    </MenuBar>
-  );
-}
-
-const MenuBar = styled.nav`
+const MenuBar = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
   height: 45px;
 `;
 
-const LeftMenus = styled.div`
+const LeftMenus = styled.nav`
   display: flex;
   align-items: center;
+  height: 100%;
 `;
-const RightMenus = styled.div`
+const RightMenus = styled.nav`
   display: flex;
   align-items: center;
+  justify-content: flex-end;
+  height: 100%;
+  flex: 1;
 `;
 
 const ContentWrapper = styled.div`

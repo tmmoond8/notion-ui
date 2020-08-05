@@ -1,6 +1,6 @@
 {
   "name": "notion-ui",
-  "version": "0.2.23",
+  "version": "0.2.32",
   "keywords": [
     "ui",
     "notion"
@@ -9,7 +9,8 @@
   "scripts": {
     "pre-build": "tsc -p tsconfig.json && yarn copy-svgs",
     "copy-svgs": "copyfiles -f ../src/components/Icon/icons/*.svg dist/components/Icon/icons",
-    "build": "yarn pre-build && rollup -c"
+    "build": "yarn pre-build && rollup -c",
+    "publish": "cd build && npm publish"
   },
   "main": "build/index.js",
   "module": "build/index.es.js",
