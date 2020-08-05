@@ -1,11 +1,7 @@
-/* eslint-disable prefer-destructuring */
 /* eslint-disable implicit-arrow-linebreak */
 import { css } from '@emotion/core';
-import { useState, useEffect } from 'react';
-import localStorage from '../libs/localStorage';
-import { Theme } from '../types/theme';
 
-const defaultColors = {
+export const defaultColors = {
   primary50: '#2eabdc',
   primary100: '#069bcd',
   primary200: '#008dbe',
@@ -24,7 +20,7 @@ const defaultColors = {
 
 export type Colors = Record<keyof typeof defaultColors, string>;
 
-const darkColors: Colors = {
+export const darkColors: Colors = {
   ...defaultColors,
   primary50: '#2eabdc',
   primary100: '#069bcd',
@@ -41,7 +37,7 @@ const darkColors: Colors = {
   background100: 'rgba(15, 15, 15, 0.3)',
 };
 
-const toCSS = (cssObject: object): string =>
+export const toCSS = (cssObject: object): string =>
   Object.entries(cssObject)
     .map(([key, value]) => `--notion-ui--${key}: ${value};`)
     .join('\n');
@@ -66,58 +62,6 @@ export const colorCss = css`
     }
   }
 `;
-
-const insertStyles = () => {
-  const styleEl = document.createElement('style');
-  styleEl.id = 'notion-ui-theme';
-  document.head.appendChild(styleEl);
-  const styleSheet: StyleSheet | null = styleEl.sheet;
-  if (styleSheet) {
-    // add default Theme color
-    const sheet = styleSheet as CSSStyleSheet;
-    sheet.insertRule(
-      `:root { ${toCSS(defaultColors)} }`,
-      sheet.cssRules.length,
-    );
-    // add dark Theme color
-    sheet.insertRule(
-      `@media (prefers-color-scheme: dark) :root { ${toCSS(darkColors)} }`,
-      sheet.cssRules.length,
-    );
-    sheet.insertRule(
-      `:root body.notion-body.dark { ${toCSS(darkColors)} }`,
-      sheet.cssRules.length,
-    );
-  }
-};
-
-export const loadTheme = () => {
-  const theme = localStorage.theme;
-  const bodyElement = document.querySelector('body');
-  if (!bodyElement) {
-    return;
-  }
-  if (theme === Theme.Dark) {
-    bodyElement.className += ' notion-body dark';
-  } else {
-    bodyElement.className += ' notion-body';
-  }
-};
-
-export const useTheme = () => {
-  const [initial, setInitial] = useState(false);
-  useEffect(() => {
-    if (!initial && window) {
-      if (document.querySelector('#notion-ui-theme')) {
-        setInitial(true);
-        return;
-      }
-      insertStyles();
-      loadTheme();
-      setInitial(true);
-    }
-  }, [initial, setInitial]);
-};
 
 export const colors: Colors = Object.keys(defaultColors).reduce(
   (accum, key) => ({ ...accum, [key]: `var(--notion-ui--${key})` }),

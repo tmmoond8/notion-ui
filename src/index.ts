@@ -5,5 +5,6 @@ export { default as Button } from './components/Button';
 export { default as Content } from './components/Content';
 export { default as Layout } from './components/Layout';
 export { default as Icon, IconButton } from './components/Icon';
-export { colors, colorCss, useTheme, loadTheme } from './styles';
+export { default as Switch } from './components/Switch';
+export { colors, colorCss, useTheme, loadTheme, toggleTheme } from './styles';
 export const { TextFiled } = _Input;

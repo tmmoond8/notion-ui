@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import { colors } from '../../styles';
 
 interface SwitchProps {
@@ -13,6 +13,9 @@ interface SwitchProps {
 export default function Switch(props: SwitchProps): JSX.Element {
   const { switchOn = false, onEvent, offEvent } = props;
   const [isOn, setIsOn] = useState(switchOn);
+  useEffect(() => {
+    setIsOn(switchOn);
+  }, [switchOn]);
   const handleToggle = useCallback(() => {
     setIsOn(!isOn);
     if (isOn && typeof offEvent === 'function') {

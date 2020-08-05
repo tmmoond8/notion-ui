@@ -1,3 +1,4 @@
-export { colors, colorCss, useTheme, loadTheme } from './colors';
+export { colors, colorCss } from './colors';
+export { useTheme, loadTheme, toggleTheme } from './theme';
 
 export { cssToReactStyle } from './utils';

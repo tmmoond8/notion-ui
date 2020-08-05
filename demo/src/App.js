@@ -1,9 +1,10 @@
 import React, { useEffect } from 'react';
 import styled from '@emotion/styled';
-import { useTheme, Content, Icon, Layout, IconButton } from 'notion-ui';
+import { useTheme, Content, Icon, Layout, IconButton, Switch, loadTheme } from 'notion-ui';
 
 function App() {
   useTheme();
+  loadTheme();
   useEffect(() => {
     console.log(window.parent.postMessage('abc'));
   }, [])
@@ -33,6 +34,7 @@ function App() {
       <ul>
         <li>menu1</li>
         <li>menu2</li>
+        <li>Dark Theme <Switch /></li>
       </ul>
     }
     >
