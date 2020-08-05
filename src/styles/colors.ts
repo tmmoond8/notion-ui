@@ -1,6 +1,9 @@
+/* eslint-disable prefer-destructuring */
 /* eslint-disable implicit-arrow-linebreak */
 import { css } from '@emotion/core';
 import { useState, useEffect } from 'react';
+import localStorage from '../libs/localStorage';
+import { Theme } from '../types/theme';
 
 const defaultColors = {
   primary50: '#2eabdc',
@@ -54,7 +57,7 @@ export const colorCss = css`
   }
   :root {
     body.notion-body {
-      ${toCSS(darkColors)}
+      ${toCSS(defaultColors)}
     }
   }
   :root {
@@ -64,6 +67,43 @@ export const colorCss = css`
   }
 `;
 
+const insertStyles = () => {
+  const styleEl = document.createElement('style');
+  styleEl.id = 'notion-ui-theme';
+  document.head.appendChild(styleEl);
+  const styleSheet: StyleSheet | null = styleEl.sheet;
+  if (styleSheet) {
+    // add default Theme color
+    const sheet = styleSheet as CSSStyleSheet;
+    sheet.insertRule(
+      `:root { ${toCSS(defaultColors)} }`,
+      sheet.cssRules.length,
+    );
+    // add dark Theme color
+    sheet.insertRule(
+      `@media (prefers-color-scheme: dark) :root { ${toCSS(darkColors)} }`,
+      sheet.cssRules.length,
+    );
+    sheet.insertRule(
+      `:root body.notion-body.dark { ${toCSS(darkColors)} }`,
+      sheet.cssRules.length,
+    );
+  }
+};
+
+export const loadTheme = () => {
+  const theme = localStorage.theme;
+  const bodyElement = document.querySelector('body');
+  if (!bodyElement) {
+    return;
+  }
+  if (theme === Theme.Dark) {
+    bodyElement.className += ' notion-body dark';
+  } else {
+    bodyElement.className += ' notion-body';
+  }
+};
+
 export const useTheme = () => {
   const [initial, setInitial] = useState(false);
   useEffect(() => {
@@ -72,31 +112,11 @@ export const useTheme = () => {
         setInitial(true);
         return;
       }
-
-      const styleEl = document.createElement('style');
-      styleEl.id = 'notion-ui-theme';
-      document.head.appendChild(styleEl);
-      const styleSheet: StyleSheet | null = styleEl.sheet;
-      if (styleSheet) {
-        // add default Theme color
-        const sheet = styleSheet as CSSStyleSheet;
-        sheet.insertRule(
-          `:root { ${toCSS(defaultColors)} }`,
-          sheet.cssRules.length,
-        );
-        // add dark Theme color
-        sheet.insertRule(
-          `@media (prefers-color-scheme: dark) :root { ${toCSS(darkColors)} }`,
-          sheet.cssRules.length,
-        );
-        sheet.insertRule(
-          `:root body.notion-body.dark { ${toCSS(darkColors)} }`,
-          sheet.cssRules.length,
-        );
-        setInitial(true);
-      }
+      insertStyles();
+      loadTheme();
+      setInitial(true);
     }
-  }, [initial]);
+  }, [initial, setInitial]);
 };
 
 export const colors: Colors = Object.keys(defaultColors).reduce(

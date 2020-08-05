@@ -118,10 +118,12 @@ const MenuBar = styled.nav`
 const LeftMenus = styled.div`
   display: flex;
   align-items: center;
+  height: 100%;
 `;
 const RightMenus = styled.div`
   display: flex;
   align-items: center;
+  height: 100%;
 `;
 
 const ContentWrapper = styled.div``;

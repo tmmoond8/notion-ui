@@ -1,3 +1,3 @@
-export { colors, colorCss, useTheme } from './colors';
+export { colors, colorCss, useTheme, loadTheme } from './colors';
 
 export { cssToReactStyle } from './utils';
