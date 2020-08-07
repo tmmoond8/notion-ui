@@ -2,8 +2,8 @@
 import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
 import { ReactNode, useContext } from 'react';
-import { colors } from '../../styles';
 import AppLayoutContext from './context';
+import Aside from '../Aside';
 
 interface AppLayoutProps {
   children: ReactNode;
@@ -14,7 +14,7 @@ export default function DesktopLayout(props: AppLayoutProps): JSX.Element {
   const { aside, leftMenus, rightMenus } = useContext(AppLayoutContext);
   return (
     <Layout>
-      <Aside>{aside}</Aside>
+      <Aside visible>{aside}</Aside>
       <ContentWrapper>
         <MenuBar>
           <LeftMenus>{leftMenus}</LeftMenus>
@@ -50,12 +50,7 @@ const ContentWrapper = styled.div`
   flex: 1;
   margin-left: 16px;
 `;
-const Aside = styled.aside`
-  height: 100%;
-  width: 240px;
-  min-width: 240px;
-  background-color: ${colors.backgroundAside};
-`;
+
 const Layout = styled.div`
   display: flex;
   position: fixed;

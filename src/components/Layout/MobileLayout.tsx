@@ -1,17 +1,11 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
-import {
-  ReactNode,
-  useState,
-  useCallback,
-  useEffect,
-  MouseEvent,
-  useContext,
-} from 'react';
+import { ReactNode, useState, useCallback, useEffect, useContext } from 'react';
 import { IconButton } from '../Icon';
 import { colors } from '../../styles';
 import AppLayoutContext from './context';
+import Aside from '../Aside';
 
 interface MobileLayoutProps {
   children: ReactNode;
@@ -46,9 +40,7 @@ function AsideMenu(props: { handleClose: () => void }): JSX.Element {
       setVisible(true);
     }, 50);
   }, [setVisible]);
-  const handlePreventDefault = (e: MouseEvent<HTMLElement>) => {
-    e.stopPropagation();
-  };
+
   const handleCloseWithAnimation = useCallback(() => {
     setVisible(false);
     setTimeout(() => {
@@ -58,9 +50,7 @@ function AsideMenu(props: { handleClose: () => void }): JSX.Element {
 
   return (
     <AsideWrapper visible={visible} onClick={handleCloseWithAnimation}>
-      <Aside visible={visible} onClick={handlePreventDefault}>
-        {aside}
-      </Aside>
+      <Aside visible={visible}>{aside}</Aside>
     </AsideWrapper>
   );
 }
@@ -128,17 +118,7 @@ const RightMenus = styled.nav`
 `;
 
 const ContentWrapper = styled.div``;
-const Aside = styled.aside<{ visible: boolean }>`
-  height: 100%;
-  min-width: 240px;
-  max-width: 320px;
-  background-color: ${colors.background};
-  transform: translateX(${p => (p.visible ? '0' : '-100%')});
-  transition: all 0.2s ease 0s;
-  box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px,
-    rgba(15, 15, 15, 0.2) 0px 3px 6px, rgba(15, 15, 15, 0.4) 0px 9px 24px;
-  overflow: hidden;
-`;
+
 const AsideWrapper = styled.div<{ visible: boolean }>`
   position: fixed;
   left: 0;
