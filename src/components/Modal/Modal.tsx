@@ -1,7 +1,15 @@
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import styled from '@emotion/styled';
-import { ReactNode, useState, useEffect, RefObject, forwardRef } from 'react';
+import {
+  ReactNode,
+  useState,
+  useEffect,
+  RefObject,
+  forwardRef,
+  useCallback,
+  MouseEvent,
+} from 'react';
 import cx from 'classnames';
 import Head from './Head';
 import { moreThan } from '../../styles/mediaQuery';
@@ -18,6 +26,14 @@ const Modal = forwardRef(
   (props: ModalProps, ref): JSX.Element => {
     const { className, title, handleClose } = props;
     const [open, setOpen] = useState<boolean>(false);
+    const handleClickWrapper = useCallback(
+      (e: MouseEvent<HTMLDivElement>) => {
+        if (e.target === e.currentTarget) {
+          handleClose();
+        }
+      },
+      [handleClose],
+    );
 
     useEffect(() => {
       if (!open) {
@@ -27,12 +43,11 @@ const Modal = forwardRef(
       }
     }, [title, open]);
     return (
-      <Wrapper>
-        <ModalBox
-          css={cx('NotionUiModal', className)}
-          open={open}
-          ref={ref as RefObject<HTMLDivElement>}
-        >
+      <Wrapper
+        onClick={handleClickWrapper}
+        className={cx('ModalWrapper', className)}
+      >
+        <ModalBox open={open} ref={ref as RefObject<HTMLDivElement>}>
           <Head title={title} handleClose={handleClose} />
           <ModalBody>sfdsfdsf</ModalBody>
         </ModalBox>
