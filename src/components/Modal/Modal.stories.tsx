@@ -1,7 +1,8 @@
 /* eslint-disable @typescript-eslint/camelcase */
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import Modal, { useModal } from '.';
+import { useModal } from '.';
+import Modal from './Modal';
 import Button from '../Button';
 
 export default {

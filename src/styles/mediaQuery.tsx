@@ -9,6 +9,15 @@ export const BreakPoints = {
   Desktop: 1440,
 };
 
+export const moreThan = (
+  minWidth: number,
+  style: SerializedStyles,
+): SerializedStyles => css`
+  @media (min-width: ${minWidth}px) {
+    ${style};
+  }
+`;
+
 export const desktop = (style: SerializedStyles): SerializedStyles => css`
   @media (min-width: ${BreakPoints.Tablet + 1}px) {
     ${style};
