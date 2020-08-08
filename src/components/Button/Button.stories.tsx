@@ -1,37 +1,39 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import { withKnobs, text, boolean } from '@storybook/addon-knobs';
-import ButtonBase from './ButtonBase';
+import Button from '.';
 
 export default {
   title: 'Button',
-  component: ButtonBase,
+  component: Button,
 };
 
 export const base = () => (
   <div>
     <p>primary</p>
-    <ButtonBase onClick={action('clicked')} buttonType="Primary">
+    <Button onClick={action('clicked')} buttonType="Primary">
       Primary
-    </ButtonBase>
+    </Button>
     <p>secondary</p>
-    <ButtonBase onClick={action('clicked')} buttonSize="Tiny">
+    <Button onClick={action('clicked')} buttonSize="Tiny">
       Tiny
-    </ButtonBase>
-    <ButtonBase onClick={action('clicked')} buttonSize="Small">
+    </Button>
+    <Button onClick={action('clicked')} buttonSize="Small">
       Small
-    </ButtonBase>
-    <ButtonBase onClick={action('clicked')}>Medium</ButtonBase>
-    <ButtonBase onClick={action('clicked')} buttonSize="Big">
+    </Button>
+    <Button onClick={action('clicked')}>Medium</Button>
+    <Button onClick={action('clicked')} buttonSize="Big">
       Big
-    </ButtonBase>
+    </Button>
+    <p>primary</p>
+    <Button onClick={action('clicked')} buttonType="PrimaryText">
+      Primary Text
+    </Button>
   </div>
 );
 
 export const knobs = () => (
-  <ButtonBase onClick={action('clicked')}>
-    {text('buttonText', 'button')}
-  </ButtonBase>
+  <Button onClick={action('clicked')}>{text('buttonText', 'button')}</Button>
 );
 
 knobs.story = {

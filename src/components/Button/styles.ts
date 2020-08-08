@@ -30,12 +30,6 @@ export const baseStyle = css`
   font-weight: 500;
   outline: none;
 
-  &:hover {
-    background-color: ${colors.grey08};
-  }
-  &:active {
-    background-color: ${colors.grey16};
-  }
   &::-moz-focus-inner {
     border-style: none;
   }
@@ -71,6 +65,13 @@ export const type = {
     }
     &:active {
       background-color: ${colors.primary200};
+    }
+  `,
+  PrimaryText: css`
+    color: ${colors.primary100};
+    font-weight: 500;
+    &:active {
+      opacity: 0.4;
     }
   `,
 };
