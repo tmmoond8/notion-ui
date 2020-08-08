@@ -15,7 +15,7 @@ import Head from './Head';
 import { moreThan } from '../../styles/mediaQuery';
 import { colors } from '../../styles';
 
-interface ModalProps {
+export interface ModalProps {
   className?: string;
   title: string;
   children: ReactNode;
@@ -46,6 +46,7 @@ const Modal = forwardRef(
       <Wrapper
         onClick={handleClickWrapper}
         className={cx('ModalWrapper', className)}
+        open={open}
       >
         <ModalBox open={open} ref={ref as RefObject<HTMLDivElement>}>
           <Head title={title} handleClose={handleClose} />
@@ -58,7 +59,7 @@ const Modal = forwardRef(
 
 export default Modal;
 
-const Wrapper = styled.div`
+const Wrapper = styled.div<{ open: boolean }>`
   position: fixed;
   left: 0;
   right: 0;
@@ -66,6 +67,8 @@ const Wrapper = styled.div`
   bottom: 0;
   margin: auto;
   overflow: hidden;
+  background-color: ${p => (p.open ? colors.modalDimmed : colors.notDimmed)};
+  transition: background-color 0.2s ease 0s;
 `;
 
 const ModalBox = styled.div<{ open: boolean }>`
@@ -97,5 +100,6 @@ const ModalBody = styled.div`
   flex: 1;
   background-color: ${colors.backgroundAside};
   padding: 16px 0;
+  color: ${colors.grey};
   overflow: scroll;
 `;

@@ -1,6 +1,6 @@
 {
   "name": "notion-ui-dev",
-  "version": "0.2.32",
+  "version": "0.2.33",
   "keywords": [
     "ui",
     "notion"
@@ -12,7 +12,7 @@
     "build-storybook": "build-storybook -s public",
     "lint": "eslint src/**/*.ts",
     "lint:fix": "eslint --fix src/**/*.ts",
-    "build:types": "tsc --emitDeclarationOnly"
+    "build:types": "tsc --emitDeclarationOnly "
   },
   "main": "build/index.js",
   "module": "build/index.es.js",
