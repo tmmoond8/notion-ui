@@ -32,6 +32,7 @@
     "emotion-normalize": "^10.1.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-lazy-load-image-component": "^1.5.0",
     "react-scripts": "3.4.1",
     "throttle-debounce": "^2.2.1",
     "typescript": "~3.7.2"
@@ -48,6 +49,7 @@
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",
     "@testing-library/user-event": "^7.1.2",
+    "@types/react-lazy-load-image-component": "^1.5.1",
     "@types/throttle-debounce": "^2.1.0",
     "eslint": "^7.1.0",
     "eslint-config-airbnb-typescript": "^7.2.1",
