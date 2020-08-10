@@ -74,6 +74,7 @@ function App() {
         <h1>a ddd</h1>
         <AB>babbab</AB>
         <Icon icon="hambugMenu"/>
+        {new Array(100).fill(null).map((_, index) => <p key={index}>test</p>)}
       </div>
     </Layout.App>
   );
