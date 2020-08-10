@@ -20,6 +20,10 @@ export const Embed = () => (
   </div>
 );
 
+const Contents = new Array(100)
+  .fill(null)
+  .map((_, index) => <p>{`test ${index}`}</p>);
+
 export const App = () => (
   <AppLayout
     leftMenus={<>Untiltled</>}
@@ -54,7 +58,7 @@ export const App = () => (
     handleGoBack={action('go back')}
     handleGoNext={action('go next')}
   >
-    Contents
+    {Contents}
   </AppLayout>
 );
 
@@ -89,7 +93,7 @@ export const Mobile$DEV = () => (
       aside: <p>asdie menue</p>,
     }}
   >
-    <MobileLayout>Primary</MobileLayout>
+    <MobileLayout>{Contents}</MobileLayout>
   </AppLayoutContext.Provider>
 );
 
@@ -113,6 +117,6 @@ export const Desktop$DEV = () => (
       aside: <p>asdie menue</p>,
     }}
   >
-    <DesktopLayout>Primary</DesktopLayout>
+    <DesktopLayout>{Contents}</DesktopLayout>
   </AppLayoutContext.Provider>
 );

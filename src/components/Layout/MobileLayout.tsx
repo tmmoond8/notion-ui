@@ -6,6 +6,7 @@ import { IconButton } from '../Icon';
 import { colors } from '../../styles';
 import AppLayoutContext from './context';
 import Aside from '../Aside';
+import { useNoScrollOutside } from './hooks';
 
 interface MobileLayoutProps {
   children: ReactNode;
@@ -20,13 +21,14 @@ export default function MoibleLayout(props: MobileLayoutProps): JSX.Element {
   const handleClose = useCallback(() => {
     setOpen(false);
   }, [setOpen]);
+
+  useNoScrollOutside();
+
   return (
     <Layout>
       {open && <AsideMenu handleClose={handleClose} />}
-      <ContentWrapper>
-        <MobileMenuBar handleOpen={handleOpen} />
-        {children}
-      </ContentWrapper>
+      <MobileMenuBar handleOpen={handleOpen} />
+      <ContentWrapper>{children}</ContentWrapper>
     </Layout>
   );
 }
@@ -97,11 +99,16 @@ function MobileMenuBar(props: MobileMenuBarProps): JSX.Element {
 }
 
 const MenuBar = styled.header`
+  position: fixed;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
   height: 44px;
+  top: 0;
+  left: 0;
   border-bottom: 1px solid ${colors.grey16};
+  background-color: ${colors.background};
 `;
 
 const LeftMenus = styled.nav`
@@ -117,7 +124,15 @@ const RightMenus = styled.nav`
   flex: 1;
 `;
 
-const ContentWrapper = styled.div``;
+const ContentWrapper = styled.div`
+  position: fixed;
+  top: 44px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  overflow: scroll;
+`;
 
 const AsideWrapper = styled.div<{ visible: boolean }>`
   position: fixed;
@@ -130,4 +145,7 @@ const AsideWrapper = styled.div<{ visible: boolean }>`
   transition: all 0.2s ease 0s;
   z-index: 1000;
 `;
-const Layout = styled.div``;
+
+const Layout = styled.div`
+  overflow: hidden;
+`;

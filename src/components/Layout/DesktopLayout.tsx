@@ -4,6 +4,7 @@ import styled from '@emotion/styled';
 import { ReactNode, useContext } from 'react';
 import AppLayoutContext from './context';
 import Aside from '../Aside';
+import { useNoScrollOutside } from './hooks';
 
 interface AppLayoutProps {
   children: ReactNode;
@@ -12,22 +13,28 @@ interface AppLayoutProps {
 export default function DesktopLayout(props: AppLayoutProps): JSX.Element {
   const { children } = props;
   const { aside, leftMenus, rightMenus } = useContext(AppLayoutContext);
+  useNoScrollOutside();
+
   return (
     <Layout>
       <Aside visible>{aside}</Aside>
-      <ContentWrapper>
-        <MenuBar>
-          <LeftMenus>{leftMenus}</LeftMenus>
-          <RightMenus>{rightMenus}</RightMenus>
-        </MenuBar>
-        {children}
-      </ContentWrapper>
+      <MenuBar>
+        <LeftMenus>{leftMenus}</LeftMenus>
+        <RightMenus>{rightMenus}</RightMenus>
+      </MenuBar>
+      <ContentWrapper>{children}</ContentWrapper>
     </Layout>
   );
 }
 
+const asideWith = 240;
+
 const MenuBar = styled.header`
+  position: fixed;
+  top: 0;
+  right: 0;
   display: flex;
+  width: calc(100vw - ${asideWith}px);
   align-items: center;
   justify-content: space-between;
   height: 45px;
@@ -48,7 +55,8 @@ const RightMenus = styled.nav`
 
 const ContentWrapper = styled.div`
   flex: 1;
-  margin-left: 16px;
+  margin: 44px 0 0 16px;
+  overflow: auto;
 `;
 
 const Layout = styled.div`
@@ -59,4 +67,5 @@ const Layout = styled.div`
   top: 0;
   bottom: 0;
   margin: auto;
+  overflow: hidden;
 `;
