@@ -17,3 +17,14 @@ export const AsideDefault = (): JSX.Element => {
     </Aside>
   );
 };
+
+export const AsideNotOpened = (): JSX.Element => {
+  return (
+    <Aside visible>
+      <Aside.Group title="메뉴 그룹" open={false}>
+        <Aside.Menu title="react" handleClick={action('react clicked')} />
+        <Aside.Menu title="vue" handleClick={action('vue clicked')} />
+      </Aside.Group>
+    </Aside>
+  );
+};

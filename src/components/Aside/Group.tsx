@@ -7,12 +7,13 @@ import { colors } from '../../styles';
 interface AsideGroupProps {
   title: string;
   children: ReactNode;
+  open?: boolean;
 }
 
 export default function AsideGroup(props: AsideGroupProps): JSX.Element {
-  const { title, children } = props;
+  const { title, children, open = true } = props;
   return (
-    <Details>
+    <Details open={open}>
       <Summary>{title}</Summary>
       <Contents>{children}</Contents>
     </Details>
