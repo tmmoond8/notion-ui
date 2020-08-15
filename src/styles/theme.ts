@@ -3,28 +3,21 @@ import { useState, useEffect } from 'react';
 import { toCSS, defaultColors, darkColors } from './colors';
 import { Theme } from '../types/theme';
 import localStorage from '../libs/localStorage';
+import { addCssRule } from '../libs/utils';
 
 const insertStyles = () => {
   const styleEl = document.createElement('style');
   styleEl.id = 'notion-ui-theme';
-  document.head.appendChild(styleEl);
-  const styleSheet: StyleSheet | null = styleEl.sheet;
-  if (styleSheet) {
-    // add default Theme color
-    const sheet = styleSheet as CSSStyleSheet;
-    sheet.insertRule(
-      `:root { ${toCSS(defaultColors)} }`,
-      sheet.cssRules.length,
-    );
-    // add dark Theme color
-    sheet.insertRule(
+  // const styleSheet = styleEl.sheet;
+  if (styleEl) {
+    addCssRule(styleEl, `:root { ${toCSS(defaultColors)} }`);
+    addCssRule(
+      styleEl,
       `@media (prefers-color-scheme: dark) :root { ${toCSS(darkColors)} }`,
-      sheet.cssRules.length,
     );
-    sheet.insertRule(
-      `:root body.notion-body.dark { ${toCSS(darkColors)} }`,
-      sheet.cssRules.length,
-    );
+    addCssRule(styleEl, `:root body.notion-body.dark { ${toCSS(darkColors)} }`);
+
+    document.head.appendChild(styleEl);
   }
 };
 
