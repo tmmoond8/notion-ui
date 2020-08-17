@@ -12,6 +12,8 @@ export const base = css`
 `;
 
 export const customStyle = (p: { color?: string }): SerializedStyles => css`
+  color: currentColor;
+  fill: currentColor;
   ${p.color && `fill: ${p.color};`}
 `;
 
