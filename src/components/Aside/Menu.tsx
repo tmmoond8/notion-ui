@@ -3,6 +3,7 @@ import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
 import { ReactNode } from 'react';
 import { colors } from '../../styles';
+import { MenuHeight } from './constants';
 
 interface MenuProps {
   title: string;
@@ -27,7 +28,7 @@ export default function Menu(props: MenuProps): JSX.Element {
 const Item = styled.li`
   display: flex;
   align-items: center;
-  height: 27px;
+  height: ${MenuHeight}px;
   margin: 0;
   padding: 0 14px 0 32px;
   color: ${colors.grey60};

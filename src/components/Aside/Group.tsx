@@ -1,21 +1,26 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
-import { ReactNode } from 'react';
+import { ReactNode, useMemo } from 'react';
 import { colors } from '../../styles';
+import { MenuHeight } from './constants';
 
 interface AsideGroupProps {
   title: string;
   children: ReactNode;
   open?: boolean;
+  max?: number;
 }
 
 export default function AsideGroup(props: AsideGroupProps): JSX.Element {
-  const { title, children, open = true } = props;
+  const { title, children, open = true, max } = props;
+  const contentMaxHeight = useMemo(() => {
+    return max === undefined ? 'auto' : `${max * MenuHeight}px`;
+  }, [max]);
   return (
     <Details open={open}>
       <Summary>{title}</Summary>
-      <Contents>{children}</Contents>
+      <Contents maxHeight={contentMaxHeight}>{children}</Contents>
     </Details>
   );
 }
@@ -40,8 +45,10 @@ const Summary = styled.summary`
   }
   box-sizing: border-box;
 `;
-const Contents = styled.ul`
+const Contents = styled.ul<{ maxHeight: string }>`
+  max-height: ${p => p.maxHeight};
   margin: 0;
   padding: 0;
+  overflow-y: auto;
   list-style: none;
 `;
