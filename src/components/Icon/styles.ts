@@ -19,36 +19,42 @@ export const customStyle = (p: { color?: string }): SerializedStyles => css`
 
 export const size = {
   Tiny: css`
+    width: 12px;
     min-height: 12px;
     & > svg {
       width: 12px;
     }
   `,
   Small: css`
+    width: 14px;
     min-height: 14px;
     & > svg {
       width: 14px;
     }
   `,
   Normal: css`
+    width: 16px;
     min-height: 16px;
     & > svg {
       width: 16px;
     }
   `,
   Big: css`
+    width: 18px;
     min-height: 18px;
     & > svg {
       width: 18px;
     }
   `,
   Huge: css`
+    width: 20px;
     min-height: 20px;
     & > svg {
       width: 20px;
     }
   `,
   Default: css`
+    width: 1em;
     min-height: 1em;
     & > svg {
       width: 1em;

@@ -1,7 +1,7 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import Icon, { IconButton } from '.';
 import { action } from '@storybook/addon-actions';
+import Icon, { IconButton } from '.';
 
 export default {
   title: 'Icon',
@@ -20,6 +20,8 @@ export const size = () => (
     <Icon icon="hambugMenu" size="Normal" className="HambugIcon" />
     <p>big 18px</p>
     <Icon icon="hambugMenu" size="Big" className="HambugIcon" />
+    <p>huge 20px</p>
+    <Icon icon="hambugMenu" size="Huge" className="HambugIcon" />
   </div>
 );
 
@@ -186,6 +188,10 @@ export const iconTypes = () => (
     <IconPack>
       <Icon icon="undo" size="Huge" className="undoIcon" />
       <p>undo</p>
+    </IconPack>
+    <IconPack>
+      <Icon icon="loading" size="Huge" className="loadingIcon" />
+      <p>loading</p>
     </IconPack>
   </div>
 );

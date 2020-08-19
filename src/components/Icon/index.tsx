@@ -18,7 +18,7 @@ export type IconProps = {
   icon: IconType;
   /** icon color */
   color?: string;
-  /** icon size ('tiny' = 12px, 'small' = '14px', 'normal' = '16px', 'big' = '18px') */
+  /** icon size ('Tiny' = 12px, 'Small' = '14px', 'Normal' = '16px', 'Big' = '18px') */
   size?: IconSize;
   className?: string;
 };
@@ -37,7 +37,7 @@ export default function Icon(props: IconProps): JSX.Element {
   return (
     <SVGIcon
       css={[styles.base, customStyle, styles.size[size]]}
-      className={cx('Icon', className)}
+      className={cx('Icon', `Size-${size}`, className)}
     />
   );
 }
