@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react';
-import { css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { useTheme, Content, Icon, Layout, IconButton, Switch, loadTheme, Aside, toggleTheme, useModal } from 'notion-ui';
 

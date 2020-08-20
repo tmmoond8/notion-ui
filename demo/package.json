@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
+    "emotion-reset": "^2.0.7",
     "notion-ui": "file:../core/build",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",

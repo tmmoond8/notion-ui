@@ -1,10 +1,15 @@
+/** @jsx jsx */
+import { jsx, Global } from '@emotion/core';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
+import emotionReset from 'emotion-reset';
+import { colorCss } from 'notion-ui';
 import App from './App';
+
 
 ReactDOM.render(
   <React.StrictMode>
+    <Global styles={[emotionReset, colorCss]} />
     <App />
   </React.StrictMode>,
   document.getElementById('root')
