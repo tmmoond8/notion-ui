@@ -29,8 +29,8 @@ const StyledAside = styled.aside<{ visible: boolean }>`
   background-color: ${colors.backgroundAside};
   transform: translateX(${p => (p.visible ? '0' : '-100%')});
   transition: all 0.2s ease 0s;
-  box-shadow: rgba(15, 15, 15, 0.1) 0px 0px 0px 1px,
-    rgba(15, 15, 15, 0.2) 0px 3px 6px, rgba(15, 15, 15, 0.4) 0px 9px 24px;
+  box-shadow: rgba(15, 15, 15, 0.025) 0px 0px 0px 1px,
+    rgba(15, 15, 15, 0.05) 0px 3px 6px, rgba(15, 15, 15, 0.1) 0px 9px 24px;
   overflow: hidden;
 `;
 
