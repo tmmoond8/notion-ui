@@ -39,6 +39,7 @@ const MenuBar = styled.header`
   width: calc(100vw - ${asideWith}px);
   height: 45px;
   padding: 0 12px;
+  box-sizing: border-box;
 `;
 
 const LeftMenus = styled.nav`
