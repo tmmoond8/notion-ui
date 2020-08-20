@@ -107,7 +107,8 @@ const MenuBar = styled.header`
   height: 44px;
   top: 0;
   left: 0;
-  border-bottom: 1px solid ${colors.grey16};
+  padding: 0 4px;
+  box-shadow: ${colors.grey16} 0px 1px 0px;
   background-color: ${colors.background};
 `;
 
