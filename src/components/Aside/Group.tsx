@@ -25,7 +25,9 @@ export default function AsideGroup(props: AsideGroupProps): JSX.Element {
   );
 }
 
-const Details = styled.details``;
+const Details = styled.details`
+  margin: 20px 0 0 0;
+`;
 const Summary = styled.summary`
   display: flex;
   height: 24px;
@@ -47,7 +49,6 @@ const Summary = styled.summary`
 `;
 const Contents = styled.ul<{ maxHeight: string }>`
   max-height: ${p => p.maxHeight};
-  margin: 20px 0 0 0;
   padding: 0;
   overflow-y: auto;
   list-style: none;
