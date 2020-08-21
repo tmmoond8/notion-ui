@@ -57,7 +57,7 @@ const RightMenus = styled.nav`
 
 const ContentWrapper = styled.div`
   flex: 1;
-  margin: 44px 0 0 16px;
+  margin: 44px 0 0 0;
   overflow: auto;
 `;
 

@@ -3,13 +3,14 @@ import { jsx } from '@emotion/core';
 import cx from 'classnames';
 import * as icons from './icons';
 import * as styles from './styles';
+import Enum from '../../types/enum';
 
 export { default as IconButton } from './IconButton';
 
 type IconType = keyof typeof icons;
-// type IconSize = 'tiny' | 'small' | 'normal' | 'big' | 'huge';
 
-export type IconSize = 'Tiny' | 'Small' | 'Normal' | 'Big' | 'Huge' | 'Default';
+// type IconSize = 'Tiny' | 'Small' | 'Normal' | 'Big' | 'Huge' | 'Default';
+export type IconSize = typeof Enum.IconSize[keyof typeof Enum.IconSize];
 
 export const iconTypes: IconType[] = Object.keys(icons) as any[]; // for storybook
 
@@ -18,7 +19,7 @@ export type IconProps = {
   icon: IconType;
   /** icon color */
   color?: string;
-  /** icon size ('Tiny' = 12px, 'Small' = '14px', 'Normal' = '16px', 'Big' = '18px') */
+  /** icon size ('Default' = 1em, 'Tiny' = 12px, 'Small' = '14px', 'Normal' = '16px', 'Big' = '18px', 'Huge' = '20px') */
   size?: IconSize;
   className?: string;
 };

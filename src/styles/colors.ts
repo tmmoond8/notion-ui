@@ -17,8 +17,8 @@ export const defaultColors = {
   background100: 'rgba(242, 241, 238, 0.6)',
   dimmed: 'rgba(47, 52, 55, 0.4)',
   notDimmed: 'rgba(47, 52, 55, 0)',
-
   modalDimmed: 'rgba(15, 15, 15, 0.6)',
+  transparent: 'transparent',
 };
 
 export type Colors = Record<keyof typeof defaultColors, string>;
