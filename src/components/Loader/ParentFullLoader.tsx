@@ -1,8 +1,9 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
-import { useRef, useEffect, useState, RefObject } from 'react';
+import { useRef, useLayoutEffect, useEffect, useState, RefObject } from 'react';
 import cx from 'classnames';
+import debounce from 'lodash.debounce';
 import { LoaderProps } from './Loader';
 import { colors } from '../../styles';
 import Enum from '../../types/enum';
@@ -22,21 +23,39 @@ const useParentSize = (ref: RefObject<HTMLDivElement>): WrapperSize => {
     width: 0,
     height: 0,
   });
-  const [init, setInit] = useState(false);
 
   useEffect(() => {
-    if (init === false && ref.current) {
-      const { width = 0, height = 0, left = -9999, top = 0 } =
-        ref.current.parentElement?.getBoundingClientRect() ?? {};
-      setWrapperSize({
-        top,
-        left,
-        width,
-        height,
-      });
-      setInit(true);
-    }
-  }, [ref, init]);
+    const { width = 0, height = 0, left = -9999, top = 0 } =
+      ref.current?.parentElement?.getBoundingClientRect() ?? {};
+    setWrapperSize({
+      top,
+      left,
+      width,
+      height,
+    });
+  }, [ref]);
+
+  useLayoutEffect(() => {
+    const resizeEvent = debounce(() => {
+      console.log('useLayoutEffect');
+      if (ref.current) {
+        const { width = 0, height = 0, left = -9999, top = 0 } =
+          ref.current?.parentElement?.getBoundingClientRect() ?? {};
+        setWrapperSize({
+          top,
+          left,
+          width,
+          height,
+        });
+      }
+    }, 300);
+
+    window.addEventListener('resize', resizeEvent);
+    return () => {
+      window.removeEventListener('resize', resizeEvent);
+    };
+  }, [ref]);
+
   return {
     top: wrapperSize.top,
     left: wrapperSize.left,
