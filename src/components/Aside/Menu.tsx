@@ -20,7 +20,7 @@ export default function Menu(props: MenuProps): JSX.Element {
       {icon && icon}
       {iconUrl && <IconImg src={iconUrl} alt={title} />}
       {emoji && <Emoji>{emoji}</Emoji>}
-      <span>{title}</span>
+      <Text>{title}</Text>
     </Item>
   );
 }
@@ -52,4 +52,10 @@ const IconImg = styled.img`
 const Emoji = styled.span`
   width: 17.5px;
   color: black;
+`;
+
+const Text = styled.span`
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 `;
