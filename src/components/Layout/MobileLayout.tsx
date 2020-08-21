@@ -144,7 +144,7 @@ const AsideWrapper = styled.div<{ visible: boolean }>`
   margin: auto;
   background-color: ${p => (p.visible ? colors.dimmed : colors.notDimmed)};
   transition: all 0.2s ease 0s;
-  z-index: 1000;
+  z-index: 500;
 `;
 
 const Layout = styled.div`

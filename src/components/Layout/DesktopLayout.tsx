@@ -27,8 +27,6 @@ export default function DesktopLayout(props: AppLayoutProps): JSX.Element {
   );
 }
 
-const asideWith = 240;
-
 const MenuBar = styled.header`
   position: fixed;
   top: 0;
@@ -36,7 +34,7 @@ const MenuBar = styled.header`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: calc(100vw - ${asideWith}px);
+  width: calc(100vw - 240px);
   height: 45px;
   padding: 0 12px;
   box-sizing: border-box;
@@ -70,4 +68,5 @@ const Layout = styled.div`
   display: flex;
   margin: auto;
   overflow: hidden;
+  z-index: 500;
 `;
