@@ -68,5 +68,4 @@ const Layout = styled.div`
   display: flex;
   margin: auto;
   overflow: hidden;
-  z-index: 500;
 `;
