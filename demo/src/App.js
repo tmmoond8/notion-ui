@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import styled from '@emotion/styled';
-import { useTheme, Content, Icon, Layout, IconButton, Switch, loadTheme, Aside, toggleTheme, useModal } from 'notion-ui';
+import { useTheme, Content, Icon, Layout, IconButton, Switch, loadTheme, Aside, toggleTheme, useModal, Loader } from 'notion-ui';
 
 function App() {
   useTheme();
@@ -66,6 +66,9 @@ function App() {
             offEvent={toggleTheme}
           />
         </div>
+        <LoaddingWrapper>
+          <Loader.ParentFull backgroundColor='grey'/>
+        </LoaddingWrapper>
       </>
     }
     >
@@ -95,3 +98,8 @@ const Margin = (props) => {
   }}/>
 
 }
+
+const LoaddingWrapper = styled.div`
+  width: 100%;
+  height: 80px;
+`;
