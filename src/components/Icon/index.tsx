@@ -10,7 +10,7 @@ export { default as IconButton } from './IconButton';
 type IconType = keyof typeof icons;
 
 // type IconSize = 'Tiny' | 'Small' | 'Normal' | 'Big' | 'Huge' | 'Default';
-export type IconSize = typeof Enum.IconSize[keyof typeof Enum.IconSize];
+export type IconSize = keyof typeof Enum.IconSize;
 
 export const iconTypes: IconType[] = Object.keys(icons) as any[]; // for storybook
 
