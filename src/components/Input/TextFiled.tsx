@@ -1,11 +1,13 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import { ChangeEvent, useState, useMemo, useRef, useEffect } from 'react';
+import cx from 'classnames';
 import * as styles from './styles';
 
 export type Variant = 'Default' | 'Filled' | 'Outlined';
 
 interface TextFieldProps {
+  className?: string;
   id: string;
   label?: string;
   variant?: Variant;
@@ -24,6 +26,7 @@ export default function TextFiled(props: TextFieldProps): JSX.Element {
     value = '',
     onChange,
     errorMessage,
+    className,
   } = props;
   const [isFocus, setFocus] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -56,7 +59,7 @@ export default function TextFiled(props: TextFieldProps): JSX.Element {
   }, [inputRef]);
 
   return (
-    <div css={styles.textFiled.wrapper}>
+    <div css={styles.textFiled.wrapper} className={cx('TextFiled', className)}>
       {label && <label htmlFor={id}>{label}</label>}
       <div css={[styles.textFiled.default, ...stateStyle, variantStyle]}>
         <input
