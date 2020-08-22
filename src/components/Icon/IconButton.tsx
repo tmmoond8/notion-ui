@@ -1,10 +1,9 @@
 /** @jsx jsx */
-import { jsx, css, SerializedStyles } from '@emotion/core';
-import { MouseEventHandler, useMemo, useCallback, MouseEvent } from 'react';
+import { jsx } from '@emotion/core';
+import { MouseEventHandler, useCallback, MouseEvent } from 'react';
 import classnames from 'classnames';
-import Button from '../Button';
-import Icon, { IconProps, IconSize } from '.';
-import * as styles from './styles';
+import Button, { ButtonSize } from '../Button';
+import Icon, { IconProps } from '.';
 
 interface IconButtonProps extends IconProps {
   className?: string;
@@ -12,27 +11,23 @@ interface IconButtonProps extends IconProps {
   disabled?: boolean;
 }
 
-const useSizeStyle = (iconSize: IconSize): SerializedStyles => {
-  const sizeStyle = useMemo(() => styles.size[iconSize], [iconSize]);
-  return sizeStyle;
-};
-const useDiabledStyle = (isDisabled: boolean): SerializedStyles => {
-  const disabledStyle = useMemo(() => (isDisabled ? styles.disabled : css``), [
-    isDisabled,
-  ]);
-  return disabledStyle;
+const SIZE_MAP = {
+  Tiny: 'Tiny' as ButtonSize,
+  Small: 'Small' as ButtonSize,
+  Normal: 'Medium' as ButtonSize,
+  Big: 'Big' as ButtonSize,
+  Huge: 'Big' as ButtonSize,
+  Default: 'Medium' as ButtonSize,
 };
 
 export default function IconButton(props: IconButtonProps): JSX.Element {
   const {
-    className = '',
+    className,
     onClick,
     disabled = false,
     icon,
     size = 'Default',
   } = props;
-  const sizeStyle = useSizeStyle(size);
-  const disabledStyle = useDiabledStyle(disabled);
   const handleClick = useCallback(
     (event: MouseEvent<Element>): void => {
       if (!disabled && typeof onClick === 'function') {
@@ -46,7 +41,8 @@ export default function IconButton(props: IconButtonProps): JSX.Element {
     <Button
       onClick={handleClick}
       className={classnames('IconButton', className)}
-      style={[styles.iconButton, sizeStyle, disabledStyle]}
+      buttonSize={SIZE_MAP[size]}
+      disabled={disabled}
     >
       <Icon icon={icon} size={size} />
     </Button>

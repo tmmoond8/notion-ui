@@ -3,19 +3,19 @@ import { jsx, SerializedStyles } from '@emotion/core';
 import { ReactNode, MouseEventHandler, useMemo } from 'react';
 import classnames from 'classnames';
 import * as styles from './styles';
+import Enum from '../../types/enum';
 
-export type ButtonType = 'Default' | 'Primary' | 'PrimaryText';
+export type ButtonType = keyof typeof Enum.ButtonType;
 
-export type ButtonSize = 'Tiny' | 'Small' | 'Medium' | 'Big';
+export type ButtonSize = keyof typeof Enum.ButtonSize;
 
 interface ButtonProps {
-  children: ReactNode;
   className?: string;
+  children: ReactNode;
   onClick: MouseEventHandler;
   buttonType?: ButtonType;
   buttonSize?: ButtonSize;
   disabled?: boolean;
-  style?: SerializedStyles[];
 }
 
 const useSizeStyle = (buttonSize: ButtonSize): SerializedStyles => {
@@ -28,25 +28,29 @@ const useTypeStyle = (buttonType: ButtonType): SerializedStyles => {
   return typeStyle;
 };
 
+const useDisabledStyle = (disabled: boolean): SerializedStyles | null => {
+  return disabled ? styles.disabled : null;
+};
+
 export default function Button(props: ButtonProps): JSX.Element {
   const {
     children,
-    className = '',
+    className,
     onClick,
     disabled = false,
     buttonType = 'Default',
     buttonSize = 'Medium',
-    style = [],
   } = props;
   const sizeStyle = useSizeStyle(buttonSize);
   const typeStyle = useTypeStyle(buttonType);
+  const disabledStyle = useDisabledStyle(disabled);
 
   return (
     <button
       onClick={onClick}
       className={classnames('Button', className)}
       type="button"
-      css={[styles.baseStyle, sizeStyle, typeStyle, ...style]}
+      css={[styles.baseStyle, sizeStyle, typeStyle, disabledStyle]}
     >
       {children}
     </button>

@@ -14,6 +14,12 @@ export const base = () => (
     <Button onClick={action('clicked')} buttonType="Primary">
       Primary
     </Button>
+
+    <p>primary disabled</p>
+    <Button onClick={action('clicked')} buttonType="Primary" disabled>
+      Primary
+    </Button>
+
     <p>secondary</p>
     <Button onClick={action('clicked')} buttonSize="Tiny">
       Tiny
@@ -25,8 +31,19 @@ export const base = () => (
     <Button onClick={action('clicked')} buttonSize="Big">
       Big
     </Button>
-    <p>primary</p>
+
+    <p>secondary disabled</p>
+    <Button onClick={action('clicked')} buttonSize="Big" disabled>
+      Big
+    </Button>
+
+    <p>primary text</p>
     <Button onClick={action('clicked')} buttonType="PrimaryText">
+      Primary Text
+    </Button>
+
+    <p>primary text disabled</p>
+    <Button onClick={action('clicked')} buttonType="PrimaryText" disabled>
       Primary Text
     </Button>
   </div>

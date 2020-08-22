@@ -33,10 +33,6 @@ export const baseStyle = css`
   &::-moz-focus-inner {
     border-style: none;
   }
-  /* disabled {
-      pointerEvents: none;
-      cursor: default;
-    } */
   @media print {
     color-adjust: exact;
   }
@@ -102,3 +98,9 @@ export const size = {
     padding: 0 8px;
   `,
 };
+
+export const disabled = css`
+  opacity: 0.4;
+  pointer-events: none;
+  cursor: default;
+`;
