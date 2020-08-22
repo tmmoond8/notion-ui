@@ -28,8 +28,6 @@ export const baseStyle = css`
   padding: 0 8px;
   font-size: 14px;
   font-weight: 500;
-  font-family: 'Inter', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
-    'Segoe UI Emoji', 'Segoe UI Symbol';
   outline: none;
 
   &::-moz-focus-inner {

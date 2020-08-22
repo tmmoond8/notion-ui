@@ -42,8 +42,6 @@ const Summary = styled.summary`
   color: ${colors.grey40};
   line-height: 24px;
   font-weight: 600;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica,
-    'Apple Color Emoji', Arial, sans-serif, 'Segoe UI Emoji', 'Segoe UI Symbol';
   cursor: pointer;
   outline: none;
   &::-webkit-details-marker {

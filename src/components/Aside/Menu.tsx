@@ -60,6 +60,4 @@ const Text = styled.span`
   text-overflow: ellipsis;
   overflow: hidden;
   white-space: nowrap;
-  font-family: 'Inter', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
-    'Segoe UI Emoji', 'Segoe UI Symbol';
 `;

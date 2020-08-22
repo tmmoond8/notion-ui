@@ -38,8 +38,6 @@ const StyledAside = styled.aside<{ visible: boolean }>`
   box-shadow: rgba(15, 15, 15, 0.025) 0px 0px 0px 1px,
     rgba(15, 15, 15, 0.05) 0px 3px 6px, rgba(15, 15, 15, 0.1) 0px 9px 24px;
   overflow: hidden;
-  font-family: 'Inter', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
-    'Segoe UI Emoji', 'Segoe UI Symbol';
   z-index: 500;
 `;
 

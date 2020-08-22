@@ -9,8 +9,6 @@ export const textFiled = {
       color: ${colors.grey60};
       font-weight: 500;
     }
-    font-family: 'Inter', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
-      'Segoe UI Emoji', 'Segoe UI Symbol';
   `,
   default: css`
     display: flex;
