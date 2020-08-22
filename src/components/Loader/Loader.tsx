@@ -7,8 +7,8 @@ import Enum from '../../types/enum';
 import { colors } from '../../styles';
 
 export interface LoaderProps {
-  backgroundColor?: string;
   className?: string;
+  backgroundColor?: string;
   size?: IconSize;
 }
 

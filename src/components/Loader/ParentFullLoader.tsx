@@ -37,7 +37,6 @@ const useParentSize = (ref: RefObject<HTMLDivElement>): WrapperSize => {
 
   useLayoutEffect(() => {
     const resizeEvent = debounce(() => {
-      console.log('useLayoutEffect');
       if (ref.current) {
         const { width = 0, height = 0, left = -9999, top = 0 } =
           ref.current?.parentElement?.getBoundingClientRect() ?? {};
