@@ -2,21 +2,23 @@
 import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
 import { ReactNode, useContext } from 'react';
+import cx from 'classnames';
 import AppLayoutContext from './context';
 import Aside from '../Aside';
 import { useNoScrollOutside } from './hooks';
 
 interface AppLayoutProps {
+  className?: string;
   children: ReactNode;
 }
 
 export default function DesktopLayout(props: AppLayoutProps): JSX.Element {
-  const { children } = props;
+  const { children, className } = props;
   const { aside, leftMenus, rightMenus } = useContext(AppLayoutContext);
   useNoScrollOutside();
 
   return (
-    <Layout>
+    <Layout className={cx('DesktopLayout', className)}>
       <Aside visible>{aside}</Aside>
       <MenuBar>
         <LeftMenus>{leftMenus}</LeftMenus>

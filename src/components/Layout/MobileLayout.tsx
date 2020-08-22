@@ -2,6 +2,7 @@
 import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
 import { ReactNode, useState, useCallback, useEffect, useContext } from 'react';
+import cx from 'classnames';
 import { IconButton } from '../Icon';
 import { colors } from '../../styles';
 import AppLayoutContext from './context';
@@ -9,11 +10,12 @@ import Aside from '../Aside';
 import { useNoScrollOutside } from './hooks';
 
 interface MobileLayoutProps {
+  className?: string;
   children: ReactNode;
 }
 
 export default function MoibleLayout(props: MobileLayoutProps): JSX.Element {
-  const { children } = props;
+  const { children, className } = props;
   const [open, setOpen] = useState(false);
   const handleOpen = useCallback(() => {
     setOpen(true);
@@ -25,7 +27,7 @@ export default function MoibleLayout(props: MobileLayoutProps): JSX.Element {
   useNoScrollOutside();
 
   return (
-    <Layout>
+    <Layout className={cx('MobileLayout', className)}>
       {open && <AsideMenu handleClose={handleClose} />}
       <MobileMenuBar handleOpen={handleOpen} />
       <ContentWrapper>{children}</ContentWrapper>

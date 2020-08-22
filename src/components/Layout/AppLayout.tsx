@@ -8,10 +8,12 @@ import AppLayoutContext, { AppLayoutContextInteface } from './context';
 
 interface AppLayoutProps extends AppLayoutContextInteface {
   children?: ReactNode;
+  className?: string;
 }
 
 export default function AppLayout(props: AppLayoutProps): JSX.Element {
   const {
+    className,
     children,
     handleGoBack,
     handleGoNext,
@@ -30,8 +32,12 @@ export default function AppLayout(props: AppLayoutProps): JSX.Element {
       }}
     >
       <Reponsive
-        mobileComponent={<MobileLayout>{children}</MobileLayout>}
-        desktopComponent={<DesktopLayout>{children}</DesktopLayout>}
+        mobileComponent={
+          <MobileLayout className={className}>{children}</MobileLayout>
+        }
+        desktopComponent={
+          <DesktopLayout className={className}>{children}</DesktopLayout>
+        }
       />
     </AppLayoutContext.Provider>
   );
