@@ -75,6 +75,7 @@ function App() {
     >
       <div className="App">
         <h1>a ddd</h1>
+        <Content.Text as="P" color="red">addds</Content.Text>
         <AB>babbab</AB>
         <Icon icon="hambugMenu"/>
         {new Array(100).fill(null).map((_, index) => <p key={index}>test</p>)}

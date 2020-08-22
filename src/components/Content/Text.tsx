@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
-import { css } from '@emotion/core';
+import { css, SerializedStyles } from '@emotion/core';
 import styled, { StyledComponent } from '@emotion/styled';
 import React, { ReactNode, useMemo } from 'react';
 import cx from 'classnames';
@@ -32,7 +32,7 @@ export default function Text(props: TextProps): JSX.Element {
     backgroundColor,
     className,
   } = props;
-  const style = css`
+  const overrideStyle = css`
     ${marginTop && `margin-top: ${marginTop}px`};
     ${fontWeight && `font-weight: ${fontWeight}`};
     ${lineHeight && `line-height: ${lineHeight}`};
@@ -43,7 +43,7 @@ export default function Text(props: TextProps): JSX.Element {
 
   const Tag = useMemo(() => Components(as), [as]);
   return (
-    <Tag className={cx('Text', className)} css={style}>
+    <Tag className={cx('Text', className)} styles={overrideStyle}>
       {children}
     </Tag>
   );
@@ -61,76 +61,90 @@ const textDefault = `
     'Segoe UI Emoji', 'Segoe UI Symbol';
 `;
 
-const P = styled.p`
+const P = styled.p<{ styles: SerializedStyles }>`
   ${textDefault};
   font-size: 16px;
   font-weight: 400;
   color: ${colors.grey};
   margin: 1px 0;
+  ${p => p.styles};
+  ${p => p.styles};
 `;
 
-const H1 = styled.h1`
+const H1 = styled.h1<{ styles: SerializedStyles }>`
   ${textDefault};
   color: ${colors.grey};
   font-weight: 700;
   line-height: 1.2;
   font-size: 40px;
+  ${p => p.styles};
 `;
 
-const H2 = styled.h2`
+const H2 = styled.h2<{ styles: SerializedStyles }>`
   ${textDefault};
   color: ${colors.grey};
   font-weight: 600;
   line-height: 1.3;
   font-size: 30px;
+  ${p => p.styles};
 `;
-const H3 = styled.h3`
+const H3 = styled.h3<{ styles: SerializedStyles }>`
   ${textDefault};
   color: ${colors.grey};
   font-weight: 600;
   line-height: 1.3;
   font-size: 24px;
+  ${p => p.styles};
 `;
-const H4 = styled.h4`
+const H4 = styled.h4<{ styles: SerializedStyles }>`
   ${textDefault};
   color: ${colors.grey};
   font-weight: 600;
   line-height: 1.3;
   font-size: 20px;
+  ${p => p.styles};
 `;
-const H5 = styled.h5`
+const H5 = styled.h5<{ styles: SerializedStyles }>`
   ${textDefault};
   color: ${colors.grey};
   font-weight: 500;
   line-height: 1.3;
   font-size: 16px;
+  ${p => p.styles};
 `;
-const H6 = styled.h6`
+const H6 = styled.h6<{ styles: SerializedStyles }>`
   ${textDefault};
   color: ${colors.grey};
   font-weight: 400;
   line-height: 1.3;
   font-size: 14px;
+  ${p => p.styles};
 `;
-const Span = styled.span`
+const Span = styled.span<{ styles: SerializedStyles }>`
   ${textDefault};
+  ${p => p.styles};
 `;
-const Strong = styled.strong`
+const Strong = styled.strong<{ styles: SerializedStyles }>`
   ${textDefault};
+  ${p => p.styles};
 `;
-const U = styled.u`
+const U = styled.u<{ styles: SerializedStyles }>`
   ${textDefault};
   text-decoration: underline;
+  ${p => p.styles};
 `;
-const DT = styled.dt`
+const DT = styled.dt<{ styles: SerializedStyles }>`
   ${textDefault};
+  ${p => p.styles};
 `;
-const DD = styled.dd`
+const DD = styled.dd<{ styles: SerializedStyles }>`
   ${textDefault};
+  ${p => p.styles};
 `;
 
-const LI = styled.dl`
+const LI = styled.dl<{ styles: SerializedStyles }>`
   ${textDefault};
+  ${p => p.styles};
 `;
 
 function Components(tagName: TagName): StyledComponent<any, {}, {}> {

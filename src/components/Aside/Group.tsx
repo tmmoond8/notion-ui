@@ -33,7 +33,6 @@ const Details = styled.details`
 const Summary = styled.summary`
   display: flex;
   height: 24px;
-  font-weight: 600;
   color: ${colors.grey40};
   padding: 0 14px;
   user-select: none;
@@ -41,7 +40,7 @@ const Summary = styled.summary`
   font-size: 11.5px;
   color: ${colors.grey40};
   line-height: 24px;
-  font-weight: 600;
+  font-weight: 400;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica,
     'Apple Color Emoji', Arial, sans-serif, 'Segoe UI Emoji', 'Segoe UI Symbol';
   cursor: pointer;
