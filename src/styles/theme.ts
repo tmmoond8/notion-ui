@@ -4,6 +4,7 @@ import { toCSS, defaultColors, darkColors } from './colors';
 import { Theme } from '../types/theme';
 import localStorage from '../libs/localStorage';
 import { addCssRule } from '../libs/utils';
+import fonts from './fonts';
 
 const insertStyles = () => {
   const styleEl = document.createElement('style');
@@ -16,7 +17,7 @@ const insertStyles = () => {
       `@media (prefers-color-scheme: dark) :root { ${toCSS(darkColors)} }`,
     );
     addCssRule(styleEl, `:root body.notion-body.dark { ${toCSS(darkColors)} }`);
-
+    addCssRule(styleEl, fonts);
     document.head.appendChild(styleEl);
   }
 };

@@ -21,4 +21,6 @@ const Layout = styled.div`
   padding: 32px;
   box-sizing: border-box;
   background: ${colors.backgroundEmbed};
+  font-family: 'Inter', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
+    'Segoe UI Emoji', 'Segoe UI Symbol';
 `;

@@ -57,6 +57,8 @@ const textDefault = `
   padding: 3px 2px;
   margin: 0;
   color: ${colors.grey};
+  font-family: 'Inter', Helvetica, 'Apple Color Emoji', Arial, sans-serif,	
+    'Segoe UI Emoji', 'Segoe UI Symbol';
 `;
 
 const P = styled.p`
