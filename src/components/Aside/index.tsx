@@ -2,22 +2,28 @@
 import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
 import { ReactNode, MouseEvent } from 'react';
+import cx from 'classnames';
 import { colors } from '../../styles';
 import Group from './Group';
 import GroupMenu from './GroupMenu';
 
 interface AsideProps {
+  className?: string;
   visible: boolean;
   children: ReactNode;
 }
 
 function Aside(props: AsideProps): JSX.Element {
-  const { visible, children } = props;
+  const { className, visible, children } = props;
   const handlePreventDefault = (e: MouseEvent<HTMLElement>) => {
     e.stopPropagation();
   };
   return (
-    <StyledAside visible={visible} onClick={handlePreventDefault}>
+    <StyledAside
+      className={cx('Aside', className)}
+      visible={visible}
+      onClick={handlePreventDefault}
+    >
       {children}
     </StyledAside>
   );

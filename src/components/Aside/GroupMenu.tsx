@@ -2,10 +2,12 @@
 import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
 import { ReactNode } from 'react';
+import cx from 'classnames';
 import { colors } from '../../styles';
 import { MenuHeight } from './constants';
 
 interface GroupMenuProps {
+  className?: string;
   title: string;
   icon?: ReactNode;
   iconUrl?: string;
@@ -14,9 +16,9 @@ interface GroupMenuProps {
 }
 
 export default function GroupMenu(props: GroupMenuProps): JSX.Element {
-  const { title, icon, iconUrl, emoji, handleClick } = props;
+  const { title, icon, iconUrl, emoji, handleClick, className } = props;
   return (
-    <Item onClick={handleClick}>
+    <Item onClick={handleClick} className={cx('AsideGroupMenu', className)}>
       {icon && icon}
       {iconUrl && <IconImg src={iconUrl} alt={title} />}
       {emoji && <Emoji>{emoji}</Emoji>}

@@ -2,10 +2,12 @@
 import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
 import { ReactNode, useMemo } from 'react';
+import cx from 'classnames';
 import { colors } from '../../styles';
 import { MenuHeight } from './constants';
 
 interface AsideGroupProps {
+  className?: string;
   title: string;
   children: ReactNode;
   open?: boolean;
@@ -13,12 +15,12 @@ interface AsideGroupProps {
 }
 
 export default function AsideGroup(props: AsideGroupProps): JSX.Element {
-  const { title, children, open = true, max } = props;
+  const { title, children, open = true, max, className } = props;
   const contentMaxHeight = useMemo(() => {
     return max === undefined ? 'auto' : `${max * MenuHeight}px`;
   }, [max]);
   return (
-    <Details open={open}>
+    <Details open={open} className={cx('AsideGroup', className)}>
       <Summary>{title}</Summary>
       <Contents maxHeight={contentMaxHeight}>{children}</Contents>
     </Details>
