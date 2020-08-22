@@ -20,8 +20,25 @@ const ButtonSize = {
   Big: 'Big' as 'Big',
 };
 
+const TagName = {
+  P: 'P' as 'P',
+  Span: 'Span' as 'Span',
+  Strong: 'Strong' as 'Strong',
+  H1: 'H1' as 'H1',
+  H2: 'H2' as 'H2',
+  H3: 'H3' as 'H3',
+  H4: 'H4' as 'H4',
+  H5: 'H5' as 'H5',
+  H6: 'H6' as 'H6',
+  U: 'U' as 'U',
+  DT: 'DT' as 'DT',
+  DD: 'DD' as 'DD',
+  LI: 'LI' as 'LI',
+};
+
 export default {
   IconSize,
   ButtonType,
   ButtonSize,
+  TagName,
 };

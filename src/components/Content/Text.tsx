@@ -4,30 +4,18 @@ import styled, { StyledComponent } from '@emotion/styled';
 import React, { ReactNode, useMemo } from 'react';
 import cx from 'classnames';
 import { colors } from '../../styles';
+import Enum from '../../types/enum';
 
-export type TagName =
-  | 'P'
-  | 'Span'
-  | 'Strong'
-  | 'H1'
-  | 'H2'
-  | 'H3'
-  | 'H4'
-  | 'H5'
-  | 'H6'
-  | 'U'
-  | 'DT'
-  | 'DD'
-  | 'LI';
+export type TagName = keyof typeof Enum.TagName;
 
 interface TextProps {
+  className?: string;
   marginTop?: number;
   children: ReactNode;
   fontSize?: number;
   lineHeight?: number;
   color?: string;
   as?: TagName;
-  className?: string;
   fontWeight?: number;
   backgroundColor?: string;
 }
@@ -55,7 +43,7 @@ export default function Text(props: TextProps): JSX.Element {
 
   const Tag = useMemo(() => Components(as), [as]);
   return (
-    <Tag className={cx(className, 'Text')} css={[style]}>
+    <Tag className={cx('Text', className)} css={style}>
       {children}
     </Tag>
   );
