@@ -51,7 +51,12 @@ const Summary = styled.summary`
 `;
 const Contents = styled.ul<{ maxHeight: string }>`
   max-height: ${p => p.maxHeight};
+  margin: 0;
   padding: 0;
   overflow-y: auto;
   list-style: none;
+
+  & > li {
+    padding: 0 14px 0 32px;
+  }
 `;

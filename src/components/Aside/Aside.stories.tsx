@@ -12,37 +12,42 @@ export const AsideDefault = (): JSX.Element => {
   return (
     <Aside visible>
       <Aside.Group title="메뉴 그룹">
-        <Aside.GroupMenu
+        <Aside.Menu
           title="menu button"
           handleClick={action('menu clicked')}
           icon={<Icon icon="hambugMenu" size="Tiny" className="HambugIcon" />}
         />
-        <Aside.GroupMenu
+        <Aside.Menu
           title="docs"
           handleClick={action('docs clicked')}
           iconUrl="https://res.cloudinary.com/dgggcrkxq/image/upload/v1597455632/noticon/yx4pbpbp6mtqo0yrinzk.png"
         />
-        <Aside.GroupMenu
+        <Aside.Menu
           title="emoji"
           handleClick={action('emoji clicked')}
           emoji="🧢"
         />
-        <Aside.GroupMenu
+        <Aside.Menu
           title="sequlize"
           handleClick={action('sequlize clicked')}
           iconUrl="https://res.cloudinary.com/dgggcrkxq/image/upload/v1597622693/noticon/m9x6mei2mo39iesqulm9.png"
         />
-        <Aside.GroupMenu
+        <Aside.Menu
           title="deno"
           handleClick={action('deno clicked')}
           iconUrl="https://res.cloudinary.com/dgggcrkxq/image/upload/v1589948805/noticon/v6wd8jsidu5tsi8bsrrm.png"
         />
-        <Aside.GroupMenu
+        <Aside.Menu
           title="mongoDB"
           handleClick={action('mongoDB clicked')}
           iconUrl="https://res.cloudinary.com/dgggcrkxq/image/upload/v1581824691/noticon/hmvqgvug8zl7etwmabuq.png"
         />
       </Aside.Group>
+      <Aside.Menu
+        title="menu button"
+        handleClick={action('menu clicked')}
+        icon={<Icon icon="hambugMenu" size="Tiny" className="HambugIcon" />}
+      />
     </Aside>
   );
 };
@@ -51,32 +56,32 @@ export const AsideMax5 = (): JSX.Element => {
   return (
     <Aside visible>
       <Aside.Group title="메뉴 그룹" max={5}>
-        <Aside.GroupMenu
+        <Aside.Menu
           title="menu button"
           handleClick={action('menu clicked')}
           icon={<Icon icon="hambugMenu" size="Tiny" className="HambugIcon" />}
         />
-        <Aside.GroupMenu
+        <Aside.Menu
           title="docs"
           handleClick={action('docs clicked')}
           iconUrl="https://res.cloudinary.com/dgggcrkxq/image/upload/v1597455632/noticon/yx4pbpbp6mtqo0yrinzk.png"
         />
-        <Aside.GroupMenu
+        <Aside.Menu
           title="emoji"
           handleClick={action('emoji clicked')}
           emoji="🧢"
         />
-        <Aside.GroupMenu
+        <Aside.Menu
           title="sequlize"
           handleClick={action('sequlize clicked')}
           iconUrl="https://res.cloudinary.com/dgggcrkxq/image/upload/v1597622693/noticon/m9x6mei2mo39iesqulm9.png"
         />
-        <Aside.GroupMenu
+        <Aside.Menu
           title="deno"
           handleClick={action('deno clicked')}
           iconUrl="https://res.cloudinary.com/dgggcrkxq/image/upload/v1589948805/noticon/v6wd8jsidu5tsi8bsrrm.png"
         />
-        <Aside.GroupMenu
+        <Aside.Menu
           title="mongoDB"
           handleClick={action('mongoDB clicked')}
           iconUrl="https://res.cloudinary.com/dgggcrkxq/image/upload/v1581824691/noticon/hmvqgvug8zl7etwmabuq.png"
@@ -90,8 +95,8 @@ export const AsideNotOpened = (): JSX.Element => {
   return (
     <Aside visible>
       <Aside.Group title="메뉴 그룹" open={false}>
-        <Aside.GroupMenu title="react" handleClick={action('react clicked')} />
-        <Aside.GroupMenu title="vue" handleClick={action('vue clicked')} />
+        <Aside.Menu title="react" handleClick={action('react clicked')} />
+        <Aside.Menu title="vue" handleClick={action('vue clicked')} />
       </Aside.Group>
     </Aside>
   );

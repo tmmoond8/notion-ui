@@ -6,7 +6,7 @@ import cx from 'classnames';
 import { colors } from '../../styles';
 import { MenuHeight } from './constants';
 
-interface GroupMenuProps {
+interface MenuProps {
   className?: string;
   title: string;
   icon?: ReactNode;
@@ -15,10 +15,10 @@ interface GroupMenuProps {
   handleClick: () => void;
 }
 
-export default function GroupMenu(props: GroupMenuProps): JSX.Element {
+export default function Menu(props: MenuProps): JSX.Element {
   const { title, icon, iconUrl, emoji, handleClick, className } = props;
   return (
-    <Item onClick={handleClick} className={cx('AsideGroupMenu', className)}>
+    <Item onClick={handleClick} className={cx('AsideMenu', className)}>
       {icon && icon}
       {iconUrl && <IconImg src={iconUrl} alt={title} />}
       {emoji && <Emoji>{emoji}</Emoji>}
@@ -32,7 +32,7 @@ const Item = styled.li`
   align-items: center;
   height: ${MenuHeight}px;
   margin: 0;
-  padding: 0 14px 0 32px;
+  padding: 0 14px;
   color: ${colors.grey60};
   line-height: 27px;
   box-sizing: border-box;

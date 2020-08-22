@@ -5,7 +5,7 @@ import { ReactNode, MouseEvent } from 'react';
 import cx from 'classnames';
 import { colors } from '../../styles';
 import Group from './Group';
-import GroupMenu from './GroupMenu';
+import Menu from './Menu';
 
 interface AsideProps {
   className?: string;
@@ -42,6 +42,6 @@ const StyledAside = styled.aside<{ visible: boolean }>`
 `;
 
 Aside.Group = Group;
-Aside.GroupMenu = GroupMenu;
+Aside.Menu = Menu;
 
 export default Aside;

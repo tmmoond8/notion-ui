@@ -58,6 +58,7 @@ function App() {
           <Aside.Menu title="react"/>
           <Aside.Menu title="angular"/>
         </Aside.Group>
+        <AsideMainMenu title="main menu"/>
         <div>
           toggle Theme
           <Switch
@@ -102,4 +103,8 @@ const Margin = (props) => {
 const LoaddingWrapper = styled.div`
   width: 100%;
   height: 80px;
+`;
+
+const AsideMainMenu = styled(Aside.Menu)`
+  height: 45px;
 `;
