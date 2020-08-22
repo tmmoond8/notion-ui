@@ -9,6 +9,8 @@ export const base = css`
   fill: ${colors.grey};
   flex-shrink: 0;
   backface-visibility: hidden;
+  font-family: 'Inter', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
+    'Segoe UI Emoji', 'Segoe UI Symbol';
 `;
 
 export const customStyle = (p: { color?: string }): SerializedStyles => css`

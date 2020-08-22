@@ -4,6 +4,7 @@ import { toCSS, defaultColors, darkColors } from './colors';
 import { Theme } from '../types/theme';
 import localStorage from '../libs/localStorage';
 import { addCssRule } from '../libs/utils';
+import { loadWebfonts } from './font';
 
 const insertStyles = () => {
   const styleEl = document.createElement('style');
@@ -45,6 +46,7 @@ export const useTheme = () => {
         return;
       }
       insertStyles();
+      loadWebfonts();
       setInitial(true);
     }
   }, [initial, setInitial]);

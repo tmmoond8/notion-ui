@@ -70,4 +70,6 @@ const Layout = styled.div`
   display: flex;
   margin: auto;
   overflow: hidden;
+  font-family: 'Inter', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
+    'Segoe UI Emoji', 'Segoe UI Symbol';
 `;

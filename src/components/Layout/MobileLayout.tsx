@@ -151,4 +151,6 @@ const AsideWrapper = styled.div<{ visible: boolean }>`
 
 const Layout = styled.div`
   overflow: hidden;
+  font-family: 'Inter', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
+    'Segoe UI Emoji', 'Segoe UI Symbol';
 `;

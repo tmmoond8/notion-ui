@@ -68,6 +68,8 @@ const Wrapper = styled.div<{ open: boolean }>`
   margin: auto;
   overflow: hidden;
   background-color: ${p => (p.open ? colors.modalDimmed : colors.notDimmed)};
+  font-family: 'Inter', Helvetica, 'Apple Color Emoji', Arial, sans-serif,
+    'Segoe UI Emoji', 'Segoe UI Symbol';
   transition: background-color 0.2s ease 0s;
 `;
 
