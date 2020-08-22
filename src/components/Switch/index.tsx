@@ -2,16 +2,18 @@
 import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
 import { useState, useCallback, useEffect } from 'react';
+import cx from 'classnames';
 import { colors } from '../../styles';
 
 interface SwitchProps {
+  className?: string;
   switchOn?: boolean;
   onEvent?: () => void;
   offEvent?: () => void;
 }
 
 export default function Switch(props: SwitchProps): JSX.Element {
-  const { switchOn = false, onEvent, offEvent } = props;
+  const { className, switchOn = false, onEvent, offEvent } = props;
   const [isOn, setIsOn] = useState(switchOn);
   useEffect(() => {
     setIsOn(switchOn);
@@ -26,7 +28,11 @@ export default function Switch(props: SwitchProps): JSX.Element {
     }
   }, [isOn, offEvent, onEvent]);
   return (
-    <Wrapper onClick={handleToggle} isOn={isOn}>
+    <Wrapper
+      onClick={handleToggle}
+      isOn={isOn}
+      className={cx('Switch', className)}
+    >
       <Ball isOn={isOn} />
     </Wrapper>
   );
