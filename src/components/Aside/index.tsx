@@ -3,8 +3,8 @@ import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
 import { ReactNode, MouseEvent } from 'react';
 import { colors } from '../../styles';
-import AsideGroup from './Group';
-import AsideMenu from './Menu';
+import Group from './Group';
+import GroupMenu from './GroupMenu';
 
 interface AsideProps {
   visible: boolean;
@@ -35,7 +35,7 @@ const StyledAside = styled.aside<{ visible: boolean }>`
   z-index: 500;
 `;
 
-Aside.Group = AsideGroup;
-Aside.Menu = AsideMenu;
+Aside.Group = Group;
+Aside.GroupMenu = GroupMenu;
 
 export default Aside;

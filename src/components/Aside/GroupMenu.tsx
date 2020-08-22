@@ -5,7 +5,7 @@ import { ReactNode } from 'react';
 import { colors } from '../../styles';
 import { MenuHeight } from './constants';
 
-interface MenuProps {
+interface GroupMenuProps {
   title: string;
   icon?: ReactNode;
   iconUrl?: string;
@@ -13,7 +13,7 @@ interface MenuProps {
   handleClick: () => void;
 }
 
-export default function Menu(props: MenuProps): JSX.Element {
+export default function GroupMenu(props: GroupMenuProps): JSX.Element {
   const { title, icon, iconUrl, emoji, handleClick } = props;
   return (
     <Item onClick={handleClick}>
