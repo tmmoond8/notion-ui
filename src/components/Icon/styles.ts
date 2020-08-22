@@ -78,5 +78,6 @@ export const iconButton = css`
 
 export const disabled = css`
   opacity: 0.4;
-  cursor: text;
+  pointer-events: none;
+  cursor: default;
 `;

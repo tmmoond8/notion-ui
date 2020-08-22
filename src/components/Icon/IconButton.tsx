@@ -1,7 +1,7 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import { MouseEventHandler, useCallback, MouseEvent } from 'react';
-import classnames from 'classnames';
+import cx from 'classnames';
 import Button, { ButtonSize } from '../Button';
 import Icon, { IconProps } from '.';
 
@@ -40,7 +40,7 @@ export default function IconButton(props: IconButtonProps): JSX.Element {
   return (
     <Button
       onClick={handleClick}
-      className={classnames('IconButton', className)}
+      className={cx('IconButton', className)}
       buttonSize={SIZE_MAP[size]}
       disabled={disabled}
     >
