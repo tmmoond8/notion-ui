@@ -85,13 +85,14 @@ const ModalBox = styled.div<{ open: boolean }>`
   margin: auto;
   height: 100%;
   width: 100%;
-  max-width: 414px;
+
   transition: all 0.2s ease 0s;
   transform: translateY(${p => (p.open ? '0' : '100vh')});
 
   ${moreThan(
-    414,
+    512,
     css`
+      max-width: 414px;
       max-height: 484px;
       border-radius: 3px;
       overflow: hidden;
