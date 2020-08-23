@@ -49,7 +49,7 @@ function App() {
       <>
         <Margin size={16}/>
         <Aside.Group title="public">
-          <Aside.Menu title="vue"/>
+          <Aside.Menu title="vue" handleClick={handleOpenNotificationModal}/>
           <Aside.Menu title="react"/>
           <Aside.Menu title="angular"/>
         </Aside.Group>
