@@ -26,9 +26,12 @@ export const useModal = () => {
   const openModal = (params: { title: string; contents: ReactNode }) => {
     const { title, contents } = params;
     const modal = (
-      <Modal title={title} handleClose={close} ref={modalRef}>
-        {contents}
-      </Modal>
+      <Modal
+        title={title}
+        handleClose={close}
+        ref={modalRef}
+        contents={contents}
+      />
     );
     modalWrapper = document.createElement('div');
     modalWrapper.classList.add(MODAL_WRAPPER);

@@ -18,13 +18,13 @@ import { colors } from '../../styles';
 export interface ModalProps {
   className?: string;
   title: string;
-  children: ReactNode;
+  contents: ReactNode;
   handleClose: () => void;
 }
 
 const Modal = forwardRef(
   (props: ModalProps, ref): JSX.Element => {
-    const { className, title, handleClose } = props;
+    const { className, title, contents, handleClose } = props;
     const [open, setOpen] = useState<boolean>(false);
     const handleClickWrapper = useCallback(
       (e: MouseEvent<HTMLDivElement>) => {
@@ -50,7 +50,7 @@ const Modal = forwardRef(
       >
         <ModalBox open={open} ref={ref as RefObject<HTMLDivElement>}>
           <Head title={title} handleClose={handleClose} />
-          <ModalBody>sfdsfdsf</ModalBody>
+          <ModalBody>{contents}</ModalBody>
         </ModalBox>
       </Wrapper>
     );

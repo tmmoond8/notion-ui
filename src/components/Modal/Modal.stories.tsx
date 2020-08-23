@@ -12,9 +12,11 @@ export default {
 
 export const ModalMobile$DEV = (): JSX.Element => (
   <div>
-    <Modal title="Share" handleClose={action('modal close')}>
-      any contents
-    </Modal>
+    <Modal
+      title="Share"
+      handleClose={action('modal close')}
+      contents={<p>any contents</p>}
+    />
   </div>
 );
 
