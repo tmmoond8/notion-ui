@@ -1,19 +1,21 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
+import cx from 'classnames';
 import Button from '../Button';
 import { colors } from '../../styles';
 
 interface HeadProps {
+  className?: string;
   title: string;
   handleClose: () => void;
   closeText?: string;
 }
 
 export default function ModalHead(props: HeadProps) {
-  const { title, handleClose, closeText = 'Cancel' } = props;
+  const { className, title, handleClose, closeText = 'Cancel' } = props;
   return (
-    <Head>
+    <Head className={cx('ModalHead', className)}>
       <Empty />
       <Title>{title}</Title>
       <CloseButton buttonType="PrimaryText" onClick={handleClose}>
@@ -28,7 +30,8 @@ const Head = styled.div`
   align-items: center;
   background-color: ${colors.backgroundEmbed};
   height: 44px;
-  box-shadow: rgba(${colors.grey08}) 0px 1px 0px;
+  box-shadow: 0px 1px 0px ${colors.grey08};
+  z-index: 10;
   & > * {
     flex: 1;
   }

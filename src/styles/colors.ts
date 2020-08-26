@@ -19,6 +19,8 @@ export const defaultColors = {
   notDimmed: 'rgba(47, 52, 55, 0)',
   modalDimmed: 'rgba(15, 15, 15, 0.6)',
   transparent: 'transparent',
+  modalBody: 'rgb(242, 241, 238)',
+  modalContentWrapper: 'rgb(247, 246, 243)',
 };
 
 export type Colors = Record<keyof typeof defaultColors, string>;
@@ -39,6 +41,8 @@ export const darkColors: Colors = {
   dimmed: 'rgba(0, 0, 0, 0.2)',
   backgroundAside: 'rgb(55, 60, 63)',
   background100: 'rgba(15, 15, 15, 0.3)',
+  modalBody: 'rgb(55, 60, 63)',
+  modalContentWrapper: 'rgb(63, 68, 71)',
 };
 
 export const toCSS = (cssObject: object): string =>

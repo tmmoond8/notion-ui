@@ -1,13 +1,13 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { useRef, ReactNode } from 'react';
+import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from './Modal';
 
 export const useModal = () => {
   const MODAL_WRAPPER = 'NotionUiModal';
   const bodyElement = document.querySelector('body');
-  const modalRef = useRef<HTMLDivElement>(null);
+  const modalRef = React.useRef<HTMLDivElement>(null);
   let modalWrapper: HTMLDivElement | null = null;
 
   const close = () => {
@@ -23,7 +23,7 @@ export const useModal = () => {
     }
   };
 
-  const openModal = (params: { title: string; contents: ReactNode }) => {
+  const openModal = (params: { title: string; contents: React.ReactNode }) => {
     const { title, contents } = params;
     const modal = (
       <Modal
@@ -44,5 +44,16 @@ export const useModal = () => {
   return {
     openModal,
     close,
+  };
+};
+
+export const useModalTabSelect = (tabs: string[]) => {
+  const [selected, setSelected] = React.useState(
+    tabs.length > 0 ? tabs[0] : '',
+  );
+  return {
+    tabs,
+    selected,
+    handleSelect: setSelected,
   };
 };

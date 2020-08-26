@@ -102,8 +102,8 @@ const ModalBox = styled.div<{ open: boolean }>`
 
 const ModalBody = styled.div`
   flex: 1;
-  background-color: ${colors.backgroundAside};
-  padding: 16px 0;
+  padding: 0;
+  background-color: ${colors.modalBody};
   color: ${colors.grey};
   overflow: scroll;
 `;

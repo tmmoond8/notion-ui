@@ -8,6 +8,6 @@ export { default as Icon, IconButton } from './components/Icon';
 export { default as Switch } from './components/Switch';
 export { default as Aside } from './components/Aside';
 export { default as Loader } from './components/Loader';
-export { useModal } from './components/Modal';
+export { default as Modal } from './components/Modal';
 export { colors, colorCss, useTheme, loadTheme, toggleTheme } from './styles';
 export const { TextFiled } = _Input;
