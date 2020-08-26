@@ -2,7 +2,7 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
 import Modal from '.';
-import { useModal, useModalTabSelect } from './hooks';
+import { useModal, useTabSelect } from './hooks';
 import ModalComponent from './Modal';
 import Button from '../Button';
 
@@ -12,7 +12,7 @@ export default {
 };
 
 export const ModalMobile$DEV = (): JSX.Element => {
-  const { tabs, selected, handleSelect } = useModalTabSelect(['tab1', 'tab2']);
+  const { tabs, selected, handleSelect } = useTabSelect(['tab1', 'tab2']);
   return (
     <div>
       <ModalComponent
@@ -20,17 +20,13 @@ export const ModalMobile$DEV = (): JSX.Element => {
         handleClose={action('modal close')}
         contents={
           <>
-            <Modal.ModalTabSelect
+            <Modal.TabSelect
               tabs={tabs}
               selected={selected}
               handleSelect={handleSelect}
             />
-            {selected === tabs[0] && (
-              <Modal.ModalSection>{selected}</Modal.ModalSection>
-            )}
-            {selected === tabs[1] && (
-              <Modal.ModalSection>{selected}</Modal.ModalSection>
-            )}
+            {selected === tabs[0] && <Modal.Section>{selected}</Modal.Section>}
+            {selected === tabs[1] && <Modal.Section>{selected}</Modal.Section>}
           </>
         }
       />

@@ -1,9 +1,10 @@
-import { useModal } from './hooks';
-import ModalSection from './ModalSection';
-import ModalTabSelect from './ModalTabSelect';
+import { useModal, useTabSelect } from './hooks';
+import Section from './ModalSection';
+import TabSelect from './ModalTabSelect';
 
 export default {
   useModal,
-  ModalSection,
-  ModalTabSelect,
+  useTabSelect,
+  Section,
+  TabSelect,
 };

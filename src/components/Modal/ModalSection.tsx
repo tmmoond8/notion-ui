@@ -23,5 +23,5 @@ const Section = styled.div`
   background-color: ${colors.modalContentWrapper};
   box-shadow: ${colors.grey08} 0px -1px 0px, ${colors.grey08} 0px 1px 0px;
   margin-top: 28px;
-  padding: 14px;
+  padding: 0 16px;
 `;

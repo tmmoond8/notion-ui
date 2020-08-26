@@ -47,7 +47,7 @@ export const useModal = () => {
   };
 };
 
-export const useModalTabSelect = (tabs: string[]) => {
+export const useTabSelect = (tabs: string[]) => {
   const [selected, setSelected] = React.useState(
     tabs.length > 0 ? tabs[0] : '',
   );
