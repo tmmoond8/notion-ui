@@ -1,10 +1,11 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core';
+import { jsx, css } from '@emotion/core';
 import styled from '@emotion/styled';
-import { ReactNode, useMemo } from 'react';
+import { ReactNode } from 'react';
 import cx from 'classnames';
 import { colors } from '../../styles';
-import { MenuHeight } from './constants';
+import { desktop } from '../../styles/mediaQuery';
+import { mobileMenuHeight, desktopMenuHeight } from './constants';
 
 interface AsideGroupProps {
   className?: string;
@@ -16,13 +17,11 @@ interface AsideGroupProps {
 
 export default function AsideGroup(props: AsideGroupProps): JSX.Element {
   const { title, children, open = true, max, className } = props;
-  const contentMaxHeight = useMemo(() => {
-    return max === undefined ? 'auto' : `${max * MenuHeight}px`;
-  }, [max]);
+
   return (
     <Details open={open} className={cx('AsideGroup', className)}>
       <Summary>{title}</Summary>
-      <Contents maxHeight={contentMaxHeight}>{children}</Contents>
+      <Contents max={max}>{children}</Contents>
     </Details>
   );
 }
@@ -50,8 +49,7 @@ const Summary = styled.summary`
   }
   box-sizing: border-box;
 `;
-const Contents = styled.ul<{ maxHeight: string }>`
-  max-height: ${p => p.maxHeight};
+const Contents = styled.ul<{ max: number | undefined }>`
   margin: 0;
   padding: 0;
   overflow-y: auto;
@@ -60,4 +58,13 @@ const Contents = styled.ul<{ maxHeight: string }>`
   & > li {
     padding: 0 14px 0 32px;
   }
+
+  ${p =>
+    p.max &&
+    css`
+      max-height: ${p.max * mobileMenuHeight}px;
+      ${desktop(css`
+        max-height: ${p.max * desktopMenuHeight}px;
+      `)}
+    `}
 `;

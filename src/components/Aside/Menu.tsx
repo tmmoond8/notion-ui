@@ -1,10 +1,11 @@
 /** @jsx jsx */
-import { jsx } from '@emotion/core';
+import { jsx, css } from '@emotion/core';
 import styled from '@emotion/styled';
 import { ReactNode } from 'react';
 import cx from 'classnames';
 import { colors } from '../../styles';
-import { MenuHeight } from './constants';
+import { desktop } from '../../styles/mediaQuery';
+import { mobileMenuHeight, desktopMenuHeight } from './constants';
 
 interface MenuProps {
   className?: string;
@@ -30,29 +31,50 @@ export default function Menu(props: MenuProps): JSX.Element {
 const Item = styled.li`
   display: flex;
   align-items: center;
-  height: ${MenuHeight}px;
+  height: ${mobileMenuHeight}px;
+  line-height: ${mobileMenuHeight}px;
   margin: 0;
   padding: 0 14px;
   color: ${colors.grey60};
-  line-height: 27px;
   box-sizing: border-box;
   cursor: pointer;
   &:hover {
     background-color: ${colors.grey08};
   }
 
+  svg {
+    width: 16px;
+  }
+
   & > *:nth-child(2) {
     padding-left: 8px;
   }
+
+  ${desktop(css`
+    height: ${desktopMenuHeight}px;
+    line-height: ${desktopMenuHeight}px;
+    svg {
+      width: 14px;
+    }
+  `)}
 `;
 
 const IconImg = styled.img`
-  width: 17.75px;
-  height: 17.75px;
+  width: 21.3px;
+  height: 21.3px;
+
+  ${desktop(css`
+    width: 17.75px;
+    height: 17.75px;
+  `)}
 `;
 
 const Emoji = styled.span`
-  width: 17.5px;
+  width: 21.59px;
+
+  ${desktop(css`
+    width: 17.5px;
+  `)}
   color: black;
 `;
 

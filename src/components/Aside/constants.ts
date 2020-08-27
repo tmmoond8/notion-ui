@@ -1,1 +1,2 @@
-export const MenuHeight = 27;
+export const mobileMenuHeight = 48;
+export const desktopMenuHeight = 27;
