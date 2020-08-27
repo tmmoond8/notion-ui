@@ -15,6 +15,7 @@ interface TextFieldProps {
   value: string | number;
   onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   errorMessage?: string;
+  onBlur?: () => void;
 }
 
 export default function TextFiled(props: TextFieldProps): JSX.Element {
@@ -27,6 +28,7 @@ export default function TextFiled(props: TextFieldProps): JSX.Element {
     onChange,
     errorMessage,
     className,
+    onBlur = () => {},
   } = props;
   const [isFocus, setFocus] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -69,6 +71,7 @@ export default function TextFiled(props: TextFieldProps): JSX.Element {
           value={value}
           placeholder={placeholder}
           onChange={onChange}
+          onBlur={onBlur}
         />
       </div>
     </div>
