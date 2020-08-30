@@ -11,6 +11,8 @@ export const defaultColors = {
   grey32: 'rgba(55, 53, 47, 0.32)',
   grey40: 'rgba(55, 53, 47, 0.40)',
   grey60: 'rgba(55, 53, 47, 0.60)',
+  red: 'rgb(235, 87, 87)',
+  red50: 'rgb(235, 87, 87, 0.50)',
   backgroundEmbed: 'rgb(242, 241, 238)',
   background: 'rgb(255, 255, 255)',
   backgroundAside: 'rgb(247, 246, 243)',
