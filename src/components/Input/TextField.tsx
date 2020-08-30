@@ -18,7 +18,7 @@ interface TextFieldProps {
   onBlur?: () => void;
 }
 
-export default function TextFiled(props: TextFieldProps): JSX.Element {
+export default function TextField(props: TextFieldProps): JSX.Element {
   const {
     label,
     id,
@@ -61,7 +61,7 @@ export default function TextFiled(props: TextFieldProps): JSX.Element {
   }, [inputRef]);
 
   return (
-    <div css={styles.textFiled.wrapper} className={cx('TextFiled', className)}>
+    <div css={styles.textFiled.wrapper} className={cx('TextField', className)}>
       {label && <label htmlFor={id}>{label}</label>}
       <div css={[styles.textFiled.default, ...stateStyle, variantStyle]}>
         <input

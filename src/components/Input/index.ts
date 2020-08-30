@@ -1,5 +1,5 @@
-import TextFiled from './TextFiled';
+import TextField from './TextField';
 
 export default {
-  TextFiled,
+  TextField,
 };

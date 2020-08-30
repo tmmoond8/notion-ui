@@ -1,5 +1,5 @@
 import React, { ChangeEvent, useState, useCallback } from 'react';
-import TextFiled from './TextFiled';
+import TextFiled from './TextField';
 
 export default {
   title: 'Input',
