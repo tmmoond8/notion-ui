@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import styled from '@emotion/styled';
-import { useTheme, Content, Icon, Layout, IconButton, Switch, loadTheme, Aside, toggleTheme, useModal, Loader } from 'notion-ui';
+import { useTheme, Content, Icon, Layout, IconButton, Switch, loadTheme, Aside, toggleTheme, Modal, Loader } from 'notion-ui';
 
 function App() {
   useTheme();
@@ -8,7 +8,7 @@ function App() {
   useEffect(() => {
     console.log(window.parent.postMessage('abc'));
   }, [])
-  const modal = useModal();
+  const modal = Modal.useModal();
   const handleOpenShareModal = () => {
     modal.openModal({
       title: 'share',
@@ -75,7 +75,7 @@ function App() {
     >
       <div className="App">
         <h1>a ddd</h1>
-        <Content.Text as="P" color="red">addds</Content.Text>
+        <Content.Text as="P" color="red" fontSize={17}>addds</Content.Text>
         <AB>babbab</AB>
         <Icon icon="hambugMenu"/>
         {new Array(100).fill(null).map((_, index) => <p key={index}>test</p>)}

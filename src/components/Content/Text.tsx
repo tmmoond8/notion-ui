@@ -34,9 +34,9 @@ export default function Text(props: TextProps): JSX.Element {
   } = props;
   const overrideStyle = css`
     ${marginTop && `margin-top: ${marginTop}px`};
-    ${fontWeight && `font-weight: ${fontWeight}`};
-    ${lineHeight && `line-height: ${lineHeight}`};
-    ${fontSize && `font-size: ${fontSize}`};
+    ${fontWeight && `font-weight: ${fontWeight}px`};
+    ${lineHeight && `line-height: ${lineHeight}px`};
+    ${fontSize && `font-size: ${fontSize}px`};
     ${color && `color: ${color}`};
     ${backgroundColor && `background-color: ${backgroundColor}`};
   `;
