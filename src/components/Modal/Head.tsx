@@ -55,8 +55,8 @@ const Title = styled.h2`
 const CloseButton = styled(Button)`
   &.Button {
     height: 90%;
-    width: 76px;
-    max-width: 76px;
+    width: 100%;
+    max-width: 84px;
     font-size: 16px;
     padding: 0 16px;
     box-sizing: border-box;
