@@ -28,7 +28,7 @@ export default function ModalHead(props: HeadProps) {
 const Head = styled.div`
   display: flex;
   align-items: center;
-  background-color: ${colors.backgroundEmbed};
+  background-color: ${colors.modalContentWrapper};
   height: 44px;
   box-shadow: 0px 1px 0px ${colors.grey08};
   z-index: 10;
