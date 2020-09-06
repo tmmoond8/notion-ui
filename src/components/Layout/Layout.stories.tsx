@@ -7,6 +7,7 @@ import MobileLayout from './MobileLayout';
 import DesktopLayout from './DesktopLayout';
 import AppLayout from './AppLayout';
 import AppLayoutContext from './context';
+import Aside from '../Aside';
 
 export default {
   title: 'Layout',
@@ -62,40 +63,48 @@ export const App = () => (
   </AppLayout>
 );
 
-export const Mobile$DEV = () => (
-  <AppLayoutContext.Provider
-    value={{
-      leftMenus: <>Untiltled</>,
-      rightMenus: (
-        <>
-          <IconButton
-            icon="moreHorizon"
-            size="Big"
-            className="MoreHorizon"
-            onClick={action('more')}
-          />
-          <IconButton
-            icon="share"
-            size="Big"
-            className="Share"
-            onClick={action('share')}
-          />
-          <IconButton
-            icon="notification"
-            size="Big"
-            className="Notification"
-            onClick={action('notification')}
-          />
-        </>
-      ),
-      handleGoBack: action('go back'),
-      handleGoNext: action('go next'),
-      aside: <p>asdie menue</p>,
-    }}
-  >
-    <MobileLayout>{Contents}</MobileLayout>
-  </AppLayoutContext.Provider>
-);
+export const Mobile$DEV = () => {
+  const handleCloseAside = Aside.useCloseCallback();
+  return (
+    <AppLayoutContext.Provider
+      value={{
+        leftMenus: <>Untiltled</>,
+        rightMenus: (
+          <>
+            <IconButton
+              icon="moreHorizon"
+              size="Big"
+              className="MoreHorizon"
+              onClick={action('more')}
+            />
+            <IconButton
+              icon="share"
+              size="Big"
+              className="Share"
+              onClick={action('share')}
+            />
+            <IconButton
+              icon="notification"
+              size="Big"
+              className="Notification"
+              onClick={action('notification')}
+            />
+          </>
+        ),
+        handleGoBack: action('go back'),
+        handleGoNext: action('go next'),
+        aside: (
+          <>
+            <p>asdie menue</p>
+            <Aside.Menu title="closeAside" handleClick={handleCloseAside} />
+          </>
+        ),
+      }}
+    >
+      <MobileLayout>{Contents}</MobileLayout>
+    </AppLayoutContext.Provider>
+  );
+};
 
 export const Desktop$DEV = () => (
   <AppLayoutContext.Provider

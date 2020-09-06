@@ -1,3 +1,4 @@
+/* eslint-disable no-underscore-dangle */
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
@@ -8,6 +9,7 @@ import { colors } from '../../styles';
 import AppLayoutContext from './context';
 import Aside from '../Aside';
 import { useNoScrollOutside } from './hooks';
+import global from '../../types/global';
 
 interface MobileLayoutProps {
   className?: string;
@@ -51,6 +53,8 @@ function AsideMenu(props: { handleClose: () => void }): JSX.Element {
       handleClose();
     }, 200);
   }, [handleClose]);
+
+  global.__NOTION_UI.closeAside = () => handleCloseWithAnimation();
 
   return (
     <AsideWrapper visible={visible} onClick={handleCloseWithAnimation}>

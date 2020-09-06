@@ -1,21 +1,23 @@
+/* eslint-disable no-underscore-dangle */
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
-import { ReactNode, MouseEvent } from 'react';
+import React from 'react';
 import cx from 'classnames';
 import { colors } from '../../styles';
 import Group from './Group';
 import Menu from './Menu';
+import global from '../../types/global';
 
 interface AsideProps {
   className?: string;
   visible: boolean;
-  children: ReactNode;
+  children: React.ReactNode;
 }
 
 function Aside(props: AsideProps): JSX.Element {
   const { className, visible, children } = props;
-  const handlePreventDefault = (e: MouseEvent<HTMLElement>) => {
+  const handlePreventDefault = (e: React.MouseEvent<HTMLElement>) => {
     e.stopPropagation();
   };
   return (
@@ -45,5 +47,6 @@ const StyledAside = styled.aside<{ visible: boolean }>`
 
 Aside.Group = Group;
 Aside.Menu = Menu;
+Aside.useCloseCallback = () => () => global.__NOTION_UI.closeAside();
 
 export default Aside;

@@ -21,6 +21,9 @@ function App() {
       contents: <div>notification</div>
     });
   }
+
+  const handleCloseAside = Aside.useCloseCallback();
+
   return (
     <Layout.App
     leftMenus={<>Untiltled</>}
@@ -51,7 +54,7 @@ function App() {
         <Aside.Group title="public">
           <Aside.Menu title="vue" handleClick={handleOpenNotificationModal}/>
           <Aside.Menu title="react"/>
-          <Aside.Menu title="angular"/>
+          <Aside.Menu title="angular" handleClick={handleCloseAside}/>
         </Aside.Group>
         <Aside.Group title="public">
           <Aside.Menu title="vue"/>

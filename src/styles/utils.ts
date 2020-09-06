@@ -1,4 +1,4 @@
-import { css, SerializedStyles } from '@emotion/core';
+import { SerializedStyles } from '@emotion/core';
 
 export const cssToReactStyle = (...styles: SerializedStyles[]) => {
   const regex = /([\w-]*)\s*:\s*([^;]*)/g;
