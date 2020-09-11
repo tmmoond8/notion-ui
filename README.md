@@ -1,44 +1,65 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<p align="center">
+  <a href="https://notion-ui.tammolo.com/" rel="noopener" target="_blank"><img width="150" src="https://user-images.githubusercontent.com/11402468/85220166-61073880-b3e4-11ea-9d15-405566a19757.png" alt="Notion-ui logo"></a></p>
+</p>
 
-## Available Scripts
+<h1 align="center">Notion-UI</h1>
 
-In the project directory, you can run:
+<div align="center">
 
-### `yarn start`
+[Notion](https://notion.so/) design system for faster and simpler react development. Build your webapp, or start with [Notion UI](https://notion-ui.tammolo.com/).  
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+[![npm package](https://img.shields.io/npm/v/notion-ui)](https://www.npmjs.com/package/notion-ui)
+[![npm downloads](https://img.shields.io/npm/dm/notion-ui)](https://www.npmjs.com/package/notion-ui)
+[![netlify](https://img.shields.io/netlify/af1f8765-dcc0-4661-b76c-12ec7db35342)](https://www.npmjs.com/package/notion-ui)![Code style](https://img.shields.io/badge/code_style-prettier-ff69b4.svg)
 
-### `yarn test`
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+</div>
 
-### `yarn build`
+## Installation
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Notion-UI is available as an [npm package](https://www.npmjs.com/package/notion-ui).
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+```sh
+// with yarn
+yarn add notion-ui
+```
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## Usage
 
-### `yarn eject`
+Here is a quick example to get you started, **it's all you need**:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+```jsx
+import React from 'react';
+import ReactDOM from 'react-dom';
+import { Button } from 'notion-ui';
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+function App() {
+  return (
+    <Button 
+      onClick={() => console.log('clickec')} 
+      buttonType="Primary">
+      Primary
+    </Button>
+  )
+}
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+ReactDOM.render(<App />, document.querySelector('#app'));
+```
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Yes, it's really all you need to get started as you can see in this storybook:
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+<p align="center">
+  <a href="https://notion-ui.tammolo.com" rel="noopener" target="_blank"><img width="250" src="https://s3.amazonaws.com/media-p.slid.es/uploads/436673/images/3997457/1-9BC0VVlPQpTgdmt6z8fIuQ.png" alt="Storybook logo"></a></p>
+</p>
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Examples
+
+[Noticon](https://noticon.tammolo.com/)
+: icon storage for notion
+
+## License
+
+This project is licensed under the terms of the
+[MIT license](/LICENSE).
