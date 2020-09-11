@@ -1,8 +1,10 @@
+/* eslint-disable no-underscore-dangle */
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
 import React from 'react';
 import ReactDOM from 'react-dom';
 import Modal from './Modal';
+import global from '../../types/global';
 
 export const useModal = () => {
   const MODAL_WRAPPER = 'NotionUiModal';
@@ -23,7 +25,9 @@ export const useModal = () => {
     }
   };
 
-  const openModal = (params: { title: string; contents: React.ReactNode }) => {
+  global.__NOTION_UI.closeModal = close;
+
+  const open = (params: { title: string; contents: React.ReactNode }) => {
     const { title, contents } = params;
     const modal = (
       <Modal
@@ -42,7 +46,7 @@ export const useModal = () => {
   };
 
   return {
-    openModal,
+    open,
     close,
   };
 };
@@ -57,3 +61,5 @@ export const useTabSelect = (tabs: string[]) => {
     handleSelect: setSelected,
   };
 };
+
+export const useCloseCallback = () => () => global.__NOTION_UI.closeModal();

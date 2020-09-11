@@ -10,13 +10,13 @@ function App() {
   }, [])
   const modal = Modal.useModal();
   const handleOpenShareModal = () => {
-    modal.openModal({
+    modal.open({
       title: 'share',
       contents: <div>share</div>
     });
   }
   const handleOpenNotificationModal = () => {
-    modal.openModal({
+    modal.open({
       title: 'notification',
       contents: <div>notification</div>
     });

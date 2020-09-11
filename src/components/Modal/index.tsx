@@ -1,4 +1,4 @@
-import { useModal, useTabSelect } from './hooks';
+import { useModal, useTabSelect, useCloseCallback } from './hooks';
 import Section from './ModalSection';
 import TabSelect from './ModalTabSelect';
 
@@ -7,4 +7,5 @@ export default {
   useTabSelect,
   Section,
   TabSelect,
+  useCloseCallback,
 };

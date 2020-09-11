@@ -2,6 +2,7 @@
 type NotionUIGlobal = typeof globalThis & {
   __NOTION_UI: {
     closeAside: () => void;
+    closeModal: () => void;
   };
 };
 
@@ -9,6 +10,7 @@ if ((globalThis as NotionUIGlobal).__NOTION_UI === undefined) {
   Object.defineProperty(globalThis, '__NOTION_UI', {
     value: {
       closeAside: () => {},
+      closeModal: () => {},
     },
     enumerable: false,
     configurable: false,

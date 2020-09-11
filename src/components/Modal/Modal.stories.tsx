@@ -37,11 +37,17 @@ export const ModalMobile$DEV = (): JSX.Element => {
 export const openModal = (): JSX.Element => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
   const modal = useModal();
+  const handleCloseModal = modal.close;
 
   const handleOpenModal = () => {
-    modal.openModal({
+    modal.open({
       title: 'share',
-      contents: <p>any content</p>,
+      contents: (
+        <>
+          <p>any content</p>
+          <Button onClick={handleCloseModal}> close </Button>
+        </>
+      ),
     });
   };
   return (
