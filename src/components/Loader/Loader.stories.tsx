@@ -1,7 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import Loader from '.';
-import Layout from '../Layout';
+import { Loader, Layout } from 'notion-ui';
 
 export default {
   title: 'Loader',

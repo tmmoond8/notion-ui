@@ -9,6 +9,9 @@ module.exports = function({ config }) {
   });
   config.resolve.extensions.push('.ts', '.tsx');
   config.resolve.modules.push(path.resolve('./'));
+  config.resolve.alias = {
+    'notion-ui': path.resolve(__dirname, '../src/index')
+  }
   config.node = { fs: 'empty', React: 'empty'};
   
   return config;

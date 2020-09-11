@@ -1,9 +1,7 @@
 /* eslint-disable react-hooks/rules-of-hooks */
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import Switch from '.';
-import { useTheme, toggleTheme, loadTheme } from '../..';
-import { Theme } from '../../types/theme';
+import { Switch, useTheme, toggleTheme, loadTheme } from 'notion-ui';
 
 export default {
   title: 'Switch',
@@ -21,7 +19,7 @@ export const switchDefault = () => {
       <Switch onEvent={action('on')} offEvent={action('off')} />
       <p>Theme</p>
       <Switch
-        switchOn={theme === Theme.Dark}
+        switchOn={theme === 'Dark'}
         onEvent={toggleTheme}
         offEvent={toggleTheme}
       />

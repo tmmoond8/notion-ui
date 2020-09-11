@@ -1,7 +1,7 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { withKnobs, text, boolean } from '@storybook/addon-knobs';
-import Button from '.';
+import { withKnobs, text } from '@storybook/addon-knobs';
+import { Button } from 'notion-ui';
 
 export default {
   title: 'Button',

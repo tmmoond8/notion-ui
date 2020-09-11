@@ -1,6 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { IconButton } from '.';
+import { IconButton } from 'notion-ui';
 
 export default {
   title: 'IconButton',

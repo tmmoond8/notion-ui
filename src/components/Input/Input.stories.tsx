@@ -1,12 +1,12 @@
 import React, { ChangeEvent, useState, useCallback } from 'react';
-import TextFiled from './TextField';
+import { TextField } from 'notion-ui';
 
 export default {
   title: 'Input',
-  component: TextFiled,
+  component: TextField,
 };
 
-export const TextFiledBase = (): JSX.Element => {
+export const TextFieldBase = (): JSX.Element => {
   const [values, setValues] = useState({
     textFiled1: '',
     textFiled2: '',
@@ -20,15 +20,15 @@ export const TextFiledBase = (): JSX.Element => {
 
   return (
     <div>
-      <h2>TextFiled</h2>
+      <h2>TextField</h2>
       <h4>placeholder</h4>
-      <TextFiled
+      <TextField
         id="textFiled1"
         placeholder="placeholder"
         value={values.textFiled1}
         onChange={handleChange}
       />
-      <TextFiled
+      <TextField
         id="textFiled2"
         label="name"
         value={values.textFiled2}

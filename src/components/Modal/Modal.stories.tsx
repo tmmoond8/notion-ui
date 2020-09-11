@@ -1,10 +1,8 @@
 /* eslint-disable @typescript-eslint/camelcase */
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import Modal from '.';
-import { useModal, useTabSelect } from './hooks';
+import { Modal, Button } from 'notion-ui';
 import ModalComponent from './Modal';
-import Button from '../Button';
 
 export default {
   title: 'Modal',
@@ -12,7 +10,7 @@ export default {
 };
 
 export const ModalMobile$DEV = (): JSX.Element => {
-  const { tabs, selected, handleSelect } = useTabSelect(['tab1', 'tab2']);
+  const { tabs, selected, handleSelect } = Modal.useTabSelect(['tab1', 'tab2']);
   return (
     <div>
       <ModalComponent
@@ -36,7 +34,7 @@ export const ModalMobile$DEV = (): JSX.Element => {
 
 export const openModal = (): JSX.Element => {
   // eslint-disable-next-line react-hooks/rules-of-hooks
-  const modal = useModal();
+  const modal = Modal.useModal();
   const handleCloseModal = modal.close;
 
   const handleOpenModal = () => {

@@ -1,13 +1,10 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import { IconButton } from '../Icon';
-import Button from '../Button';
+import { IconButton, Button, Layout, Aside } from 'notion-ui';
 import EmbedLayout from './EmbedLayout';
 import MobileLayout from './MobileLayout';
 import DesktopLayout from './DesktopLayout';
-import AppLayout from './AppLayout';
 import AppLayoutContext from './context';
-import Aside from '../Aside';
 
 export default {
   title: 'Layout',
@@ -26,7 +23,7 @@ const Contents = new Array(100)
   .map((_, index) => <p>{`test ${index}`}</p>);
 
 export const App = () => (
-  <AppLayout
+  <Layout.App
     leftMenus={<>Untiltled</>}
     rightMenus={
       <>
@@ -60,7 +57,7 @@ export const App = () => (
     handleGoNext={action('go next')}
   >
     {Contents}
-  </AppLayout>
+  </Layout.App>
 );
 
 export const Mobile$DEV = () => {

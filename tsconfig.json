@@ -8,6 +8,11 @@
     ],
     "declaration": true,
     "baseUrl": ".",
+    "paths": {
+      "notion-ui": [
+        "src/index"
+      ]
+    },
     "allowJs": true,
     "skipLibCheck": true,
     "strict": true,

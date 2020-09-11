@@ -1,7 +1,6 @@
 import React from 'react';
 import { action } from '@storybook/addon-actions';
-import Aside from '.';
-import { Icon } from '../..';
+import { Aside, Icon } from 'notion-ui';
 
 export default {
   title: 'Aside',
