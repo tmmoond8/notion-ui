@@ -6,7 +6,7 @@
 
 <div align="center">
 
-[Notion](https://notion.so/) design system for faster and simpler react development. Build your webapp, or start with [Notion UI](https://notion-ui.tammolo.com/).  
+[Notion UI](https://notion-ui.tammolo.com/) is a design system for faster and simpler react development. Build your webapp, or start with [Notion UI](https://notion-ui.tammolo.com/).  
 
 
 [![npm package](https://img.shields.io/npm/v/notion-ui)](https://www.npmjs.com/package/notion-ui)
@@ -37,7 +37,7 @@ import { Button } from 'notion-ui';
 function App() {
   return (
     <Button 
-      onClick={() => console.log('clickec')} 
+      onClick={() => console.log('click')} 
       buttonType="Primary">
       Primary
     </Button>
@@ -57,7 +57,7 @@ Yes, it's really all you need to get started as you can see in this storybook:
 ## Examples
 
 [Noticon](https://noticon.tammolo.com/)
-: icon storage for notion
+: a icon storage for notion [repository](https://github.com/tmmoond8/noticon)
 
 ## License
 
