@@ -6,6 +6,12 @@
         "dom.iterable",
         "esnext"
       ],
+      "baseUrl": ".",
+      "paths": {
+        "notion-ui": [
+          "../src/index"
+        ]
+      },
       "skipLibCheck": true,
       "esModuleInterop": true,
       "allowSyntheticDefaultImports": true,
