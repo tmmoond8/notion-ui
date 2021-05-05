@@ -54,6 +54,13 @@ const Contents = styled.ul<{ max: number | undefined }>`
   padding: 0;
   overflow-y: auto;
   list-style: none;
+  &::-webkit-scrollbar {
+    width: 12px;
+    background-color: ${colors.scrollBar};
+  }
+  ::-webkit-scrollbar-thumb {
+    background: ${colors.scrollBar};
+  }
 
   & > li {
     padding: 0 14px 0 32px;
@@ -68,3 +75,4 @@ const Contents = styled.ul<{ max: number | undefined }>`
       `)}
     `}
 `;
+

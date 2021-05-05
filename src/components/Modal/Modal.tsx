@@ -90,14 +90,14 @@ const ModalBox = styled.div<{ open: boolean }>`
   transform: translateY(${p => (p.open ? '0' : '100vh')});
 
   ${moreThan(
-    512,
-    css`
+  512,
+  css`
       max-width: 414px;
       max-height: 484px;
       border-radius: 3px;
       overflow: hidden;
     `,
-  )}
+)}
 `;
 
 const ModalBody = styled.div`
@@ -105,5 +105,5 @@ const ModalBody = styled.div`
   padding: 0;
   background-color: ${colors.modalBody};
   color: ${colors.grey};
-  overflow: scroll;
+  overflow: auto;
 `;
