@@ -138,7 +138,15 @@ const ContentWrapper = styled.div`
   right: 0;
   bottom: 0;
   margin: auto;
-  overflow: scroll;
+  overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 12px;
+    background-color: ${colors.scrollBar};
+  }
+  ::-webkit-scrollbar-thumb {
+    background: ${colors.scrollBar};
+  }
 `;
 
 const AsideWrapper = styled.div<{ visible: boolean }>`

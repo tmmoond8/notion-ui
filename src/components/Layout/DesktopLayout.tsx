@@ -6,6 +6,7 @@ import cx from 'classnames';
 import AppLayoutContext from './context';
 import Aside from '../Aside';
 import { useNoScrollOutside } from './hooks';
+import { colors } from '../../styles';
 
 interface AppLayoutProps {
   className?: string;
@@ -59,6 +60,14 @@ const ContentWrapper = styled.div`
   flex: 1;
   margin: 44px 0 0 0;
   overflow: auto;
+
+  &::-webkit-scrollbar {
+    width: 12px;
+    background-color: ${colors.scrollBar};
+  }
+  ::-webkit-scrollbar-thumb {
+    background: ${colors.scrollBar};
+  }
 `;
 
 const Layout = styled.div`
