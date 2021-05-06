@@ -9,5 +9,6 @@ export { default as Switch } from './components/Switch';
 export { default as Aside } from './components/Aside';
 export { default as Loader } from './components/Loader';
 export { default as Modal } from './components/Modal';
+export { default as Calendar } from './components/Calendar';
 export { colors, colorCss, useTheme, loadTheme, toggleTheme } from './styles';
 export const { TextField } = _Input;
