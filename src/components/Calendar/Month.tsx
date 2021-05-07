@@ -1,5 +1,6 @@
 import React from 'react'
 import styled from '@emotion/styled';
+import cx from 'classnames';
 import { Day, Head, Empty } from './Day';
 import { startOfMonth, getDaysInMonth } from 'date-fns';
 
@@ -12,7 +13,7 @@ const Month: React.FC<{
   const days = getDaysInMonth(monthDate);
   const title = `${year}년 ${month}월`
   return (
-    <MonthBox>
+    <MonthBox className={cx('CalendarMonth')}>
       <Title>{title}</Title>
       <Grid>
         {[0, 1, 2, 3, 4, 5, 6].map(num => <Head dayNum={num} />)}
