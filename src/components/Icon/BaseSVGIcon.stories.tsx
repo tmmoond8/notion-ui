@@ -193,6 +193,14 @@ export const iconTypes = () => (
       <Icon icon="loading" size="Huge" className="loadingIcon" />
       <p>loading</p>
     </IconPack>
+    <IconPack>
+      <Icon icon="chevronLeft" size="Huge" className="chevronLeftIcon" />
+      <p>chevronLeft</p>
+    </IconPack>
+    <IconPack>
+      <Icon icon="chevronRight" size="Huge" className="chevronRightIcon" />
+      <p>chevronRight</p>
+    </IconPack>
   </div>
 );
 

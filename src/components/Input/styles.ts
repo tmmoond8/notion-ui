@@ -1,7 +1,7 @@
 import { css } from '@emotion/core';
 import { colors } from '../../styles';
 
-export const textFiled = {
+export const textField = {
   wrapper: css`
     > label {
       font-size: 11px;

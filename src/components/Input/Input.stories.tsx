@@ -1,5 +1,6 @@
 import React, { ChangeEvent, useState, useCallback } from 'react';
 import { TextField } from 'notion-ui';
+import { action } from '@storybook/addon-actions';
 
 export default {
   title: 'Input',
@@ -27,12 +28,14 @@ export const TextFieldBase = (): JSX.Element => {
         placeholder="placeholder"
         value={values.textFiled1}
         onChange={handleChange}
+        onSubmit={action('submit: ' + values.textFiled1)}
       />
       <TextField
         id="textFiled2"
         label="name"
         value={values.textFiled2}
         onChange={handleChange}
+        onSubmit={action('submit: ' + values.textFiled2)}
       />
     </div>
   );

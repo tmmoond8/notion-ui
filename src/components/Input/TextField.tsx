@@ -1,49 +1,46 @@
 /** @jsx jsx */
 import { jsx } from '@emotion/core';
-import { ChangeEvent, useState, useMemo, useRef, useEffect } from 'react';
+import { ChangeEvent, useState, useMemo, useRef, useEffect, KeyboardEvent, HTMLAttributes } from 'react';
 import cx from 'classnames';
 import * as styles from './styles';
 
 export type Variant = 'Default' | 'Filled' | 'Outlined';
 
-interface TextFieldProps {
-  className?: string;
+interface TextFieldProps extends HTMLAttributes<HTMLInputElement> {
   id: string;
-  label?: string;
   variant?: Variant;
-  placeholder?: string;
   value: string | number;
-  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
   errorMessage?: string;
-  onBlur?: () => void;
+  label?: string;
+  onSubmit?: () => void;
 }
 
-export default function TextField(props: TextFieldProps): JSX.Element {
-  const {
-    label,
-    id,
-    variant = 'Default',
-    placeholder = '',
-    value = '',
-    onChange,
-    errorMessage,
-    className,
-    onBlur = () => {},
-  } = props;
+const TextField: React.FC<TextFieldProps> = ({
+  errorMessage,
+  variant = 'Default',
+  className,
+  label = "",
+  id,
+  value,
+  placeholder,
+  onChange,
+  onBlur,
+  onSubmit,
+}) => {
   const [isFocus, setFocus] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
   const stateStyle = useMemo(() => {
     const style = [];
     if (isFocus) {
-      style.push(styles.textFiled.state.focus);
+      style.push(styles.textField.state.focus);
     }
     if (errorMessage) {
-      style.push(styles.textFiled.state.error);
+      style.push(styles.textField.state.error);
     }
     return style;
   }, [isFocus, errorMessage]);
 
-  const variantStyle = styles.textFiled.variant[variant];
+  const variantStyle = styles.textField.variant[variant];
   useEffect((): VoidFunc => {
     if (inputRef?.current) {
       const focusEvent = (): void => setFocus(true);
@@ -57,13 +54,13 @@ export default function TextField(props: TextFieldProps): JSX.Element {
         inputElement.removeEventListener('blur', blurEvent);
       };
     }
-    return (): void => {};
+    return (): void => { };
   }, [inputRef]);
 
   return (
-    <div css={styles.textFiled.wrapper} className={cx('TextField', className)}>
+    <div css={styles.textField.wrapper} className={cx('TextField', className)}>
       {label && <label htmlFor={id}>{label}</label>}
-      <div css={[styles.textFiled.default, ...stateStyle, variantStyle]}>
+      <div css={[styles.textField.default, ...stateStyle, variantStyle]}>
         <input
           ref={inputRef}
           type="text"
@@ -72,8 +69,15 @@ export default function TextField(props: TextFieldProps): JSX.Element {
           placeholder={placeholder}
           onChange={onChange}
           onBlur={onBlur}
+          onKeyDown={(e: KeyboardEvent) => {
+            if (onSubmit && e.key === 'Enter') {
+              onSubmit();
+            }
+          }}
         />
       </div>
     </div>
   );
 }
+
+export default TextField;
