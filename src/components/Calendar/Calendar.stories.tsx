@@ -1,6 +1,5 @@
 import React from 'react';
 import styled from '@emotion/styled';
-import { action } from '@storybook/addon-actions';
 import { withKnobs, text } from '@storybook/addon-knobs';
 import { Calendar } from 'notion-ui';
 

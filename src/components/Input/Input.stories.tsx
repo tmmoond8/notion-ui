@@ -1,13 +1,14 @@
 import React, { ChangeEvent, useState, useCallback } from 'react';
-import { TextField } from 'notion-ui';
+import { TextField, TextFieldProps } from 'notion-ui';
 import { action } from '@storybook/addon-actions';
 
 export default {
-  title: 'Input',
+  title: 'TextField',
   component: TextField,
 };
 
-export const TextFieldBase = (): JSX.Element => {
+
+export const TextFieldBase: React.FC<TextFieldProps> = () => {
   const [values, setValues] = useState({
     textFiled1: '',
     textFiled2: '',

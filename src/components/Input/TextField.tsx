@@ -6,7 +6,7 @@ import * as styles from './styles';
 
 export type Variant = 'Default' | 'Filled' | 'Outlined';
 
-interface TextFieldProps extends HTMLAttributes<HTMLInputElement> {
+export interface TextFieldProps extends HTMLAttributes<HTMLInputElement> {
   id: string;
   variant?: Variant;
   value: string | number;
