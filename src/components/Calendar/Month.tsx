@@ -42,19 +42,21 @@ const Month: React.FC<{
 export default Month
 
 const MonthBox = styled.div`
-  width: 270px;
+  min-width: 232px;
+  width: 100%;
   text-align: center;
+  margin: 0 auto;
 `;
 
 const Title = styled.h3`
   font-size: 14px;
   font-weight: 600;
-  margin: 0;
+  margin: 0 0 16px;
 `;
 
 const Grid = styled.ol`
   display: inline-grid;
-  width: 224px;
+  width: 100%;
   height: 240px;
   grid-template-columns: repeat(7, 1fr);
   padding: 0;
