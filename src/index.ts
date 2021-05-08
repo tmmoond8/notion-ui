@@ -8,5 +8,5 @@ export { default as Aside } from './components/Aside';
 export { default as Loader } from './components/Loader';
 export { default as Modal } from './components/Modal';
 export { default as Calendar } from './components/Calendar';
-export { TextField, TextFieldProps } from './components/Input';
+export { TextField, TextFieldProps, useInput } from './components/Input';
 export { colors, colorCss, useTheme, loadTheme, toggleTheme } from './styles';

@@ -43,6 +43,9 @@ export const textField = {
       &::placeholder {
         color: ${colors.grey16};
       }
+      ::-webkit-inner-spin-button {
+        -webkit-appearance: none;
+      }
     }
   `,
   variant: {

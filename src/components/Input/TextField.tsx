@@ -1,6 +1,8 @@
+
 /** @jsx jsx */
+import React from 'react';
 import { jsx } from '@emotion/core';
-import { ChangeEvent, useState, useMemo, useRef, useEffect, KeyboardEvent, HTMLAttributes } from 'react';
+import { useState, useMemo, useRef, useEffect, KeyboardEvent, HTMLAttributes } from 'react';
 import cx from 'classnames';
 import * as styles from './styles';
 
@@ -12,6 +14,7 @@ export interface TextFieldProps extends HTMLAttributes<HTMLInputElement> {
   value: string | number;
   errorMessage?: string;
   label?: string;
+  type?: string;
   onSubmit?: () => void;
 }
 
@@ -26,6 +29,7 @@ const TextField: React.FC<TextFieldProps> = ({
   onChange,
   onBlur,
   onSubmit,
+  type = 'text',
 }) => {
   const [isFocus, setFocus] = useState(false);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -63,8 +67,9 @@ const TextField: React.FC<TextFieldProps> = ({
       <div css={[styles.textField.default, ...stateStyle, variantStyle]}>
         <input
           ref={inputRef}
-          type="text"
+          type={type}
           id={id}
+          name={id}
           value={value}
           placeholder={placeholder}
           onChange={onChange}
@@ -81,3 +86,15 @@ const TextField: React.FC<TextFieldProps> = ({
 }
 
 export default TextField;
+
+export function useInput(name: string) {
+  const [value, setValue] = React.useState('');
+  const onChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setValue(e.target.value);
+  }
+
+  return {
+    value,
+    onChange,
+  }
+}
