@@ -21,7 +21,7 @@ export default {
 export const Month = () => (
   <Calendar.Month
     year={2021}
-    month={4}
+    month={5}
   />
 );
 
