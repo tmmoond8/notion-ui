@@ -96,5 +96,6 @@ export function useInput(name: string) {
   return {
     value,
     onChange,
+    setValue,
   }
 }
