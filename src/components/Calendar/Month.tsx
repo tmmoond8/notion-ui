@@ -2,22 +2,26 @@ import React from 'react'
 import styled from '@emotion/styled';
 import cx from 'classnames';
 import { startOfMonth, getDaysInMonth, lastDayOfMonth } from 'date-fns';
+import { zonedTimeToUtc } from 'date-fns-tz'
 import { Day, Head, Empty } from './Day';
 import { colors } from '../../styles';
+
+const timeZone = 'Asia/Seoul';
+const createDate = (date: Date) => zonedTimeToUtc(date, timeZone);
 
 const Month: React.FC<{
   year: number;
   month: number;
 }> = ({ year, month }) => {
-  const monthDate = new Date(year, month - 1);
+  const monthDate = createDate(new Date(year, month - 1));
   const firstDayInMonth = startOfMonth(monthDate).getDay();
   const days = getDaysInMonth(monthDate);
   const title = `${year}년 ${month}월`;
   const today = React.useMemo(() => {
-    const now = new Date();
+    const now = createDate(new Date());
     return `${now.getFullYear()}${now.getMonth() + 1}${now.getDate()}`;
   }, [])
-  const lastMonth = getDaysInMonth(new Date(year, month - 2));
+  const lastMonth = getDaysInMonth(createDate(new Date(year, month - 2)));
   const lastDay = lastDayOfMonth(monthDate);
 
   return (
