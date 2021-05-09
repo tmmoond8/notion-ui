@@ -4,12 +4,16 @@ import { withKnobs, text } from '@storybook/addon-knobs';
 import { Calendar } from 'notion-ui';
 
 const YearLayout = styled.div`
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  justify-content: space-around;
+  grid-template-columns: repeat(auto-fill, minmax(232px, 1fr));
+  max-width: 1660px;
+  grid-gap: 32px;
+  margin: 0 auto;
+`;
 
-  .CalendarMonth {
-    margin-right: 20px;
-  }
+const MonthLayout = styled.div`
+  width: 232px;
 `;
 
 export default {
@@ -18,10 +22,12 @@ export default {
 };
 
 export const Month = () => (
-  <Calendar.Month
-    year={2021}
-    month={5}
-  />
+  <MonthLayout>
+    <Calendar.Month
+      year={2021}
+      month={5}
+    />
+  </MonthLayout>
 );
 
 export const Year = () => (
