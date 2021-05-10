@@ -1,5 +1,6 @@
 import React, { ChangeEvent, useState, useCallback } from 'react';
-import { TextField, TextFieldProps, useInput } from 'notion-ui';
+import { TextField, useInput } from 'notion-ui';
+import { TextFieldProps } from './TextField';
 import { withKnobs } from '@storybook/addon-knobs';
 import { action } from '@storybook/addon-actions';
 
