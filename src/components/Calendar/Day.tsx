@@ -37,6 +37,7 @@ const StyledDay = styled.li<{ isToday: boolean }>`
   height: 30px;
   font-size: 14px;
   font-weight: 500;
+  margin: 0 auto;
   color: ${colors.grey};
   &:hover {
     background-color: ${colors.grey16};
@@ -73,6 +74,7 @@ const StyledHead = styled.li<{ isEmpty?: boolean; }>`
   justify-content: center;
   width: 32px;
   height: 30px;
+  margin: 0 auto;
   font-size: 14px;
   font-weight: 500;
   user-select: none;

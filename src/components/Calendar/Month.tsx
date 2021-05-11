@@ -2,12 +2,12 @@ import React from 'react'
 import styled from '@emotion/styled';
 import cx from 'classnames';
 import { startOfMonth, getDaysInMonth, lastDayOfMonth } from 'date-fns';
-import { zonedTimeToUtc } from 'date-fns-tz'
+import { utcToZonedTime } from 'date-fns-tz'
 import { Day, Head, Empty } from './Day';
 import { colors } from '../../styles';
 
 const timeZone = 'Asia/Seoul';
-const createDate = (date: Date) => zonedTimeToUtc(date, timeZone);
+const createDate = (date: Date) => utcToZonedTime(date, timeZone);
 
 const Month: React.FC<{
   year: number;
