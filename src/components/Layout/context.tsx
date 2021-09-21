@@ -5,6 +5,7 @@ export interface AppLayoutContextInteface {
   handleGoNext?: () => void;
   leftMenus?: ReactNode;
   rightMenus?: ReactNode;
+  center?: ReactNode;
   aside: ReactNode;
 }
 

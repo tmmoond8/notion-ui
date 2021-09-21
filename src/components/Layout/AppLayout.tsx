@@ -20,6 +20,7 @@ export default function AppLayout(props: AppLayoutProps): JSX.Element {
     aside,
     leftMenus,
     rightMenus,
+    center,
   } = props;
   return (
     <AppLayoutContext.Provider
@@ -29,6 +30,7 @@ export default function AppLayout(props: AppLayoutProps): JSX.Element {
         aside,
         leftMenus,
         rightMenus,
+        center,
       }}
     >
       <Reponsive

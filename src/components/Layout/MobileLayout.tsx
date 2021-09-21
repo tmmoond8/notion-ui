@@ -69,9 +69,13 @@ interface MobileMenuBarProps {
 
 function MobileMenuBar(props: MobileMenuBarProps): JSX.Element {
   const { handleOpen } = props;
-  const { leftMenus, rightMenus, handleGoBack, handleGoNext } = useContext(
-    AppLayoutContext,
-  );
+  const {
+    leftMenus,
+    rightMenus,
+    center,
+    handleGoBack,
+    handleGoNext,
+  } = useContext(AppLayoutContext);
   return (
     <MenuBar>
       <LeftMenus>
@@ -99,6 +103,7 @@ function MobileMenuBar(props: MobileMenuBarProps): JSX.Element {
         )}
         {leftMenus}
       </LeftMenus>
+      <Center>{center}</Center>
       <RightMenus>{rightMenus}</RightMenus>
     </MenuBar>
   );
@@ -121,8 +126,16 @@ const MenuBar = styled.header`
 const LeftMenus = styled.nav`
   display: flex;
   align-items: center;
+  flex: 1;
   height: 100%;
 `;
+
+const Center = styled.div`
+  display: flex;
+  align-items: center;
+  height: 100%;
+`;
+
 const RightMenus = styled.nav`
   display: flex;
   align-items: center;

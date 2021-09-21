@@ -47,6 +47,7 @@ export const App = () => (
         />
       </>
     }
+    center={<p>타이틀</p>}
     aside={
       <ul>
         <li>menu1</li>

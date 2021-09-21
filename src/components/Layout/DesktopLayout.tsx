@@ -15,7 +15,7 @@ interface AppLayoutProps {
 
 export default function DesktopLayout(props: AppLayoutProps): JSX.Element {
   const { children, className } = props;
-  const { aside, leftMenus, rightMenus } = useContext(AppLayoutContext);
+  const { aside, leftMenus, rightMenus, center } = useContext(AppLayoutContext);
   useNoScrollOutside();
 
   return (
@@ -23,6 +23,7 @@ export default function DesktopLayout(props: AppLayoutProps): JSX.Element {
       <Aside visible>{aside}</Aside>
       <MenuBar>
         <LeftMenus>{leftMenus}</LeftMenus>
+        <Center>{center}</Center>
         <RightMenus>{rightMenus}</RightMenus>
       </MenuBar>
       <ContentWrapper>{children}</ContentWrapper>
@@ -46,13 +47,19 @@ const MenuBar = styled.header`
 const LeftMenus = styled.nav`
   display: flex;
   height: 100%;
+  flex: 1;
   align-items: center;
 `;
 const RightMenus = styled.nav`
   display: flex;
-  align-items: center;
   justify-content: flex-end;
   flex: 1;
+  height: 100%;
+`;
+
+const Center = styled.div`
+  display: flex;
+  align-items: center;
   height: 100%;
 `;
 
