@@ -1,6 +1,19 @@
 import React, { useEffect } from 'react';
 import styled from '@emotion/styled';
-import { useTheme, Content, Icon, Layout, IconButton, Switch, loadTheme, Aside, toggleTheme, Modal, Loader } from 'notion-ui';
+import { 
+  useTheme, 
+  Content, 
+  Icon, 
+  Layout, 
+  IconButton, 
+  Switch, 
+  loadTheme, 
+  Aside, 
+  toggleTheme, 
+  Modal, 
+  Loader,
+  colors,
+} from 'notion-ui';
 
 function App() {
   useTheme();
@@ -76,18 +89,29 @@ function App() {
       </>
     }
     >
-      <div className="App">
+      <Main className="App">
         <h1>a ddd</h1>
         <Content.Text as="P" color="red" fontSize={17}>addds</Content.Text>
         <AB>babbab</AB>
+        <Content.Text>{`<Content.Spacing size={20} />`}</Content.Text>
+        <Content.Spacing size={20} />
+        <Content.Text>{`<Content.SpaceBetween />`}</Content.Text>
+        <Content.SpaceBetween width="200px" height="100px">
+          <Content.Text>a</Content.Text>
+          <Content.Text>b</Content.Text>
+        </Content.SpaceBetween>
         <Icon icon="hambugMenu"/>
-        {new Array(100).fill(null).map((_, index) => <p key={index}>test</p>)}
-      </div>
+        {new Array(100).fill(null).map((_, index) => <Content.Text key={index}>test</Content.Text>)}
+      </Main>
     </Layout.App>
   );
 }
 
 export default App;
+
+const Main = styled.main`
+  background: ${colors.background};
+`;
 
 const AB = styled(Content.Text)`
   color: red;
