@@ -19,12 +19,13 @@ export interface ModalProps {
   className?: string;
   title: string;
   contents: ReactNode;
+  zIndex?: number;
   handleClose: () => void;
 }
 
 const Modal = forwardRef(
   (props: ModalProps, ref): JSX.Element => {
-    const { className, title, contents, handleClose } = props;
+    const { className, title, contents, handleClose, zIndex = 700 } = props;
     const [open, setOpen] = useState<boolean>(false);
     const handleClickWrapper = useCallback(
       (e: MouseEvent<HTMLDivElement>) => {
@@ -47,6 +48,7 @@ const Modal = forwardRef(
         onClick={handleClickWrapper}
         className={cx('ModalWrapper', className)}
         open={open}
+        zIndex={zIndex}
       >
         <ModalBox open={open} ref={ref as RefObject<HTMLDivElement>}>
           <Head title={title} handleClose={handleClose} />
@@ -59,7 +61,7 @@ const Modal = forwardRef(
 
 export default Modal;
 
-const Wrapper = styled.div<{ open: boolean }>`
+const Wrapper = styled.div<{ open: boolean; zIndex: number }>`
   position: fixed;
   left: 0;
   right: 0;
@@ -70,7 +72,7 @@ const Wrapper = styled.div<{ open: boolean }>`
     'Segoe UI Emoji', 'Segoe UI Symbol';
   overflow: hidden;
   background-color: ${p => (p.open ? colors.modalDimmed : colors.notDimmed)};
-  z-index: 700;
+  z-index: ${p => p.zIndex};
   transition: background-color 0.2s ease 0s;
 `;
 
@@ -90,14 +92,14 @@ const ModalBox = styled.div<{ open: boolean }>`
   transform: translateY(${p => (p.open ? '0' : '100vh')});
 
   ${moreThan(
-  512,
-  css`
+    512,
+    css`
       max-width: 414px;
       max-height: 484px;
       border-radius: 3px;
       overflow: hidden;
     `,
-)}
+  )}
 `;
 
 const ModalBody = styled.div`
