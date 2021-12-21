@@ -39,8 +39,6 @@ const ContextMenu = (props: ContextMenuProps) => {
     pointY,
     wrapperRef?.current as HTMLDivElement | undefined,
   );
-  console.log('x', x);
-  console.log('y', y);
   const handleClickWrapper = useCallback(
     (e: MouseEvent<HTMLDivElement>) => {
       if (e.target === e.currentTarget) {
@@ -52,9 +50,7 @@ const ContextMenu = (props: ContextMenuProps) => {
 
   useEffect(() => {
     if (!open) {
-      setTimeout(() => {
-        setOpen(true);
-      }, 300);
+      setOpen(true);
     }
   }, [open]);
   return (
@@ -63,6 +59,7 @@ const ContextMenu = (props: ContextMenuProps) => {
       className={cx('ContextMenuWrapper', className)}
       open={open}
       zIndex={zIndex}
+      onContextMenu={handleClose}
     >
       <ContextMenuBox open={open} ref={wrapperRef} x={x} y={y}>
         <ModalBody>{contents}</ModalBody>
@@ -115,6 +112,7 @@ const ModalBody = styled.div`
   padding: 0;
   background-color: ${colors.modalBody};
   color: ${colors.grey};
+  padding: 8px 0;
   overflow: auto;
 `;
 
@@ -123,11 +121,17 @@ function getContextMenuPosition(
   pointY: number,
   targetElement?: HTMLElement,
 ) {
-  const targetRec = targetElement?.getBoundingClientRect();
-  console.log('targetRec', targetRec);
+  if (!targetElement) {
+    return {
+      x: -Number.MAX_VALUE,
+      y: -Number.MAX_VALUE,
+    };
+  }
+  const { width, height } = targetElement.getBoundingClientRect();
+  const { innerWidth, innerHeight } = window;
 
   return {
-    x: pointX,
-    y: pointY,
+    x: pointX + width > innerWidth ? innerWidth - width - 8 : pointX,
+    y: pointY + height > innerHeight ? innerHeight - height - 8 : pointY,
   };
 }

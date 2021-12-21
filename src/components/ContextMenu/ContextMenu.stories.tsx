@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/camelcase */
 import React from 'react';
-import { Button } from 'notion-ui';
+import { Icon } from 'notion-ui';
 import ContextMenu from '.';
 
 export default {
@@ -14,14 +14,16 @@ export const openContextMenu = () => {
   const handleCloseModal = contextMenu.close;
   contextMenu.setContents(
     <>
-      <p>any content</p>
-      <Button onClick={handleCloseModal}> close </Button>
+      <ContextMenu.Item left={<Icon icon="add" />} center="add" right="abc" />
+      <ContextMenu.Item center="abc" />
+      <ContextMenu.Item center="abc" />
+      <ContextMenu.Item center="abc" />
     </>,
   );
 
   return (
     <div>
-      {Array.from({ length: 6 }).map((_, idx) => (
+      {Array.from({ length: 160 }).map((_, idx) => (
         // eslint-disable-next-line react/no-array-index-key
         <span key={idx} onContextMenu={contextMenu.open}>
           Open Context Menu
