@@ -24,6 +24,7 @@ export const defaultColors = {
   modalBody: 'rgb(242, 241, 238)',
   modalContentWrapper: 'rgb(247, 246, 243)',
   scrollBar: 'rgba(55, 53, 47, 0.12)',
+  white: '#fff',
 };
 
 export type Colors = Record<keyof typeof defaultColors, string>;
@@ -47,6 +48,7 @@ export const darkColors: Colors = {
   modalBody: 'rgb(55, 60, 63)',
   modalContentWrapper: 'rgb(63, 68, 71)',
   scrollBar: 'rgba(255, 255, 255, 0.03)',
+  white: '#000',
 };
 
 export const toCSS = (cssObject: object): string =>
