@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-use-before-define */
 /** @jsx jsx */
-import { jsx, css } from '@emotion/core';
+import { jsx } from '@emotion/core';
 import styled from '@emotion/styled';
 import { ReactNode } from 'react';
 import cx from 'classnames';
@@ -14,7 +14,7 @@ interface Props {
   onClick?: () => void;
 }
 
-export default function ContextMenuItem({
+export function ContextMenuItem({
   className,
   left,
   center,
@@ -28,6 +28,10 @@ export default function ContextMenuItem({
       {right && <div className="ContextMenu-right">{right}</div>}
     </Item>
   );
+}
+
+export function ContextMenuHR() {
+  return <HR />;
 }
 
 const Item = styled.li`
@@ -55,4 +59,10 @@ const Item = styled.li`
     color: ${colors.grey40};
     margin-left: 8px;
   }
+`;
+
+const HR = styled.hr`
+  padding: 0;
+  border: none;
+  border-top: 1px solid ${colors.grey08};
 `;

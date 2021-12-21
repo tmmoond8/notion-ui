@@ -9,13 +9,16 @@ export default {
 };
 
 export const openContextMenu = () => {
-  // eslint-disable-next-line react-hooks/rules-of-hooks
   const contextMenu = ContextMenu.useContextMenu();
-  const handleCloseModal = contextMenu.close;
   contextMenu.setContents(
     <>
       <ContextMenu.Item left={<Icon icon="add" />} center="add" right="abc" />
-      <ContextMenu.Item center="abc" />
+      <ContextMenu.Item
+        left={<Icon icon="comment" />}
+        center="comment"
+        right="comment"
+      />
+      <ContextMenu.HR />
       <ContextMenu.Item center="abc" />
       <ContextMenu.Item center="abc" />
     </>,

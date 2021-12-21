@@ -1,4 +1,4 @@
 import { useContextMenu } from './hooks';
-import ContextMenuItem from './ContextMenuItem';
+import { ContextMenuItem, ContextMenuHR } from './ContextMenuItem';
 
-export default { useContextMenu, Item: ContextMenuItem };
+export default { useContextMenu, Item: ContextMenuItem, HR: ContextMenuHR };
