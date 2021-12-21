@@ -13,6 +13,7 @@ import {
   Modal, 
   Loader,
   colors,
+  ContextMenu,
 } from 'notion-ui';
 
 function App() {
@@ -36,6 +37,20 @@ function App() {
   }
 
   const handleCloseAside = Aside.useCloseCallback();
+
+  const contextMenu = ContextMenu.useContextMenu();
+  contextMenu.setContents(
+    <>
+      <ContextMenu.Item 
+        left={<Icon icon="copy" />}
+        center="copy"
+        right="copy"
+      />
+      <ContextMenu.Item 
+        left={<Icon icon="smile" />}
+        center="smile"
+      />
+    </>)
 
   return (
     <Layout.App
@@ -90,7 +105,7 @@ function App() {
     }
     >
       <Main className="App">
-        <h1>a ddd</h1>
+        <h1 onContextMenu={contextMenu.open}>Open Context Menu</h1>
         <Content.Text as="P" color="red" fontSize={17}>addds</Content.Text>
         <AB>babbab</AB>
         <Content.Text>{`<Content.Spacing size={20} />`}</Content.Text>
