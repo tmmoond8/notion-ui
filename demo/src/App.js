@@ -14,6 +14,7 @@ import {
   Loader,
   colors,
   ContextMenu,
+  Reponsive,
 } from 'notion-ui';
 
 function App() {
@@ -108,6 +109,10 @@ function App() {
         <h1 onContextMenu={contextMenu.open}>Open Context Menu</h1>
         <Content.Text as="P" color="red" fontSize={17}>addds</Content.Text>
         <AB>babbab</AB>
+        <Reponsive 
+          mobileComponent={<Content.Text>Mobile</Content.Text>}
+          desktopComponent={<Content.Text>Desktop</Content.Text>}
+        />
         <Content.Text>{`<Content.Spacing size={20} />`}</Content.Text>
         <Content.Spacing size={20} />
         <Content.Text>{`<Content.SpaceBetween />`}</Content.Text>

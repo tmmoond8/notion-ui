@@ -8,6 +8,7 @@ export { default as Aside } from './components/Aside';
 export { default as Loader } from './components/Loader';
 export { default as Modal } from './components/Modal';
 export { default as Calendar } from './components/Calendar';
+export { Reponsive } from './components/Respoinsive';
 export { TextField, useInput } from './components/Input';
 export { default as ContextMenu } from './components/ContextMenu';
 export { colors, colorCss, useTheme, loadTheme, toggleTheme } from './styles';
