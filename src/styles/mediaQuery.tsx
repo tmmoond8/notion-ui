@@ -1,4 +1,6 @@
 import { css, SerializedStyles } from '@emotion/core';
+import React from 'react';
+import { throttle } from 'throttle-debounce';
 
 export const BreakPoints = {
   Mobile: 425,
@@ -20,3 +22,23 @@ export const desktop = (style: SerializedStyles): SerializedStyles => css`
     ${style};
   }
 `;
+
+export const useMediaQuery = () => {
+  const [isMobile, setIsMobile] = React.useState<boolean>(false);
+  React.useEffect(() => {
+    const onSizeEvent = throttle(50, false, () => {
+      const windowWidth = document.body.clientWidth;
+      const isMobileWidth = windowWidth < BreakPoints.Tablet;
+      setIsMobile(isMobileWidth);
+    });
+    onSizeEvent();
+    window.addEventListener('resize', onSizeEvent);
+    return () => {
+      window.removeEventListener('resize', onSizeEvent);
+    };
+  }, []);
+  return {
+    mobile: isMobile,
+    desktop: !isMobile,
+  };
+};

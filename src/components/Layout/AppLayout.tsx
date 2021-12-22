@@ -5,8 +5,9 @@ import { Reponsive } from '../Respoinsive';
 import MobileLayout from './MobileLayout';
 import DesktopLayout from './DesktopLayout';
 import AppLayoutContext, { AppLayoutContextInteface } from './context';
+import { useMediaQuery } from '../../styles/mediaQuery';
 
-interface AppLayoutProps extends AppLayoutContextInteface {
+interface AppLayoutProps extends Omit<AppLayoutContextInteface, 'mediaQuery'> {
   children?: ReactNode;
   className?: string;
 }
@@ -22,6 +23,7 @@ export default function AppLayout(props: AppLayoutProps): JSX.Element {
     rightMenus,
     center,
   } = props;
+  const { mobile, desktop } = useMediaQuery();
   return (
     <AppLayoutContext.Provider
       value={{
@@ -31,6 +33,10 @@ export default function AppLayout(props: AppLayoutProps): JSX.Element {
         leftMenus,
         rightMenus,
         center,
+        mediaQuery: {
+          mobile,
+          desktop,
+        },
       }}
     >
       <Reponsive

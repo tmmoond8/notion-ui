@@ -1,15 +1,23 @@
-import { createContext, ReactNode } from 'react';
+import { createContext, ReactNode, useContext } from 'react';
 
 export interface AppLayoutContextInteface {
-  handleGoBack?: () => void;
-  handleGoNext?: () => void;
   leftMenus?: ReactNode;
   rightMenus?: ReactNode;
   center?: ReactNode;
-  aside: ReactNode;
+  aside?: ReactNode;
+  mediaQuery?: {
+    mobile: boolean;
+    desktop: boolean;
+  };
+  handleGoBack?: () => void;
+  handleGoNext?: () => void;
 }
 
 const AppLayoutContext = createContext({
+  mediaQuery: {
+    mobile: false,
+    desktop: false,
+  },
   handleGoBack: () => {},
   handleGoNext: () => {},
   aside: () => '',
@@ -18,3 +26,13 @@ const AppLayoutContext = createContext({
 AppLayoutContext.displayName = 'AppLayoutContext';
 
 export default AppLayoutContext;
+
+export const useAppContext = () => {
+  const { mediaQuery } = useContext(AppLayoutContext);
+  return {
+    mediaQuery: mediaQuery ?? {
+      mobile: false,
+      desktop: false,
+    },
+  };
+};
