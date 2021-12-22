@@ -7,7 +7,6 @@ import global from '../../types/global';
 import ContextMenu from './ContextMenu';
 
 export const useContextMenu = () => {
-  const contentsRef = React.useRef<React.ReactNode>(null);
   const MODAL_WRAPPER = 'NotionUiContextMenu';
   let contextMenuWrapper: HTMLDivElement | null = null;
 
@@ -21,15 +20,21 @@ export const useContextMenu = () => {
 
   global.__NOTION_UI.closeModal = close;
 
-  const open = (e: React.MouseEvent) => {
+  const open = ({
+    event,
+    contents,
+  }: {
+    event: React.MouseEvent;
+    contents: React.ReactNode;
+  }) => {
     const bodyElement = document.querySelector('body');
-    e.preventDefault();
+    event.preventDefault();
     const modal = (
       <ContextMenu
         handleClose={close}
-        contents={contentsRef.current}
-        pointX={e.clientX}
-        pointY={e.clientY}
+        contents={contents}
+        pointX={event.clientX}
+        pointY={event.clientY}
       />
     );
     contextMenuWrapper = document.createElement('div');
@@ -40,14 +45,9 @@ export const useContextMenu = () => {
     }
   };
 
-  const setContents = (contents: React.ReactNode) => {
-    contentsRef.current = contents;
-  };
-
   return {
     open,
     close,
-    setContents,
   };
 };
 

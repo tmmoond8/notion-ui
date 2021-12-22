@@ -110,7 +110,7 @@ const ContextMenuBox = styled.div<{ open: boolean; x: number; y: number }>`
 const ModalBody = styled.div`
   flex: 1;
   padding: 0;
-  background-color: ${colors.modalBody};
+  background-color: ${colors.modalContentWrapper};
   color: ${colors.grey};
   padding: 8px 0;
   overflow: auto;
