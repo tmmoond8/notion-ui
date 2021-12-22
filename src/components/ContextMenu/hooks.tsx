@@ -9,25 +9,21 @@ import ContextMenu from './ContextMenu';
 export const useContextMenu = () => {
   const contentsRef = React.useRef<React.ReactNode>(null);
   const MODAL_WRAPPER = 'NotionUiContextMenu';
-  const bodyElement = document.querySelector('body');
   let contextMenuWrapper: HTMLDivElement | null = null;
 
   const close = () => {
-    if (bodyElement) {
-      // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
-      if (contextMenuWrapper) {
-        bodyElement.removeChild(contextMenuWrapper);
-        contextMenuWrapper = null;
-      }
+    const bodyElement = document.querySelector('body');
+    if (bodyElement && contextMenuWrapper) {
+      bodyElement.removeChild(contextMenuWrapper);
+      contextMenuWrapper = null;
     }
   };
 
   global.__NOTION_UI.closeModal = close;
 
   const open = (e: React.MouseEvent) => {
-    // if (preventDefault) {
+    const bodyElement = document.querySelector('body');
     e.preventDefault();
-    // }
     const modal = (
       <ContextMenu
         handleClose={close}

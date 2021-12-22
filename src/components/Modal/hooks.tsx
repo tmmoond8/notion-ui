@@ -8,11 +8,11 @@ import global from '../../types/global';
 
 export const useModal = () => {
   const MODAL_WRAPPER = 'NotionUiModal';
-  const bodyElement = document.querySelector('body');
   const modalRef = React.useRef<HTMLDivElement>(null);
   let modalWrapper: HTMLDivElement | null = null;
 
   const close = () => {
+    const bodyElement = document.querySelector('body');
     if (bodyElement && modalRef.current) {
       // eslint-disable-next-line @typescript-eslint/no-non-null-assertion
       modalRef.current!.style!.transform = 'translateY(100vh)';
@@ -37,6 +37,7 @@ export const useModal = () => {
         contents={contents}
       />
     );
+    const bodyElement = document.querySelector('body');
     modalWrapper = document.createElement('div');
     modalWrapper.classList.add(MODAL_WRAPPER);
     if (bodyElement && modalWrapper) {

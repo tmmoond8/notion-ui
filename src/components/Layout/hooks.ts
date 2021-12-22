@@ -3,9 +3,9 @@ import { addCssRule } from '../../libs/utils';
 
 export const useNoScrollOutside = () => {
   const [notInit, setInit] = useState(true);
-  const styleEl = document.querySelector('style');
 
   useEffect(() => {
+    const styleEl = document.querySelector('style');
     if (notInit && styleEl) {
       setInit(false);
       addCssRule(
@@ -17,5 +17,5 @@ export const useNoScrollOutside = () => {
     `,
       );
     }
-  }, [notInit, setInit, styleEl]);
+  }, [notInit, setInit]);
 };

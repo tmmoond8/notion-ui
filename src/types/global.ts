@@ -4,7 +4,7 @@ type NotionUIGlobal = typeof globalThis & {
   __NOTION_UI: {
     closeAside: () => void;
     closeModal: () => void;
-  };
+  } & Window;
 };
 
 if ((globalThis as NotionUIGlobal).__NOTION_UI === undefined) {

@@ -4,6 +4,7 @@ import { toCSS, defaultColors, darkColors } from './colors';
 import { Theme } from '../types/theme';
 import localStorage from '../libs/localStorage';
 import { addCssRule } from '../libs/utils';
+import global from '../types/global';
 import fonts from './fonts';
 
 const insertStyles = () => {
@@ -24,7 +25,7 @@ const insertStyles = () => {
 
 export const loadTheme = () => {
   const theme = localStorage.theme;
-  const bodyElement = document.querySelector('body');
+  const bodyElement = global.document?.querySelector('body');
   if (bodyElement) {
     if (!bodyElement.classList.contains('notion-body')) {
       bodyElement.classList.add('notion-body');

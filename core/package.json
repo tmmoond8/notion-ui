@@ -1,13 +1,13 @@
 {
   "name": "notion-ui",
-  "version": "0.3.11",
+  "version": "0.3.12e",
   "keywords": [
     "ui",
     "notion"
   ],
   "license": "MIT",
   "scripts": {
-    "pre-build": "tsc -p tsconfig.json && yarn copy-svgs",
+    "pre-build": "rm -rf build && rm -rf dist && tsc -p tsconfig.json && yarn copy-svgs",
     "copy-svgs": "copyfiles -f ../src/components/Icon/icons/*.svg dist/components/Icon/icons",
     "build": "yarn pre-build && rollup -c",
     "deploy": "cd build && npm publish"
