@@ -42,6 +42,7 @@ const ContextMenu = (props: ContextMenuProps) => {
   const handleClickWrapper = useCallback(
     (e: MouseEvent<HTMLDivElement>) => {
       if (e.target === e.currentTarget) {
+        e.preventDefault();
         handleClose();
       }
     },
@@ -59,7 +60,7 @@ const ContextMenu = (props: ContextMenuProps) => {
       className={cx('ContextMenuWrapper', className)}
       open={open}
       zIndex={zIndex}
-      onContextMenu={handleClose}
+      onContextMenu={handleClickWrapper}
     >
       <ContextMenuBox open={open} ref={wrapperRef} x={x} y={y}>
         <ModalBody>{contents}</ModalBody>
