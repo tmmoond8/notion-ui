@@ -38,20 +38,27 @@ function App() {
   }
 
   const handleCloseAside = Aside.useCloseCallback();
-
   const contextMenu = ContextMenu.useContextMenu();
-  contextMenu.setContents(
-    <>
-      <ContextMenu.Item 
-        left={<Icon icon="copy" />}
-        center="copy"
-        right="copy"
-      />
-      <ContextMenu.Item 
-        left={<Icon icon="smile" />}
-        center="smile"
-      />
-    </>)
+
+  const handleOpenContextMenu = (event) => {
+    contextMenu.open({
+      event,
+      contents: (
+        <>
+        <ContextMenu.Item 
+          left={<Icon icon="copy" />}
+          center="copy"
+          right="copy"
+        />
+        <ContextMenu.Item 
+          left={<Icon icon="smile" />}
+          center="smile"
+        />
+      </>
+      )
+    })
+  }
+  
 
   return (
     <Layout.App
@@ -106,7 +113,9 @@ function App() {
     }
     >
       <Main className="App">
-        <h1 onContextMenu={contextMenu.open}>Open Context Menu</h1>
+        <ContextMenuArea onContextMenu={handleOpenContextMenu}>
+          <h2 >Open Context Menu</h2>
+        </ContextMenuArea>
         <Content.Text as="P" color="red" fontSize={17}>addds</Content.Text>
         <AB>babbab</AB>
         <Reponsive 
@@ -131,6 +140,7 @@ export default App;
 
 const Main = styled.main`
   background: ${colors.background};
+  padding: 20px;
 `;
 
 const AB = styled(Content.Text)`
@@ -155,4 +165,14 @@ const LoaddingWrapper = styled.div`
 
 const AsideMainMenu = styled(Aside.Menu)`
   height: 45px;
+`;
+
+const ContextMenuArea = styled.div`
+  width: 200px;
+  height: 120px;
+  padding: 16px;
+  border-radius: 4px;
+  border: 1px dashed ${colors.grey};
+  color: ${colors.grey};
+  text-align: center;
 `;
